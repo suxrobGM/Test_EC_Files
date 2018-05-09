@@ -1,0 +1,20 @@
+libya_civilwar_end_peace = {
+	enable = {    
+		LBA = { has_country_flag = LBA_civilwar }	
+	}
+
+	annex_randomness = 0
+	liberate_randomness = 0
+	puppet_randomness = 0
+	take_states_randomness = 0
+	force_government_randomness = 0
+	
+	
+	annex = {
+		factor = 900	
+	}
+	
+	take_states = {
+		factor = 100
+	}
+}

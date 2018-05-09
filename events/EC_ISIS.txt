@@ -1,0 +1,879 @@
+﻿########################
+## Economic Crisis #####
+########################
+## ISIS events     #####
+########################
+## Written by SuxrobGM #
+########################
+
+add_namespace = isis
+
+# Invite Palestine to Faction
+country_event = {
+	id = isis.1
+	title = isis.1.t
+	desc = isis.1.d
+	picture = GFX_event_IGL_army1 
+
+	is_triggered_only = yes
+
+	option = { # Accept
+		name = isis.1.a
+		ai_chance = { factor = 70 }
+		add_popularity = { ideology = rad_islamists popularity = 30 }
+		set_politics = { ruling_party = rad_islamists elections_allowed = no }
+		IGL = {
+			add_to_faction = PAL
+		}
+	}
+
+	option = { # Reject
+		name = isis.1.b
+		ai_chance = { factor = 35 }
+		IGL = {
+			country_event = { id = isis.2 days = 5 }
+			effect_tooltip = {
+				create_wargoal = { type = puppet_wargoal_focus target = PAL }
+			}
+		}
+	}
+}
+
+# Palestine Rejected Inviting
+country_event = {
+	id = isis.2
+	title = isis.2.t
+	desc = isis.2.d
+	picture = GFX_event_IGL_army2
+
+	is_triggered_only = yes
+
+	option = {
+		name = isis.2.a
+		create_wargoal = { type = puppet_wargoal_focus target = PAL }
+	}
+}
+
+# isis Wants to Annex Palestine
+country_event = {
+	id = isis.3
+	title = isis.3.t
+	desc = isis.3.d
+	picture = GFX_event_IGL_army2
+
+	is_triggered_only = yes
+
+	option = { # Accept
+		name = isis.3.a
+		ai_chance = { factor = 60 }
+		IGL = {
+			annex_country = { target = PAL }
+		}
+	}
+
+	option = { # Reject
+		name = isis.3.b
+		ai_chance = { factor = 40 }
+		IGL = {
+			country_event = { id = isis.4 days = 5 }
+			effect_tooltip = {
+				declare_war_on = { type = annex_everything target = PAL }
+			}
+		}
+	}
+}
+
+# Palestine Rejected Annexing
+country_event = {
+	id = isis.4
+	title = isis.4.t
+	desc = isis.4.d
+	picture = GFX_event_IGL_army3
+
+	is_triggered_only = yes
+
+	option = {
+		name = isis.4.a
+		declare_war_on = { type = annex_everything target = PAL }
+	}
+}
+
+# Revolt in Asia
+country_event = {
+	id = isis.5
+	title = isis.5.t
+	desc = isis.5.d
+	picture = GFX_event_IGL_army4
+
+	is_triggered_only = yes
+
+	option = {
+		name = isis.5.a
+	}
+}
+
+#country_event = {
+#	id = isis.6
+#	hidden = yes
+#
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		IGL = { create_faction = great_islamic_caliphate }
+#		IGL = {
+#			add_to_faction = ROOT
+#		}
+#	}
+#}
+
+# Revolt in Germany
+country_event = {
+	id = isis.7
+	title = isis.7.t
+	desc = isis.7.d
+	picture = GFX_event_IGL_army5
+
+	is_triggered_only = yes
+
+	option = {
+		name = isis.7.a
+	}
+}
+
+# Revolt in France
+country_event = {
+	id = isis.8
+	title = isis.8.t
+	desc = isis.8.d
+	picture = GFX_event_IGL_army6
+
+	is_triggered_only = yes
+
+	option = {
+		name = isis.8.a
+	}
+}
+
+# Revolt in Egypt
+country_event = {
+	id = isis.9
+	title = isis.9.t
+	desc = isis.9.d
+	picture = GFX_event_revolt_in_Egypt
+
+	is_triggered_only = yes
+
+	option = {
+		name = isis.9.a
+	}
+}
+
+# IGIL Suggested Union
+country_event = {
+	id = isis.10
+	title = isis.10.t
+	desc = isis.10.d
+	picture = GFX_event_IGL_parad
+
+	is_triggered_only = yes
+
+	option = { # Accept
+		name = isis.10.a
+		ai_chance = { factor = 70 }
+		IGL = {
+			add_to_faction = ROOT
+		}
+	}
+	
+	#immediate = {
+	#	IGL = { create_faction = great_islamic_caliphate }
+	#}
+
+	option = { # Reject
+		name = isis.10.b
+		ai_chance = { factor = 35 }
+	}
+}
+
+country_event = {
+	id = isis.11
+	title = isis.11.t
+	desc = isis.11.d
+	picture = GFX_event_IGL_parad
+    
+	hidden = yes
+	
+	fire_only_once = yes
+
+	trigger = {
+	    OR = {     
+			HAS_COMPLETED_FOCUS = IGL_friends
+			HAS_COMPLETED_FOCUS = IGL_revolt_in_asia
+			HAS_COMPLETED_FOCUS = IGL_faction_with_pal
+		}	
+	}
+	
+	immediate = {
+		IGL = { create_faction = great_islamic_caliphate }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # Accept
+		name = isis.11.a
+	}
+}
+
+country_event = { #Annex ISIS Libya
+	id = isis.12
+	title = isis.12.t
+	desc = isis.12.d
+	picture = GFX_event_IGL_army2
+	
+	fire_only_once = yes
+
+	trigger = {
+	    tag = IGL
+		IGL = { #Victory by Syria, Iraq and Kurdistan
+			controls_state = 776
+			controls_state = 677
+			controls_state = 554
+			controls_state = 779
+			controls_state = 778
+			controls_state = 676
+			controls_state = 680
+			controls_state = 291
+			controls_state = 675
+		}
+		country_exists = IG1
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # Accept
+		name = isis.12.a
+		IGL = { annex_country = { target = IG1 transfer_troops = yes } }
+	}
+}
+
+country_event = { #Annex ISIS Nigeria
+	id = isis.13
+	title = isis.13.t
+	desc = isis.13.d
+	picture = GFX_event_IGL_army4
+	
+	fire_only_once = yes
+
+	trigger = {
+	    tag = IGL
+		AND = {    
+			IG3 = {
+			    controls_state = 809
+			    controls_state = 558
+		    }
+		    IGL = { 
+			    controls_state = 776
+			    controls_state = 677
+			    controls_state = 554
+			    controls_state = 779
+			    controls_state = 778
+			    controls_state = 676
+			    controls_state = 680
+			    controls_state = 291
+			    controls_state = 675
+		    }
+		}	
+		country_exists = IG2
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # Accept
+		name = isis.13.a
+		IGL = { annex_country = { target = IG2 transfer_troops = yes } }
+	}
+}
+
+country_event = { #Annex ISIS Afghanistan
+	id = isis.14
+	title = isis.14.t
+	desc = isis.14.d
+	picture = GFX_event_IGL_army3
+	
+	fire_only_once = yes
+
+	trigger = {
+	    tag = IGL
+		IGL = {
+			controls_state = 421
+			controls_state = 413
+			controls_state = 411
+			controls_state = 412
+			controls_state = 414
+			controls_state = 410
+		}
+		country_exists = IG3
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # Accept
+		name = isis.14.a
+		IGL = { annex_country = { target = IG3 transfer_troops = yes } }
+	}
+}
+
+country_event = { #For clean country flag 
+	id = isis.15
+	title = isis.15.t
+	desc = isis.15.d
+	picture = GFX_event_IGL_army3
+	
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+	    tag = IGL
+		IGL = { #Victory by Iraq and Syria
+			controls_state = 776
+			controls_state = 677
+			controls_state = 554
+			controls_state = 779
+			controls_state = 778
+			controls_state = 676
+			controls_state = 680
+			controls_state = 291
+			controls_state = 675
+			controls_state = 822 #Er-Rakka
+			controls_state = 823
+		}
+	}
+	
+	immediate = {
+	    clr_country_flag = war_with_Iraq_and_Syria
+	}
+	
+	option = { 
+		name = isis.15.a
+	}
+}
+
+country_event = { #Захвать оружие после оккупации города Дамаск
+	id = isis.16
+	title = isis.16.t
+	desc = isis.16.d
+	picture = GFX_event_IGL_army1
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IGL 
+		IGL = {		
+			controls_state = 554
+		}		
+	}
+	
+	option = { 
+		name = isis.16.a
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_salw_equipment_1
+		}
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_ammunition_equipment_1
+		}
+	}
+}
+
+country_event = { #Захвать оружие после оккупации города Алеппо
+	id = isis.17
+	title = isis.16.t
+	desc = isis.16.d
+	picture = GFX_event_IGL_army1
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IGL 
+		IGL = {		
+			controls_state = 776
+		}		
+	}
+	
+	option = { 
+		name = isis.16.a
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_salw_equipment_1
+		}
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_ammunition_equipment_1
+		}
+	}
+}
+
+country_event = { #Захвать оружие после оккупации города Мосул
+	id = isis.18
+	title = isis.16.t
+	desc = isis.16.d
+	picture = GFX_event_IGL_army1
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IGL 
+		IGL = {		
+			controls_state = 676
+		}		
+	}
+	
+	option = { 
+		name = isis.16.a
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_salw_equipment_1
+		}
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_ammunition_equipment_1
+		}
+	}
+}
+
+country_event = { #Захвать оружие после оккупации города Деир-ез-Зур
+	id = isis.19
+	title = isis.16.t
+	desc = isis.16.d
+	picture = GFX_event_IGL_army1
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IGL 
+		IGL = {		
+			controls_state = 680
+		}		
+	}
+	
+	option = { 
+		name = isis.16.a
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_salw_equipment_1
+		}
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_ammunition_equipment_1
+		}
+	}
+}
+
+country_event = { #Захвать оружие после оккупации города Багдад
+	id = isis.20
+	title = isis.16.t
+	desc = isis.16.d
+	picture = GFX_event_IGL_army1
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IGL 
+		IGL = {		
+			controls_state = 291
+		}		
+	}
+	
+	option = { 
+		name = isis.16.a
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_salw_equipment_1
+		}
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_ammunition_equipment_1
+		}
+	}
+}
+
+country_event = { #Восстановление ИГ, если сливает раньше 2017года №1
+	id = isis.21
+	
+	#is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		date > 2014.1.1
+		date < 2017.6.1
+		NOT = { country_exists = IGL }
+		IGL = { NOT = { has_country_flag = again_revolt_IS_1 } }
+		AND = {	
+			IRQ = { is_ai = yes }
+			SYR = { is_ai = yes }
+			SSR = { is_ai = yes }
+			ROJ = { is_ai = yes }
+			KUR = { is_ai = yes }
+		}
+	}
+	
+	immediate = {
+		IGL = { 
+			set_country_flag = again_revolt_IS_1
+			set_country_flag = war_with_Iraq_and_Syria
+			transfer_state = 822
+			transfer_state = 823
+			load_oob = "IGL_2013"
+			load_oob = "_tech_isis_2013"
+			#set_equipment_fraction = 0.5
+			if = {	
+				limit = { country_exists = SYR }
+				declare_war_on = { target = SYR type = annex_everything }
+			}
+			if = {	
+				limit = { country_exists = IRQ }
+				declare_war_on = { target = IRQ type = annex_everything }
+			}
+			if = {	
+				limit = { country_exists = SSR }
+				declare_war_on = { target = SSR type = annex_everything }
+			}
+			if = {	
+				limit = { country_exists = NIG }
+				declare_war_on = { target = NIG type = annex_everything }
+			}
+			add_named_threat = { threat = 3 name = threat_IS_again_revolt }
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				set_autonomy = {
+					target = IG1
+					autonomous_state = sphere_of_influence
+					freedom_level = 0.76
+				}
+				set_autonomy = {
+					target = IG2
+					autonomous_state = sphere_of_influence
+					freedom_level = 0.76
+				}
+				set_autonomy = {
+					target = IG3
+					autonomous_state = sphere_of_influence
+					freedom_level = 0.76
+				}	
+				else = {
+					puppet = IG1
+					puppet = IG2
+					puppet = IG3
+				}
+			}
+		}	
+	}
+	
+	option = { 
+		name = isis.21.a
+	}
+}
+
+country_event = { #Восстановление ИГ, если сливает раньше 2017года №2
+	id = isis.22
+	
+	#is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		date > 2014.1.1
+		date < 2017.6.1
+		NOT = { country_exists = IGL }
+		IGL = { 
+			has_country_flag = again_revolt_IS_1
+			NOT = { has_country_flag = again_revolt_IS_2 } 
+		}
+		AND = {	
+			IRQ = { is_ai = yes }
+			SYR = { is_ai = yes }
+			SSR = { is_ai = yes }
+			ROJ = { is_ai = yes }
+			KUR = { is_ai = yes }
+		}	
+	}
+	
+	immediate = {
+		IGL = { 
+			set_country_flag = again_revolt_IS_2
+			set_country_flag = war_with_Iraq_and_Syria
+			transfer_state = 822
+			transfer_state = 823
+			load_oob = "IGL_2013"
+			load_oob = "_tech_isis_2013"
+			#set_equipment_fraction = 0.4
+			if = {	
+				limit = { country_exists = SYR }
+				declare_war_on = { target = SYR type = annex_everything }
+			}
+			if = {	
+				limit = { country_exists = IRQ }
+				declare_war_on = { target = IRQ type = annex_everything }
+			}
+			if = {	
+				limit = { country_exists = SSR }
+				declare_war_on = { target = SSR type = annex_everything }
+			}
+			if = {	
+				limit = { country_exists = NIG }
+				declare_war_on = { target = NIG type = annex_everything }
+			}	
+			add_named_threat = { threat = 3 name = threat_IS_again_revolt }
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				set_autonomy = {
+					target = IG1
+					autonomous_state = sphere_of_influence
+					freedom_level = 0.76
+				}
+				set_autonomy = {
+					target = IG2
+					autonomous_state = sphere_of_influence
+					freedom_level = 0.76
+				}
+				set_autonomy = {
+					target = IG3
+					autonomous_state = sphere_of_influence
+					freedom_level = 0.76
+				}	
+				else = {
+					puppet = IG1
+					puppet = IG2
+					puppet = IG3
+				}
+			}
+		}	
+	}
+	
+	option = { 
+		name = isis.21.a
+	}
+}
+
+# Change name ISIS to IS
+country_event = { 
+	id = isis.25
+	title = isis.25.t
+	desc = isis.25.d
+	picture = GFX_event_IGL_parad
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IGL
+		has_government = rad_islamists
+		date > 2014.1.1
+		IGL = {
+			controls_state = 822
+			controls_state = 680
+			controls_state = 676
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = { 
+		name = isis.25.a
+		set_cosmetic_tag = ISIS_Islamic_State
+	}
+}
+
+# Border war with neighbor country 
+country_event = { 
+	id = isis.26
+	title = isis.26.t
+	desc = isis.26.d
+	picture = GFX_event_IGL_army4
+	
+	#fire_only_once = yes
+	
+	trigger = {
+		IGL = {
+			has_government = rad_islamists
+			is_neighbor_of = FROM
+			any_owned_state = {
+				any_neighbor_state = { is_owned_by = FROM }
+				IGL = {
+					divisions_in_state = {
+						state = PREV
+						size > 1
+					}
+				}	
+			}
+		}
+		NOT = {
+			has_country_flag = border_war_with_ISIS_1
+			has_government = rad_islamists
+			is_subject_of = IGL
+			IGL = { has_war_with = FROM }
+		}
+		NOT = {
+			tag = SYR
+			tag = KUR
+			tag = IRQ
+			tag = SSR
+			tag = ROJ
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {	
+			random_owned_state = {
+				limit = {
+					any_neighbor_state = { is_owned_by = IGL }
+				}
+				set_border_war = yes
+			}
+			IGL = {
+				random_owned_state = {
+					limit = {
+						any_neighbor_state = { is_owned_by = FROM }
+					}
+					set_border_war = yes
+				}
+				country_event = { id = isis.27 }
+			}
+			set_country_flag = border_war_with_ISIS_1
+		}
+	}	
+	
+	mean_time_to_happen = {
+		days = 12
+	}
+	
+	option = { 
+		name = isis.26.a
+		add_opinion_modifier = {
+			target = IGL
+			modifier = attacked_in_our_border
+		}
+	}
+}	
+
+# This event for ISIS, message about border war
+country_event = { 
+	id = isis.27
+	title = isis.27.t
+	desc = isis.27.d
+	picture = GFX_event_IGL_army6
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = isis.27.a
+	}
+}
+
+#FROM defeated in border war (FROM is anyone country which neighbor of ISIS)
+country_event = {
+	id = isis.28
+	title = isis.28.t
+	desc = isis.28.d
+	picture = GFX_event_border_conflict
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = FROM
+		NOT = {
+			tag = UKR
+			tag = CRM
+			tag = DNR
+			tag = LNR
+			tag = IGL
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				if = {
+					limit = { is_border_conflict = yes }
+					set_border_war = no
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = isis.28.a
+		add_political_power = -200
+		add_stability = -0.05
+		add_manpower = -5000
+		IGL = { country_event = { id = isis.29 } }
+	}
+}
+
+# Event for country which won in border war
+country_event = {
+	id = isis.29
+	title = isis.29.t
+	desc = isis.29.d
+	picture = GFX_event_border_conflict
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = isis.29.a
+		add_political_power = 200
+		add_stability = 0.05
+		if = {
+			limit = { tag = IGL }
+			IGL = { set_country_flag = ISIS_won_border_war }
+		}
+	}
+}
+
+#ISIS defeated in border war 
+country_event = {
+	id = isis.30
+	title = isis.30.t
+	desc = isis.30.d
+	picture = GFX_event_djihads_divisions
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = IGL
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				if = {
+					limit = { is_border_conflict = yes }
+					set_border_war = no
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = isis.30.a
+		add_political_power = -200
+		add_stability = -0.05
+		add_manpower = -5000
+		FROM = { country_event = { id = isis.29 } }
+	}
+}

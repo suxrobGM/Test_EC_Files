@@ -1,0 +1,194 @@
+﻿########################
+## Economic Crisis   ###
+####################################
+## Syria&oppozition Syria events ###
+####################################
+## Written by SuxrobGM #
+########################
+
+add_namespace = syria
+
+country_event = { #Получение оружие от США 
+	id = syria.1
+	title = syria.1.t
+	desc = syria.1.d
+	picture = GFX_event_FSA_army
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = syria.1.a
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_salw_equipment_1
+		}
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_ammunition_equipment_1
+		}
+	}
+}
+
+country_event = { #Склад боеприпасы для Сирии и Ирак чтобы они продолжали воевать с ИГ
+	id = syria.2
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		tag = SYR
+		SYR = { has_country_flag = war_with_ISIS }
+	}
+	
+	immediate = {
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_salw_equipment_1
+		}
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_ammunition_equipment_1
+		}
+	}
+	
+	option = { 
+		name = syria.2.a
+	}
+}
+
+country_event = { #Склад боеприпасы для Сирии и Ирак чтобы они продолжали воевать с ИГ
+	id = syria.3
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		tag = IRQ
+		IRQ = { has_country_flag = war_with_ISIS }
+	}
+	
+	immediate = {
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_salw_equipment_1
+		}
+		add_equipment_to_stockpile = {
+			amount = 60000
+			type = army_ammunition_equipment_1
+		}
+	}
+	
+	option = { 
+		name = syria.3.a
+	}
+}
+
+country_event = { #Восстановление ССА, если сливает раньше 2017года №1
+	id = syria.4
+	
+	#is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		date > 2014.1.1
+		date < 2017.6.1
+		NOT = { country_exists = SSR }
+		SSR = { NOT = { has_country_flag = again_revolt_oppozition_syria_1 } }
+		AND = {	
+			IRQ = { is_ai = yes }
+			SYR = { is_ai = yes }
+			IGL = { is_ai = yes }
+			ROJ = { is_ai = yes }
+			KUR = { is_ai = yes }
+		}	
+	}
+	
+	immediate = {
+		SSR = { 
+			set_country_flag = again_revolt_oppozition_syria_1
+			set_country_flag = SYR_civilwar
+			set_country_flag = war_with_ISIS
+			transfer_state = 776
+			load_oob = "SSR_2013"
+			load_oob = "_tech_insurgents_2013"
+			#set_equipment_fraction = 0.6
+			declare_war_on = { target = SYR type = annex_everything }  
+			add_named_threat = { threat = 3 name = threat_SSR_again_revolt }
+		}	
+	}
+	
+	option = { 
+		name = syria.4.a
+	}
+}
+
+country_event = { #Восстановление ССА, если сливает раньше 2017года №2
+	id = syria.5
+	
+	#is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		date > 2014.1.1
+		date < 2017.6.1
+		NOT = { country_exists = SSR }
+		SSR = { 
+			has_country_flag = again_revolt_oppozition_syria_1
+			NOT = {	
+				has_country_flag = again_revolt_oppozition_syria_2
+			} 
+		}
+		AND = {	
+			IRQ = { is_ai = yes }
+			SYR = { is_ai = yes }
+			IGL = { is_ai = yes }
+			ROJ = { is_ai = yes }
+			KUR = { is_ai = yes }
+		}
+	}
+	
+	immediate = {
+		SSR = { 
+			set_country_flag = again_revolt_oppozition_syria_2
+			set_country_flag = SYR_civilwar
+			set_country_flag = war_with_ISIS
+			transfer_state = 776
+			load_oob = "SSR_2013"
+			load_oob = "_tech_insurgents_2013"
+			#set_equipment_fraction = 0.5
+			declare_war_on = { target = SYR type = annex_everything }  
+			add_named_threat = { threat = 3 name = threat_SSR_again_revolt }
+		}	
+	}
+	
+	option = { 
+		name = syria.4.a
+	}
+}
+
+country_event = { #if AI FSA will create Syria to puppet, after peace conference 
+	id = syria.8
+	
+	#is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		country_exists = SSR
+		SSR = { is_ai = yes }
+		OR = {	
+			SYR = { IS_PUPPET_OF = SSR }
+			SYR = { IS_SUBJECT_OF = SSR }
+		}	
+	}
+	
+	immediate = { 
+		SSR = {	annex_country = { target = SYR } }
+	}
+	
+	option = { 
+		name = syria.4.a
+	}
+}

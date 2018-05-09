@@ -1,0 +1,88 @@
+﻿#####################
+## Economic Crysis ##
+#####################
+## Cheat Event     ##
+########################
+## Written by SuxrobGM #
+########################
+
+add_namespace = cheat
+
+country_event = {	
+	id = cheat.1
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {  
+		name = cheat.1.a
+		ROOT = {
+			dismantle_faction = yes
+		}
+	}
+}
+
+country_event = { #Politics islamists	
+	id = cheat.4
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {  
+		name = cheat.4.a
+		set_politics = {
+			ruling_party = islamists
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { #Politics liberalism	
+	id = cheat.5
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {  
+		name = cheat.5.a
+		set_politics = {
+			ruling_party = liberalism
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { #Politics reformism	
+	id = cheat.6
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {  
+		name = cheat.6.a
+		set_politics = {
+			ruling_party = reformism
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { 
+	id = cheat.8
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {  
+		name = cheat.8.a
+		add_popularity = { ideology = fascism popularity = 0.25 }
+	}
+	option = {  
+		name = cheat.8.b
+		add_popularity = { ideology = reformism popularity = 0.25 }
+	}
+	option = {  
+		name = cheat.8.c
+		add_popularity = { ideology = communism popularity = 0.25 }
+	}
+}

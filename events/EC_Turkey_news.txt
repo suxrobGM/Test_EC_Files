@@ -1,0 +1,57 @@
+﻿############################
+## Economic Crisis        ##
+############################
+## Turkey news events     ##
+############################
+## Written by MrSuricate  ##
+############################
+
+add_namespace = turkey_news
+
+news_event = {
+	id = turkey_news.1   #Переворот прошел успешно, начинаеться гражданская война. Эрдоган умирает.
+	title = turkey_news.1.t
+	desc = turkey_news.1.d
+	picture = GFX_event_TUR_coup
+
+	is_triggered_only = yes
+
+	major = yes
+
+	    option = {
+		name = turkey_news.1.a
+		 
+	    }
+	}
+	
+news_event = {
+	id = turkey_news.2   #Переворот прошел успешно, начинаеться гражданская война. Эрдоган виживает.
+	title = turkey_news.2.t
+	desc = turkey_news.2.d
+	picture = GFX_event_TUR_coup1
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+	name = turkey_news.2.a
+	 
+	}
+}
+	
+news_event = {
+	id = turkey_news.3   #Переворот провалился, начинется массовая чистка.
+	title = turkey_news.3.t
+	desc = turkey_news.3.d
+	picture = GFX_event_chistka_v_TUR
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+	name = turkey_news.3.a
+		 
+	}
+}

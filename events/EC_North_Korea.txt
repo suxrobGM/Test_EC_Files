@@ -1,0 +1,52 @@
+﻿###########################
+## Economic Crisis       ##
+###########################
+## North Korea events    ##
+###########################
+## Written by MrSuricate ##
+###########################
+
+add_namespace = north_korea
+
+news_event = { #Успешный тест Водородный Бомбы КНДР
+	id = north_korea.1
+	title = north_korea.1.t
+	desc = north_korea.1.d
+	picture = GFX_event_nuclear_bomb
+
+	is_triggered_only = yes
+
+	major = yes 
+	
+	option = {
+	    name = north_korea.1.a
+	    trigger = { tag = ROOT }
+	}
+}
+	
+news_event = { #Trigger nuclear PRK (hidden)
+	id = north_korea.2   
+	title = north_korea.2.t
+	desc = north_korea.2.d
+	picture = GFX_event_nuclear_bomb
+    
+	fire_only_once = yes
+    
+	trigger = {
+		date > 2016.1.6
+		country_exists = PRK
+	}
+	
+	immediate = {
+		set_global_flag = nuclear_bomb_PRK
+		PRK = { 
+			add_named_threat = { threat = 4 name = threat_PRK_nuclear_program }
+		}
+		news_event = { id = north_korea.1 hours = 6 }
+	}
+	
+	option = {
+	    name = north_korea.2.a
+	
+	}
+}

@@ -1,0 +1,20 @@
+ai_historical_focus_list_USA = {
+	ai_national_focuses = {
+		USA_world_peacemaker
+		USA_example_of_democratic
+		USA_army
+		USA_industrial_effort
+		USA_russian_threat
+		USA_terroristic_threat
+		USA_prevention_of_teracts
+		USA_support_opposition
+		USA_bombing_igil
+		USA_army_effort
+		USA_equipment_effort
+		USA_equipment_effort_2
+		USA_doctrine_effort
+		USA_doctrine_effort_2
+		USA_aviation_effort
+	}
+}
+

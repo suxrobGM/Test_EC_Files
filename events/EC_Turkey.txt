@@ -1,0 +1,149 @@
+﻿########################
+## Economic Crisis   ###
+########################
+## Turkey events     ###
+########################
+## Written by SuxrobGM #
+########################
+
+add_namespace = turkey
+
+country_event = {  #Переворот в Турции 2016
+	id = turkey.1
+	title = turkey.1.t
+	desc = turkey.1.d
+	picture = GFX_repot_event_TUR_coup
+	
+	fire_only_once = yes
+
+	trigger = { 
+	    tag = TUR
+		date > 2016.7.16
+	    country_exists = TUR
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    USA = { remove_from_faction = TUR }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+	name = turkey.1.a       #Поддержать Мирный Совет
+	ai_chance = { 
+		factor = 30
+		modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+		}
+	}
+    kill_country_leader = yes
+		set_capital = 341
+		start_civil_war = {
+			ruling_party = democratic
+			ideology = neutrality
+			size = 0.5
+			capital = 49
+			states = { 49 347 340 339 342 343 345 346 344 348 355 356 }
+		}
+		random_other_country = {
+			limit = {
+				original_tag = TUR
+				has_government = neutrality
+			}
+			set_equipment_fraction = 0.3
+			set_stability = 0.9
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.25
+			}
+		}
+		set_equipment_fraction = 0.3
+		set_stability = 0.9	
+		
+		add_popularity = {
+			ideology = democratic
+			popularity = 1
+		}
+		hidden_effect = {
+			set_country_flag = TUR_civil_war
+		    news_event = { id = turkey_news.1 days = 1 }
+		}	
+	}
+	
+	option = {
+	name = turkey.1.b     #Президент Эрдоган выживает, начинается гражданская война
+	ai_chance = { 
+		factor = 30
+		modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+		}
+	}
+	TUR = { start_civil_war = { ideology = democratic size = 0.35 } }
+		add_stability = -0.1
+	    add_political_power = -75
+		hidden_effect = {
+			news_event = { id = turkey_news.2 days = 1 }
+		    set_country_flag = TUR_civil_war
+		}
+	}
+	
+	option = {
+	name = turkey.1.c        #Президент Эрдоган выживает и быстро подавляет путч
+	ai_chance = { factor = 40 }
+	    add_stability = -0.05
+	    add_political_power = -30
+	    news_event = { id = turkey_news.3 days = 1 }
+		hidden_effect = {
+		    set_country_flag = TUR_defeated_coup
+			USA = { add_to_faction = TUR }
+		}
+	}
+}
+
+country_event = {  #инцидент Су-24
+	id = turkey.2
+	title = turkey.2.t
+	desc = turkey.2.d
+	picture = GFX_event_TUR_incidient_Su-24
+	
+	fire_only_once = yes
+
+	trigger = { 
+	    tag = TUR
+	    date > 2015.11.22
+	    country_exists = TUR
+	    RUS = { has_war_with = IGL }
+		RUS = { has_completed_focus = RUS_air_strikes_on_isis }
+	}
+	
+	mean_time_to_happen = {
+		days = 4
+	}
+	
+	option = {
+	name = turkey.2.a       #инцидент Су-24
+	ai_chance = { factor = 70 }
+	    add_opinion_modifier = { target = RUS modifier = TUR_incindient_SU-24 }
+	    add_named_threat = { threat = 3.2 name = threat_TUR_incindient_SU-24 }
+	    
+		hidden_effect = {
+	        RUS = { country_event = { id = russia.2 days = 1 } }
+	    }
+	}
+	option = {
+	name = turkey.2.b      
+		ai_chance = { 
+			factor = 30
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

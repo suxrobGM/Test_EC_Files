@@ -1,0 +1,32 @@
+scripted_gui = {
+	money_topbar = {
+		window_name = "money_trade_tab"
+		parent_window_token = trade_tab
+		
+		context_type = player_context
+ 
+		visible = {
+            always = yes
+		}
+ 
+        effects = {
+            #money_topbar_bg_click = {
+            #    set_temp_variable = { show = 1 }
+            #    subtract_from_temp_variable = { show = show_money_powers }
+            #    set_variable = { show_money_powers = show }
+            #}
+            #money_topbar_bg_right_click = {
+            #   #add_to_variable = { money = 1000 }
+			#	#subtract_from_variable = { money = 100000.0 }
+			#	#set_variable = { money = 0.50 }
+			#	#convert_money_to_true_format = yes
+            #}
+        }
+        
+		triggers = {
+            #money_topbar_bg_click_enabled = {
+            #    always = yes
+            #}
+        }
+	}
+}

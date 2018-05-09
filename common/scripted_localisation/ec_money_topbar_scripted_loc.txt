@@ -1,0 +1,19 @@
+defined_text = { # Country
+	name = GetCurrentMoney
+
+	text = {
+		trigger = {
+			check_variable = { money > 1000 } #если деньги свыше 1 млрд. доллар 
+		}
+		localization_key = MONEY_TOPBAR_TOOLTIP_BILLION
+	}
+	text = {
+		trigger = {
+			check_variable = { money < 1 } #если деньги меньше чем 1 млн. доллар
+		}
+		localization_key = MONEY_TOPBAR_TOOLTIP_THOUSAND
+	}
+	text = { #если деньги больше чем 1 млр. доллар и меньше чем 1 млн. доллар (1 млр >= деньги >= 1 млн) 
+		localization_key = MONEY_TOPBAR_TOOLTIP_MILLION
+	}
+}

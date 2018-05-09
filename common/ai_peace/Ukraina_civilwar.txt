@@ -1,0 +1,26 @@
+UKR_war_with_LDNR_end_peace = {
+	enable = {
+		tag = UKR
+		OR = {
+		    UKR = { HAS_WAR_WITH = NRU }
+			UKR = { HAS_WAR_WITH = DNR }
+			UKR = { HAS_WAR_WITH = LNR }
+		}
+	}
+
+	annex_randomness = 0
+	liberate_randomness = 0
+	puppet_randomness = 0
+	take_states_randomness = 0
+	force_government_randomness = 0
+	
+	
+	annex = {
+		factor = 900		
+		
+	}
+	
+	take_states = {
+		factor = 100
+	}
+}

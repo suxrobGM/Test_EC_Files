@@ -1,0 +1,67 @@
+﻿####################
+## Economic Crisis #
+####################
+## Britain Events ##
+#########################
+## Written by SuxrobGM ##
+#########################
+
+add_namespace = britain
+
+country_event = {  #Референдум выход из ЕС
+	id = britain.1
+	title = britain.1.t
+	desc = britain.1.d
+	picture = GFX_event_britain_brexit
+
+	fire_only_once = yes
+
+	trigger = {
+	    tag = ENG
+		date > 2016.6.4
+	    country_exists = ENG
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	option = {
+	name = britain.1.a #выход из ЕС
+	ai_chance = { factor = 50 }
+		remove_ideas = { eu_member }
+		if = {
+			limit = { has_idea = EU_membership }
+			remove_ideas = { EU_membership }
+		}
+		if = {
+			limit = { has_country_flag = country_ready_to_join_EU }
+			clr_country_flag = country_ready_to_join_EU
+		}
+		if = {
+			limit = { has_country_flag = country_successfully_passed_1st_step }
+			clr_country_flag = country_successfully_passed_1st_step
+		}
+		add_ideas = ENG_brexit
+		add_opinion_modifier = {
+			modifier = actions_very_negative
+			target = EUR
+		}
+		hidden_effect = {
+			news_event = { id = britain_news.1 days = 1 }
+		}
+	}
+
+	option = {
+	name = britain.1.b #Остатся в ЕС
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_stability = -0.1
+		add_popularity = { ideology = democratic popularity = -0.08 }
+	}
+}

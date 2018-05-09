@@ -1,0 +1,120 @@
+﻿#####################
+## Economic Crisis ##
+#######################
+## Afganistan events ##
+#########################
+## Written by SuxrobGM ##
+#########################
+
+add_namespace = afghanistan
+
+country_event = {  #Вооружённый конфликт в Афганистане 2015
+	id = afghanistan.1
+	title = afghanistan.1.t
+	desc = afghanistan.1.d
+	picture = GFX_event_afghanistan_war_2015
+	
+	fire_only_once = yes
+
+	immediate = { 
+	    hidden_effect = {
+		    add_named_threat = { threat = 3 name = threat_AFG_war_2015 }
+		}
+	}
+	
+	trigger = { 
+	    tag = AFG
+		date > 2014.12.26
+	    country_exists = AFG
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = afghanistan.1.a
+	    TAL = { 
+		    set_country_flag = AFG_civilwar
+			transfer_state = 788 
+			788 = { add_core_of = TAL }
+			set_stability = 0.95
+			load_oob = "TAL_2013"
+			load_oob = "_tech_insurgents_2013"
+		}
+		IG3 = { 
+			transfer_state = 810
+			810 = { add_core_of = IG3 }
+			set_stability = 0.95
+			load_oob = "IG3_2013"
+			load_oob = "_tech_isis_2013"
+		}
+		hidden_effect = {
+			set_country_flag = AFG_war_2015
+		    news_event = { id = afghanistan_news.1 days = 1 }
+			country_event = { id = afghanistan.2 }
+		}
+	}
+	
+	option = {
+		name = afghanistan.1.b
+	    TAL = { change_tag_from = AFG }
+		TAL = { 
+		    transfer_state = 788 
+			788 = { add_core_of = TAL }
+			set_stability = 0.95
+			load_oob = "TAL_2013"
+			load_oob = "_tech_insurgents_2013"
+		}
+		IG3 = { 
+		    transfer_state = 810
+			810 = { add_core_of = IG3 }
+			set_stability = 0.95
+			load_oob = "IG3_2013"
+			load_oob = "_tech_isis_2013"
+		}
+		hidden_effect = {
+			set_country_flag = AFG_war_2015
+		    news_event = { id = afghanistan_news.1 days = 1 }
+			country_event = { id = afghanistan.2 }
+		}
+	}
+}
+
+country_event = {  
+	id = afghanistan.2
+	title = afghanistan.2.t
+	desc = afghanistan.2.d
+	picture = GFX_event_afghanistan_war_2015
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+	    hidden_effect = {
+			TAL = { 
+			    declare_war_on = { 
+				    target = AFG 
+				    type = annex_everything 
+				} 
+			#	set_province_controller = 12877
+			}
+			IGL = { 
+			    declare_war_on = { 
+				    target = AFG 
+				    type = annex_everything 
+				}
+			}
+			IG3 = { 
+			    declare_war_on = { 
+				    target = AFG 
+				    type = annex_everything 
+				}
+			}
+		}
+	}
+	
+	option = {
+	name = afghanistan.2.b  
+    }
+}	

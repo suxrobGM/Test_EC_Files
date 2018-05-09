@@ -1,0 +1,52 @@
+afghanistan_against_terrorism = {
+	enable = {
+		tag = AFG
+		country_exists = AFG
+		has_country_flag = AFG_civilwar 
+	}
+	abort = {
+		NOT = { 
+		    country_exists = AFG 
+			AND = {
+			    country_exists = TAL
+			    country_exists = IGL
+			}	
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "TAL"
+		value = 200
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "IGL"
+		value = 200
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "IG3"
+		value = 200
+	}
+}
+
+taliban_war_with_afghanistan = {
+	enable = {
+		tag = TAL
+		country_exists = TAL
+		TAL = { has_country_flag = AFG_civilwar }
+	}
+	abort = {
+		NOT = { 
+		    country_exists = TAL 
+			country_exists = AFG
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "AFG"
+		value = 200
+	}
+}

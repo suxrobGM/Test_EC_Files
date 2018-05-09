@@ -1,0 +1,116 @@
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+# influence
+
+russia_friend_with_DNR_LNR = {
+	enable = {
+		tag = RUS
+		RUS = { has_government = neutrality }
+		country_exists = DNR
+		country_exists = LNR
+	}
+	
+	abort = {	
+		OR = {
+		    NOT = {
+			    country_exists = DNR
+		        country_exists = LNR
+		    }
+			NOT = {
+			    RUS = { has_government = neutrality }
+			}
+			NOT = {
+			    DNR = { has_government = neutrality }
+				LNR = { has_government = neutrality }
+			}
+		}	
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "DNR"			
+		value = 150
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "LNR"			
+		value = 150
+	}
+}
+
+russia_friend_with_novorossiya = {
+	enable = {
+		tag = RUS
+		RUS = { has_government = neutrality }
+		country_exists = NRU
+		country_exists = RUS
+	}
+	
+	abort = {	
+		OR = {
+		    NOT = {
+			    country_exists = NRU
+		    }
+			NOT = {
+			    RUS = { has_government = neutrality }
+			}
+			NOT = {
+			    NRU = { has_government = neutrality }
+			}
+		}	
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "NRU"			
+		value = 120
+	}
+}
+
+russia_against_terrorism = {
+	enable = {
+		tag = RUS
+		country_exists = IGL
+		RUS = { has_completed_focus = RUS_enemy_IGIL }
+	}
+	abort = {
+		NOT = { 
+		    country_exists = IGL 
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "IGL"
+		value = 200
+	}
+}
+
+russia_friend_with_syria = {
+	enable = {
+		tag = RUS
+		country_exists = SYR
+		SYR = { has_government = neutrality }
+		RUS = { has_completed_focus = RUS_enemy_IGIL }
+	}
+	abort = {
+		NOT = { 
+		    country_exists = SYR
+		}
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "SYR"
+		value = 120
+	}
+}

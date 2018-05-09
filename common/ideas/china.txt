@@ -1,0 +1,17 @@
+ideas = {
+	
+	country = {
+		
+		CHI_distributing_democratic = {
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				democratic_drift = 0.05
+				reformism_drift = 0.05
+			}
+			removal_cost = -1
+		}
+		
+}

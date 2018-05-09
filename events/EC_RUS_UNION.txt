@@ -1,0 +1,2522 @@
+﻿########################
+## Economic Crisis   ###
+###########################################
+## RUS UNION events (RUS_UNION or EAEU) ###
+###########################################
+## Written by SuxrobGM #
+########################
+
+add_namespace = RUS_UNION
+
+country_event = {  #Association of USSR
+	id = RUS_UNION.1
+	title = RUS_UNION.1.t
+	desc = RUS_UNION.1.d
+	picture = GFX_event_flag_USSR
+	
+	is_triggered_only = yes
+
+	option = {
+		name = RUS_UNION.1.a 
+		set_cosmetic_tag = RUS_USSR
+	}
+}
+
+country_event = {  #
+	id = RUS_UNION.2
+	title = RUS_UNION.2.t
+	desc = RUS_UNION.2.d
+	picture = GFX_event_union_republics
+	
+	is_triggered_only = yes
+	
+	option = { #if ruling party is nationalism
+		name = RUS_UNION.2.a 
+		ai_chance = { 
+			factor = 65
+		}
+		trigger = {
+			OR = {	
+				has_government = fascism
+				has_coalition_with_nationalists = yes
+			}	
+		}
+		if = {
+			limit = { 	
+				has_completed_focus = RUS_ter_belarus
+				has_country_flag = RUS_ter_belarus_temp_flag
+			}
+			BLR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_ukraina
+				has_country_flag = RUS_ter_ukraina_temp_flag
+			}
+			UKR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_moldova
+				has_country_flag = RUS_ter_moldova_temp_flag
+			}
+			MDA = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_uzbekistan
+				has_country_flag = RUS_ter_uzbekistan_temp_flag
+			}
+			UZB = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_kazakhstan
+				has_country_flag = RUS_ter_kazakhstan_temp_flag
+			}
+			KAZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_tadjikistan
+				has_country_flag = RUS_ter_tadjikistan_temp_flag
+			}
+			TJK = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_turkmenistan
+				has_country_flag = RUS_ter_turkmenistan_temp_flag
+			}
+			TKM = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_kyrgyzstan
+				has_country_flag = RUS_ter_kyrgyzstan_temp_flag
+			}
+			KGZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_armenia
+				has_country_flag = RUS_ter_armenia_temp_flag
+			}
+			ARM = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_azerbaijan
+				has_country_flag = RUS_ter_azerbaijan_temp_flag
+			}
+			AZR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_georgia
+				has_country_flag = RUS_ter_georgia_temp_flag
+			}
+			GEO = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_south_osetia
+				has_country_flag = RUS_ter_south_osetia_temp_flag
+			}
+			SOS = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_abkhazia
+				has_country_flag = RUS_ter_abkhazia_temp_flag
+			}
+			ABZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_karabakh
+				has_country_flag = RUS_ter_karabakh_temp_flag
+			}
+			NKR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+	}
+	
+	option = { #if ruling party is communism or reformism
+		name = RUS_UNION.2.b 
+		ai_chance = { 
+			factor = 65
+		}
+		trigger = {
+			OR = {	
+				has_government = reformism
+				has_government = communism
+			}	
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_belarus
+				has_country_flag = RUS_ter_belarus_temp_flag
+			}
+			BLR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_ukraina
+				has_country_flag = RUS_ter_ukraina_temp_flag
+			}
+			UKR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_moldova
+				has_country_flag = RUS_ter_moldova_temp_flag
+			}
+			MDA = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_uzbekistan
+				has_country_flag = RUS_ter_uzbekistan_temp_flag
+			}
+			UZB = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_kazakhstan
+				has_country_flag = RUS_ter_kazakhstan_temp_flag
+			}
+			KAZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_tadjikistan
+				has_country_flag = RUS_ter_tadjikistan_temp_flag
+			}
+			TJK = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_turkmenistan
+				has_country_flag = RUS_ter_turkmenistan_temp_flag
+			}
+			TKM = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_kyrgyzstan
+				has_country_flag = RUS_ter_kyrgyzstan_temp_flag
+			}
+			KGZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_armenia
+				has_country_flag = RUS_ter_armenia_temp_flag
+			}
+			ARM = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_azerbaijan
+				has_country_flag = RUS_ter_azerbaijan_temp_flag
+			}
+			AZR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_georgia
+				has_country_flag = RUS_ter_georgia_temp_flag
+			}
+			GEO = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_south_osetia
+				has_country_flag = RUS_ter_south_osetia_temp_flag
+			}
+			SOS = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_abkhazia
+				has_country_flag = RUS_ter_abkhazia_temp_flag
+			}
+			ABZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_karabakh
+				has_country_flag = RUS_ter_karabakh_temp_flag
+			}
+			NKR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+	}
+	
+	option = { #if ruling party is neutrality ( for EAU )
+		name = RUS_UNION.2.c 
+		ai_chance = { 
+			factor = 65
+		}
+		trigger = {
+			has_government = neutrality
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_belarus
+				has_country_flag = RUS_ter_belarus_temp_flag
+			}
+			BLR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_ukraina
+				has_country_flag = RUS_ter_ukraina_temp_flag
+			}
+			UKR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_moldova
+				has_country_flag = RUS_ter_moldova_temp_flag
+			}
+			MDA = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_uzbekistan
+				has_country_flag = RUS_ter_uzbekistan_temp_flag
+			}
+			UZB = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_kazakhstan
+				has_country_flag = RUS_ter_kazakhstan_temp_flag
+			}
+			KAZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_tadjikistan
+				has_country_flag = RUS_ter_tadjikistan_temp_flag
+			}
+			TJK = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_turkmenistan
+				has_country_flag = RUS_ter_turkmenistan_temp_flag
+			}
+			TKM = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_kyrgyzstan
+				has_country_flag = RUS_ter_kyrgyzstan_temp_flag
+			}
+			KGZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_armenia
+				has_country_flag = RUS_ter_armenia_temp_flag
+			}
+			ARM = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_azerbaijan
+				has_country_flag = RUS_ter_azerbaijan_temp_flag
+			}
+			AZR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_georgia
+				has_country_flag = RUS_ter_georgia_temp_flag
+			}
+			GEO = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_south_osetia
+				has_country_flag = RUS_ter_south_osetia_temp_flag
+			}
+			SOS = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_abkhazia
+				has_country_flag = RUS_ter_abkhazia_temp_flag
+			}
+			ABZ = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+		if = {
+			limit = { 
+				has_completed_focus = RUS_ter_karabakh
+				has_country_flag = RUS_ter_karabakh_temp_flag
+			}
+			NKR = { country_event = { id = RUS_UNION.3 days = 5 } }
+		}
+	}
+}	
+
+country_event = {  #
+	id = RUS_UNION.3
+	title = { 
+		text = RUS_UNION.3_title_text_for_nationalism
+		trigger = {
+			RUS = {
+				OR = {	
+					has_government = fascism
+					has_coalition_with_nationalists = yes
+				}
+			}
+		}
+	}
+	title = { 
+		text = RUS_UNION.3_title_text_for_communism
+		trigger = {
+			RUS = {
+				OR = {	
+					has_government = communism
+					has_government = reformism
+				}	
+			}
+		}
+	}
+	title = { 
+		text = RUS_UNION.3_title_text_for_neutrality_EAS
+		trigger = {
+			RUS = {
+				has_government = neutrality
+			}
+		}
+	}
+	
+	desc = {
+		text = RUS_UNION.3_text_for_nationalism
+		trigger = {
+			RUS = {
+				OR = {	
+					has_government = fascism
+					has_coalition_with_nationalists = yes
+				}
+			}
+		}
+	}
+	desc = {
+		text = RUS_UNION.3_text_for_communism
+		trigger = {
+			RUS = {
+				OR = {	
+					has_government = communism
+					has_government = reformism
+				}	
+			}
+		}
+	}
+	desc = {
+		text = RUS_UNION.3_text_for_neutrality_EAS
+		trigger = {
+			RUS = {
+				has_government = neutrality
+			}
+		}
+	}
+	picture = GFX_event_map_USSR
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_belarus_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_belarus_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_ukraina_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_ukraina_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_kazakhstan_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_kazakhstan_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_moldova_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_moldova_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_uzbekistan_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_uzbekistan_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_tadjikistan_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_tadjikistan_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_kyrgyzstan_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_kyrgyzstan_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_turkmenistan_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_turkmenistan_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_georgia_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_georgia_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_armenia_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_armenia_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_azerbaijan_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_azerbaijan_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_abkhazia_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_abkhazia_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_south_osetia_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_south_osetia_temp_flag }
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = RUS_ter_karabakh_temp_flag }
+			}
+			RUS = { clr_country_flag = RUS_ter_karabakh_temp_flag }
+		}
+	}
+	
+	option = { 
+		name = RUS_UNION.3.a 
+		ai_chance = { 
+			factor = 65
+		}
+		
+		if = {
+			limit = { 
+				RUS = { 
+					OR = {	
+						has_government = communism
+						has_government = reformism
+					}	
+				} 
+			}
+			RUS = { country_event = { id = RUS_UNION.4 days = 5 } }
+		}
+		if = {
+			limit = { 
+				RUS = { 
+					OR = {	
+						has_government = fascism
+						has_coalition_with_nationalists = yes
+					}
+				} 
+			}
+			RUS = { country_event = { id = RUS_UNION.5 days = 5 } }
+		}
+		if = {
+			limit = { RUS = { has_government = neutrality } }
+			RUS = { country_event = { id = RUS_UNION.6 days = 5 } }
+		}
+		
+		if = {
+			limit = {
+				tag = BLR
+			}
+			set_country_flag = BLR_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = ARM
+			}
+			set_country_flag = ARM_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = AZR
+			}
+			set_country_flag = AZR_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = GEO
+			}
+			set_country_flag = GEO_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = SOS
+			}
+			set_country_flag = SOS_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = ABZ
+			}
+			set_country_flag = ABZ_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = NKR
+			}
+			set_country_flag = NKR_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = UKR
+			}
+			set_country_flag = UKR_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = UZB
+			}
+			set_country_flag = UZB_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = KAZ
+			}
+			set_country_flag = KAZ_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = KGZ
+			}
+			set_country_flag = KGZ_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = TJK
+			}
+			set_country_flag = TJK_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = TKM
+			}
+			set_country_flag = TJK_accept_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = MDA
+			}
+			set_country_flag = MDA_accept_RUS_UNION
+		}
+	}
+	
+	option = {
+		name = RUS_UNION.3.b 
+		ai_chance = { 
+			factor = 45	
+		}
+		
+		if = {
+			limit = { 
+				RUS = { 
+					OR = {	
+						has_government = fascism
+						has_coalition_with_nationalists = yes
+					}
+				} 
+			}
+			RUS = { country_event = { id = RUS_UNION.7 days = 5 } }
+		}
+		if = {
+			limit = { RUS = { has_government = neutrality } }
+			RUS = { country_event = { id = RUS_UNION.8 days = 5 } }
+		}
+		if = {
+			limit = { 
+				RUS = { 
+					OR = {	
+						has_government = communism
+						has_government = reformism
+					}	
+				} 
+			}
+			RUS = { country_event = { id = RUS_UNION.7 days = 5 } }
+		}
+		
+		if = {
+			limit = {
+				tag = BLR
+			}
+			set_country_flag = BLR_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = ARM
+			}
+			set_country_flag = ARM_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = AZR
+			}
+			set_country_flag = AZR_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = GEO
+			}
+			set_country_flag = GEO_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = SOS
+			}
+			set_country_flag = SOS_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = ABZ
+			}
+			set_country_flag = ABZ_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = NKR
+			}
+			set_country_flag = NKR_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = UKR
+			}
+			set_country_flag = UKR_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = UZB
+			}
+			set_country_flag = UZB_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = KAZ
+			}
+			set_country_flag = KAZ_refuse_RUS_UNION
+			set_country_flag = KAZ_deterence_agression_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = KGZ
+			}
+			set_country_flag = KGZ_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = TJK
+			}
+			set_country_flag = TJK_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = TKM
+			}
+			set_country_flag = TJK_refuse_RUS_UNION
+		}
+		if = {
+			limit = {
+				tag = MDA
+			}
+			set_country_flag = MDA_refuse_RUS_UNION
+		}
+	}
+}
+
+country_event = {  # FROM accepted the ultimatum of USSR ( if ruling party is communism )
+	id = RUS_UNION.4
+	title = RUS_UNION.4.t
+	desc = RUS_UNION.4.d
+	picture = GFX_event_map_USSR1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RUS_UNION.4.a
+		ai_chance = { 
+			factor = 75
+		}
+		
+		if = { #Belarus
+			limit = { 
+				has_dlc = "Together for Victory"
+				BLR = { 
+					has_country_flag = BLR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = BLR
+				autonomous_state = autonomous_area
+				 
+			}
+			BLR = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			BLR = { clr_country_flag = BLR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				BLR = { 
+					has_country_flag = BLR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = BLR }
+			BLR = { clr_country_flag = BLR_accept_RUS_UNION }
+		}
+		
+		if = { #Armenia
+			limit = { 
+				has_dlc = "Together for Victory"
+				ARM = { 
+					has_country_flag = ARM_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = ARM
+				autonomous_state = autonomous_area
+				 
+			}
+			ARM = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			ARM = { clr_country_flag = ARM_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				ARM = { 
+					has_country_flag = ARM_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = ARM }
+			ARM = { clr_country_flag = ARM_accept_RUS_UNION }
+		}
+		
+		if = { #Azerbaijan
+			limit = { 
+				has_dlc = "Together for Victory"
+				AZR = { 
+					has_country_flag = AZR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = AZR
+				autonomous_state = autonomous_area
+				 
+			}
+			AZR = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			AZR = { clr_country_flag = AZR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				AZR = { 
+					has_country_flag = AZR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = AZR }
+			AZR = { clr_country_flag = AZR_accept_RUS_UNION }
+		}
+		
+		if = { #South Osetia
+			limit = { 
+				has_dlc = "Together for Victory"
+				SOS = { 
+					has_country_flag = SOS_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = SOS
+				autonomous_state = autonomous_area
+				 
+			}
+			SOS = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			SOS = { clr_country_flag = SOS_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				SOS = { 
+					has_country_flag = SOS_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = SOS }
+			SOS = { clr_country_flag = SOS_accept_RUS_UNION }
+		}
+		
+		if = { #Abkhazia
+			limit = { 
+				has_dlc = "Together for Victory"
+				ABZ = { 
+					has_country_flag = ABZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = ABZ
+				autonomous_state = autonomous_area
+				 
+			}
+			ABZ = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			ABZ = { clr_country_flag = ABZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				ABZ = { 
+					has_country_flag = ABZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = ABZ }
+			ABZ = { clr_country_flag = ABZ_accept_RUS_UNION }
+		}
+		
+		if = { #Karabakh
+			limit = { 
+				has_dlc = "Together for Victory"
+				NKR = { 
+					has_country_flag = NKR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = NKR
+				autonomous_state = autonomous_area
+				 
+			}
+			NKR = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			NKR = { clr_country_flag = NKR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				NKR = { 
+					has_country_flag = NKR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = NKR }
+			NKR = { clr_country_flag = NKR_accept_RUS_UNION }
+		}
+		
+		if = { #Georgia
+			limit = { 
+				has_dlc = "Together for Victory"
+				GEO = { 
+					has_country_flag = GEO_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = GEO
+				autonomous_state = autonomous_area
+				 
+			}
+			GEO = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			GEO = { clr_country_flag = GEO_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				GEO = { 
+					has_country_flag = GEO_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = GEO }
+			GEO = { clr_country_flag = GEO_accept_RUS_UNION }
+		}
+		
+		if = { #Kazakhstan
+			limit = { 
+				has_dlc = "Together for Victory"
+				KAZ = { 
+					has_country_flag = KAZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = KAZ
+				autonomous_state = autonomous_area
+				 
+			}
+			KAZ = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			KAZ = { clr_country_flag = KAZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				KAZ = { 
+					has_country_flag = KAZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = KAZ }
+			KAZ = { clr_country_flag = KAZ_accept_RUS_UNION }
+		}
+		
+		if = { #Kyrgizia
+			limit = { 
+				has_dlc = "Together for Victory"
+				KGZ = { 
+					has_country_flag = KGZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = KGZ
+				autonomous_state = autonomous_area
+				 
+			}
+			KGZ = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			KGZ = { clr_country_flag = KGZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				KGZ = { 
+					has_country_flag = KGZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = KGZ }
+			KGZ = { clr_country_flag = KGZ_accept_RUS_UNION }
+		}
+		
+		if = { #Tadjikistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				TJK = { 
+					has_country_flag = TJK_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = TJK
+				autonomous_state = autonomous_area
+				 
+			}
+			TJK = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			TJK = { clr_country_flag = TJK_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				TJK = { 
+					has_country_flag = TJK_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = TJK }
+			TJK = { clr_country_flag = TJK_accept_RUS_UNION }
+		}
+		
+		if = { #Uzbekistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				UZB = { 
+					has_country_flag = UZB_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = UZB
+				autonomous_state = autonomous_area
+				 
+			}
+			UZB = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			UZB = { clr_country_flag = UZB_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				UZB = { 
+					has_country_flag = UZB_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = UZB }
+			UZB = { clr_country_flag = UZB_accept_RUS_UNION }
+		}
+		
+		if = { #Turkmenistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				TKM = { 
+					has_country_flag = TKM_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = TKM
+				autonomous_state = autonomous_area
+				 
+			}
+			TKM = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			TKM = { clr_country_flag = TKM_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				TKM = { 
+					has_country_flag = TKM_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = TKM }
+			TKM = { clr_country_flag = TKM_accept_RUS_UNION }
+		}
+		
+		if = { #Ukraina
+			limit = { 
+				has_dlc = "Together for Victory"
+				UKR = { 
+					has_country_flag = UKR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = UKR
+				autonomous_state = autonomous_area
+				 
+			}
+			UKR = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			UKR = { clr_country_flag = UKR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				UKR = { 
+					has_country_flag = UKR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = UKR }
+			UKR = { clr_country_flag = UKR_accept_RUS_UNION }
+		}
+		
+		if = { #Moldavia and Transdnistra
+			limit = { 
+				has_dlc = "Together for Victory"
+				MDA = { 
+					has_country_flag = MDA_accept_RUS_UNION 
+				}
+			}	
+			if = {
+				limit = { country_exists = TMD  }
+				MDA = { annex_country = { target = TMD } }
+			}
+			set_autonomy = {
+				target = MDA
+				autonomous_state = autonomous_area
+				 
+			}
+			MDA = {	
+				add_stability = -0.05
+				add_ideas = single-party_state
+			}
+			MDA = { clr_country_flag = MDA_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				MDA = { 
+					has_country_flag = MDA_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = MDA }
+			if = {
+				limit = { country_exists = TMD  }
+				annex_country = { transfer_troops = yes target = TMD }
+			}
+			MDA = { clr_country_flag = MDA_accept_RUS_UNION }
+		}
+		
+		hidden_effect = { news_event = { id = news.58 days = 1 } }
+	}
+	
+	option = {
+		name = RUS_UNION.4.b 
+		ai_chance = { 
+			factor = 25
+		}
+		
+		if = { #Belarus
+			limit = { 
+				has_dlc = "Together for Victory"
+				BLR = { 
+					has_country_flag = BLR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = BLR
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			BLR = {	
+				add_ideas = single-party_state
+			}
+			BLR = { clr_country_flag = BLR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				BLR = { 
+					has_country_flag = BLR_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = BLR }
+			BLR = {	
+				add_ideas = single-party_state
+			}
+			BLR = { clr_country_flag = BLR_accept_RUS_UNION }
+		}
+		
+		if = { #Armenia
+			limit = { 
+				has_dlc = "Together for Victory"
+				ARM = { 
+					has_country_flag = ARM_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = ARM
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			ARM = {	
+				add_ideas = single-party_state
+			}
+			ARM = { clr_country_flag = ARM_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				ARM = { 
+					has_country_flag = ARM_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = ARM }
+			ARM = {	
+				add_ideas = single-party_state
+			}
+			ARM = { clr_country_flag = ARM_accept_RUS_UNION }
+		}
+		
+		if = { #Azerbaijan
+			limit = { 
+				has_dlc = "Together for Victory"
+				AZR = { 
+					has_country_flag = AZR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = AZR
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			AZR = {	
+				add_ideas = single-party_state
+			}
+			AZR = { clr_country_flag = AZR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				AZR = { 
+					has_country_flag = AZR_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = AZR }
+			AZR = {	
+				add_ideas = single-party_state
+			}
+			AZR = { clr_country_flag = AZR_accept_RUS_UNION }
+		}
+		
+		if = { #South Osetia
+			limit = { 
+				has_dlc = "Together for Victory"
+				SOS = { 
+					has_country_flag = SOS_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = SOS
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			SOS = {	
+				add_ideas = single-party_state
+			}
+			SOS = { clr_country_flag = SOS_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				SOS = { 
+					has_country_flag = SOS_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = SOS }
+			SOS = {	
+				add_ideas = single-party_state
+			}
+			SOS = { clr_country_flag = SOS_accept_RUS_UNION }
+		}
+		
+		if = { #Abkhazia
+			limit = { 
+				has_dlc = "Together for Victory"
+				ABZ = { 
+					has_country_flag = ABZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = ABZ
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			ABZ = {	
+				add_ideas = single-party_state
+			}
+			ABZ = { clr_country_flag = ABZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				ABZ = { 
+					has_country_flag = ABZ_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = ABZ }
+			ABZ = {	
+				add_ideas = single-party_state
+			}
+			ABZ = { clr_country_flag = ABZ_accept_RUS_UNION }
+		}
+		
+		if = { #Karabakh
+			limit = { 
+				has_dlc = "Together for Victory"
+				NKR = { 
+					has_country_flag = NKR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = NKR
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			NKR = {	
+				add_ideas = single-party_state
+			}
+			NKR = { clr_country_flag = NKR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				NKR = { 
+					has_country_flag = NKR_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = NKR }
+			NKR = {	
+				add_ideas = single-party_state
+			}
+			NKR = { clr_country_flag = NKR_accept_RUS_UNION }
+		}
+		
+		if = { #Georgia
+			limit = { 
+				has_dlc = "Together for Victory"
+				GEO = { 
+					has_country_flag = GEO_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = GEO
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			GEO = {	
+				add_ideas = single-party_state
+			}
+			GEO = { clr_country_flag = GEO_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				GEO = { 
+					has_country_flag = GEO_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = GEO }
+			GEO = {	
+				add_ideas = single-party_state
+			}
+			GEO = { clr_country_flag = GEO_accept_RUS_UNION }
+		}
+		
+		if = { #Kazakhstan
+			limit = { 
+				has_dlc = "Together for Victory"
+				KAZ = { 
+					has_country_flag = KAZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = KAZ
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			KAZ = {	
+				add_ideas = single-party_state
+			}
+			KAZ = { clr_country_flag = KAZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				KAZ = { 
+					has_country_flag = KAZ_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = KAZ }
+			KAZ = {	
+				add_ideas = single-party_state
+			}
+			KAZ = { clr_country_flag = KAZ_accept_RUS_UNION }
+		}
+		
+		if = { #Kyrgizia
+			limit = { 
+				has_dlc = "Together for Victory"
+				KGZ = { 
+					has_country_flag = KGZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = KGZ
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			KGZ = {	
+				add_ideas = single-party_state
+			}
+			KGZ = { clr_country_flag = KGZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				KGZ = { 
+					has_country_flag = KGZ_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = KGZ }
+			KGZ = {	
+				add_ideas = single-party_state
+			}
+			KGZ = { clr_country_flag = KGZ_accept_RUS_UNION }
+		}
+		
+		if = { #Tadjikistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				TJK = { 
+					has_country_flag = TJK_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = TJK
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			TJK = {	
+				add_ideas = single-party_state
+			}
+			TJK = { clr_country_flag = TJK_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				TJK = { 
+					has_country_flag = TJK_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = TJK }
+			TJK = {	
+				add_ideas = single-party_state
+			}
+			TJK = { clr_country_flag = TJK_accept_RUS_UNION }
+		}
+		
+		if = { #Uzbekistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				UZB = { 
+					has_country_flag = UZB_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = UZB
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			UZB = {	
+				add_ideas = single-party_state
+			}
+			UZB = { clr_country_flag = UZB_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				UZB = { 
+					has_country_flag = UZB_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = UZB }
+			UZB = {	
+				add_ideas = single-party_state
+			}
+			UZB = { clr_country_flag = UZB_accept_RUS_UNION }
+		}
+		
+		if = { #Turkmenistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				TKM = { 
+					has_country_flag = TKM_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = TKM
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			TKM = {	
+				add_ideas = single-party_state
+			}
+			TKM = { clr_country_flag = TKM_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				TKM = { 
+					has_country_flag = TKM_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = TKM }
+			TKM = {	
+				add_ideas = single-party_state
+			}
+			TKM = { clr_country_flag = TKM_accept_RUS_UNION }
+		}
+		
+		if = { #Ukraina
+			limit = { 
+				has_dlc = "Together for Victory"
+				UKR = { 
+					has_country_flag = UKR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = UKR
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			UKR = {	
+				add_ideas = single-party_state
+			}
+			UKR = { clr_country_flag = UKR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				UKR = { 
+					has_country_flag = UKR_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = UKR }
+			UKR = {	
+				add_ideas = single-party_state
+			}
+			UKR = { clr_country_flag = UKR_accept_RUS_UNION }
+		}
+		
+		if = { #Moldavia and Transnistra
+			limit = { 
+				has_dlc = "Together for Victory"
+				MDA = { 
+					has_country_flag = MDA_accept_RUS_UNION 
+				}
+			}	
+			if = {
+				limit = { country_exists = TMD  }
+				MDA = { annex_country = { target = TMD } }
+			}
+			set_autonomy = {
+				target = MDA
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			MDA = {	
+				add_ideas = single-party_state
+			}
+			MDA = { clr_country_flag = MDA_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				MDA = { 
+					has_country_flag = MDA_accept_RUS_UNION 
+				}
+			}
+			if = {
+				limit = { country_exists = TMD  }
+				MDA = { annex_country = { target = TMD } }
+			}
+			RUS = { puppet = MDA }
+			MDA = {	
+				add_ideas = single-party_state
+			}
+			MDA = { clr_country_flag = MDA_accept_RUS_UNION }
+		}
+		
+		hidden_effect = { news_event = { id = news.58 days = 1 } }
+	}
+}
+
+country_event = {  # FROM accepted the ultimatum of Russia ( if ruling party is nationalism )
+	id = RUS_UNION.5
+	title = RUS_UNION.5.t
+	desc = RUS_UNION.5.d
+	picture = GFX_event_map_USSR1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RUS_UNION.5.a
+		ai_chance = { 
+			factor = 90
+		}
+		
+		if = {	
+			limit = { 
+				BLR = { 
+					has_country_flag = BLR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = BLR }
+			BLR = { clr_country_flag = BLR_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				ARM = { 
+					has_country_flag = ARM_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = ARM }
+			ARM = { clr_country_flag = ARM_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				AZR = { 
+					has_country_flag = AZR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = AZR }
+			AZR = { clr_country_flag = AZR_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				SOS = { 
+					has_country_flag = SOS_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = SOS }
+			SOS = { clr_country_flag = SOS_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				ABZ = { 
+					has_country_flag = ABZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = ABZ }
+			ABZ = { clr_country_flag = ABZ_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				NKR = { 
+					has_country_flag = NKR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = NKR }
+			NKR = { clr_country_flag = NKR_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				GEO = { 
+					has_country_flag = GEO_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = GEO }
+			GEO = { clr_country_flag = GEO_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				KAZ = { 
+					has_country_flag = KAZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = KAZ }
+			KAZ = { clr_country_flag = KAZ_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				KGZ = { 
+					has_country_flag = KGZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = KGZ }
+			KGZ = { clr_country_flag = KGZ_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				TJK = { 
+					has_country_flag = TJK_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = TJK }
+			TJK = { clr_country_flag = TJK_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				UZB = { 
+					has_country_flag = UZB_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = UZB }
+			UZB = { clr_country_flag = UZB_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				TKM = { 
+					has_country_flag = TKM_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = TKM }
+			TKM = { clr_country_flag = TKM_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				UKR = { 
+					has_country_flag = UKR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = UKR }
+			UKR = { clr_country_flag = UKR_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				MDA = { 
+					has_country_flag = MDA_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = MDA }
+			if = {
+				limit = { country_exists = TMD  }
+				annex_country = { transfer_troops = yes target = TMD }
+			}
+			MDA = { clr_country_flag = MDA_accept_RUS_UNION }
+		}
+		
+		hidden_effect = { news_event = { id = news.58 days = 1 } }
+	}
+	
+	option = {
+		name = RUS_UNION.5.b 
+		ai_chance = { 
+			factor = 10
+		}
+		
+		if = { #Belarus
+			limit = { 
+				has_dlc = "Together for Victory"
+				BLR = { 
+					has_country_flag = BLR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = BLR
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			BLR = {	
+				add_ideas = single-party_state
+			}
+			BLR = { clr_country_flag = BLR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				BLR = { 
+					has_country_flag = BLR_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = BLR }
+			BLR = {	
+				add_ideas = single-party_state
+			}
+			BLR = { clr_country_flag = BLR_accept_RUS_UNION }
+		}
+		
+		if = { #Armenia
+			limit = { 
+				has_dlc = "Together for Victory"
+				ARM = { 
+					has_country_flag = ARM_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = ARM
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			ARM = {	
+				add_ideas = single-party_state
+			}
+			ARM = { clr_country_flag = ARM_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				ARM = { 
+					has_country_flag = ARM_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = ARM }
+			ARM = {	
+				add_ideas = single-party_state
+			}
+			ARM = { clr_country_flag = ARM_accept_RUS_UNION }
+		}
+		
+		if = { #Azerbaijan
+			limit = { 
+				has_dlc = "Together for Victory"
+				AZR = { 
+					has_country_flag = AZR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = AZR
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			AZR = {	
+				add_ideas = single-party_state
+			}
+			AZR = { clr_country_flag = AZR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				AZR = { 
+					has_country_flag = AZR_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = AZR }
+			AZR = {	
+				add_ideas = single-party_state
+			}
+			AZR = { clr_country_flag = AZR_accept_RUS_UNION }
+		}
+		
+		if = { #South Osetia
+			limit = { 
+				has_dlc = "Together for Victory"
+				SOS = { 
+					has_country_flag = SOS_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = SOS
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			SOS = {	
+				add_ideas = single-party_state
+			}
+			SOS = { clr_country_flag = SOS_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				SOS = { 
+					has_country_flag = SOS_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = SOS }
+			SOS = {	
+				add_ideas = single-party_state
+			}
+			SOS = { clr_country_flag = SOS_accept_RUS_UNION }
+		}
+		
+		if = { #Abkhazia
+			limit = { 
+				has_dlc = "Together for Victory"
+				ABZ = { 
+					has_country_flag = ABZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = ABZ
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			ABZ = {	
+				add_ideas = single-party_state
+			}
+			ABZ = { clr_country_flag = ABZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				ABZ = { 
+					has_country_flag = ABZ_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = ABZ }
+			ABZ = {	
+				add_ideas = single-party_state
+			}
+			ABZ = { clr_country_flag = ABZ_accept_RUS_UNION }
+		}
+		
+		if = { #Karabakh
+			limit = { 
+				has_dlc = "Together for Victory"
+				NKR = { 
+					has_country_flag = NKR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = NKR
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			NKR = {	
+				add_ideas = single-party_state
+			}
+			NKR = { clr_country_flag = NKR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				NKR = { 
+					has_country_flag = NKR_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = NKR }
+			NKR = {	
+				add_ideas = single-party_state
+			}
+			NKR = { clr_country_flag = NKR_accept_RUS_UNION }
+		}
+		
+		if = { #Georgia
+			limit = { 
+				has_dlc = "Together for Victory"
+				GEO = { 
+					has_country_flag = GEO_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = GEO
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			GEO = {	
+				add_ideas = single-party_state
+			}
+			GEO = { clr_country_flag = GEO_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				GEO = { 
+					has_country_flag = GEO_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = GEO }
+			GEO = {	
+				add_ideas = single-party_state
+			}
+			GEO = { clr_country_flag = GEO_accept_RUS_UNION }
+		}
+		
+		if = { #Kazakhstan
+			limit = { 
+				has_dlc = "Together for Victory"
+				KAZ = { 
+					has_country_flag = KAZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = KAZ
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			KAZ = {	
+				add_ideas = single-party_state
+			}
+			KAZ = { clr_country_flag = KAZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				KAZ = { 
+					has_country_flag = KAZ_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = KAZ }
+			KAZ = {	
+				add_ideas = single-party_state
+			}
+			KAZ = { clr_country_flag = KAZ_accept_RUS_UNION }
+		}
+		
+		if = { #Kyrgizia
+			limit = { 
+				has_dlc = "Together for Victory"
+				KGZ = { 
+					has_country_flag = KGZ_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = KGZ
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			KGZ = {	
+				add_ideas = single-party_state
+			}
+			KGZ = { clr_country_flag = KGZ_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				KGZ = { 
+					has_country_flag = KGZ_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = KGZ }
+			KGZ = {	
+				add_ideas = single-party_state
+			}
+			KGZ = { clr_country_flag = KGZ_accept_RUS_UNION }
+		}
+		
+		if = { #Tadjikistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				TJK = { 
+					has_country_flag = TJK_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = TJK
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			TJK = {	
+				add_ideas = single-party_state
+			}
+			TJK = { clr_country_flag = TJK_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				TJK = { 
+					has_country_flag = TJK_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = TJK }
+			TJK = {	
+				add_ideas = single-party_state
+			}
+			TJK = { clr_country_flag = TJK_accept_RUS_UNION }
+		}
+		
+		if = { #Uzbekistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				UZB = { 
+					has_country_flag = UZB_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = UZB
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			UZB = {	
+				add_ideas = single-party_state
+			}
+			UZB = { clr_country_flag = UZB_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				UZB = { 
+					has_country_flag = UZB_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = UZB }
+			UZB = {	
+				add_ideas = single-party_state
+			}
+			UZB = { clr_country_flag = UZB_accept_RUS_UNION }
+		}
+		
+		if = { #Turkmenistan
+			limit = { 
+				has_dlc = "Together for Victory"
+				TKM = { 
+					has_country_flag = TKM_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = TKM
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			TKM = {	
+				add_ideas = single-party_state
+			}
+			TKM = { clr_country_flag = TKM_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				TKM = { 
+					has_country_flag = TKM_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = TKM }
+			TKM = {	
+				add_ideas = single-party_state
+			}
+			TKM = { clr_country_flag = TKM_accept_RUS_UNION }
+		}
+		
+		if = { #Ukraina
+			limit = { 
+				has_dlc = "Together for Victory"
+				UKR = { 
+					has_country_flag = UKR_accept_RUS_UNION 
+				}
+			}	
+			set_autonomy = {
+				target = UKR
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			UKR = {	
+				add_ideas = single-party_state
+			}
+			UKR = { clr_country_flag = UKR_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				UKR = { 
+					has_country_flag = UKR_accept_RUS_UNION 
+				}
+			}
+			RUS = { puppet = UKR }
+			UKR = {	
+				add_ideas = single-party_state
+			}
+			UKR = { clr_country_flag = UKR_accept_RUS_UNION }
+		}
+		
+		if = { #Moldavia and Transdnistra
+			limit = { 
+				has_dlc = "Together for Victory"
+				MDA = { 
+					has_country_flag = MDA_accept_RUS_UNION 
+				}
+			}	
+			if = {
+				limit = { country_exists = TMD  }
+				MDA = { annex_country = { target = TMD } }
+			}
+			set_autonomy = {
+				target = MDA
+				autonomous_state = associated_state
+				freedom_level = 0.20
+			}
+			MDA = {	
+				add_ideas = single-party_state
+			}
+			MDA = { clr_country_flag = MDA_accept_RUS_UNION }
+		}
+		if = {	
+			limit = { 
+				NOT = { has_dlc = "Together for Victory" } 
+				MDA = { 
+					has_country_flag = MDA_accept_RUS_UNION 
+				}
+			}
+			if = {
+				limit = { country_exists = TMD  }
+				MDA = { annex_country = { target = TMD } }
+			}
+			RUS = { puppet = MDA }
+			MDA = {	
+				add_ideas = single-party_state
+			}
+			MDA = { clr_country_flag = MDA_accept_RUS_UNION }
+		}
+		
+		hidden_effect = { news_event = { id = news.58 days = 1 } }
+	}
+}	
+	
+country_event = {  # FROM accepted with asscociating EAS ( if ruling party is neutrality )
+	id = RUS_UNION.6
+	title = RUS_UNION.6.t
+	desc = RUS_UNION.6.d
+	picture = GFX_event_map_USSR
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RUS_UNION.6.a
+		ai_chance = { 
+			factor = 90
+		}
+		
+		if = {	
+			limit = { 
+				BLR = { 
+					has_country_flag = BLR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = BLR }
+			BLR = { clr_country_flag = BLR_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				ARM = { 
+					has_country_flag = ARM_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = ARM }
+			ARM = { clr_country_flag = ARM_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				AZR = { 
+					has_country_flag = AZR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = AZR }
+			AZR = { clr_country_flag = AZR_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				SOS = { 
+					has_country_flag = SOS_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = SOS }
+			SOS = { clr_country_flag = SOS_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				ABZ = { 
+					has_country_flag = ABZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = ABZ }
+			ABZ = { clr_country_flag = ABZ_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				NKR = { 
+					has_country_flag = NKR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = NKR }
+			NKR = { clr_country_flag = NKR_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				GEO = { 
+					has_country_flag = GEO_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = GEO }
+			GEO = { clr_country_flag = GEO_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				KAZ = { 
+					has_country_flag = KAZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = KAZ }
+			KAZ = { clr_country_flag = KAZ_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				KGZ = { 
+					has_country_flag = KGZ_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = KGZ }
+			KGZ = { clr_country_flag = KGZ_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				TJK = { 
+					has_country_flag = TJK_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = TJK }
+			TJK = { clr_country_flag = TJK_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				UZB = { 
+					has_country_flag = UZB_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = UZB }
+			UZB = { clr_country_flag = UZB_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				TKM = { 
+					has_country_flag = TKM_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = TKM }
+			TKM = { clr_country_flag = TKM_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				UKR = { 
+					has_country_flag = UKR_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = UKR }
+			UKR = { clr_country_flag = UKR_accept_RUS_UNION }
+		}
+		
+		if = {	
+			limit = { 
+				MDA = { 
+					has_country_flag = MDA_accept_RUS_UNION 
+				}
+			}
+			annex_country = { transfer_troops = yes target = MDA }
+			if = {
+				limit = { country_exists = TMD  }
+				annex_country = { transfer_troops = yes target = TMD }
+			}
+			MDA = { clr_country_flag = MDA_accept_RUS_UNION }
+		}
+		
+		#hidden_effect = { news_event = { id = news.58 days = 1 } }
+	}
+}
+
+country_event = {  #FROM refuse ( if ruling party is nationalism or communism )
+	id = RUS_UNION.7
+	title = RUS_UNION.7.t
+	desc = RUS_UNION.7.d
+	picture = GFX_event_RUS_army3
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RUS_UNION.7.a 
+		ai_chance = { 
+			factor = 65
+		}
+		
+		if = {
+			limit = { BLR = { has_country_flag = BLR_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = BLR }
+			BLR = { clr_country_flag = BLR_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { ARM = { has_country_flag = ARM_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = ARM }
+			ARM = { clr_country_flag = ARM_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { AZR = { has_country_flag = AZR_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = AZR }
+			AZR = { clr_country_flag = AZR_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { SOS = { has_country_flag = SOS_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = SOS }
+			SOS = { clr_country_flag = SOS_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { ABZ = { has_country_flag = ABZ_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = ABZ }
+			ABZ = { clr_country_flag = ABZ_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { NKR = { has_country_flag = NKR_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = NKR }
+			NKR = { clr_country_flag = NKR_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { GEO = { has_country_flag = GEO_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = GEO }
+			GEO = { clr_country_flag = GEO_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { KAZ = { has_country_flag = KAZ_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = KAZ }
+			KAZ = { clr_country_flag = KAZ_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { KGZ = { has_country_flag = KGZ_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = KGZ }
+			KGZ = { clr_country_flag = KGZ_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { TJK = { has_country_flag = TJK_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = TJK }
+			TJK = { clr_country_flag = TJK_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { UZB = { has_country_flag = UZB_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = UZB }
+			UZB = { clr_country_flag = UZB_refuse_RUS_UNION }
+		}
+		if = {
+			limit = { TKM = { has_country_flag = TKM_refuse_RUS_UNION } }
+			create_wargoal = { type = annex_everything target = TKM }
+			TKM = { clr_country_flag = TKM_refuse_RUS_UNION }
+		}
+	}
+	
+	option = { #Отказ
+		name = RUS_UNION.7.b 
+		ai_chance = { 
+			factor = 35
+		}
+	}
+}
+
+country_event = {  #FROM refuse ( if ruling party is neutrality )
+	id = RUS_UNION.8
+	title = RUS_UNION.8.t
+	desc = RUS_UNION.8.d
+	picture = GFX_event_RUS_army3
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RUS_UNION.8.a 
+		ai_chance = { 
+			factor = 65
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = actions_very_negative
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = embargo
+		}
+	}
+}

@@ -1,0 +1,994 @@
+﻿#####################
+## Economic Crisis ##
+###########################
+## European Union Events ##
+##################################################################################
+## If country lead the EU and it can integrate countries within the Europe Union #
+##################################################################################
+## Written by SuxrobGM ##
+#########################
+
+add_namespace = European_Union
+
+country_event = {
+	id = European_Union.1
+	title = European_Union.1.t
+	desc = European_Union.1.d
+	picture = GFX_event_to_EU
+
+	is_triggered_only = yes
+
+	option = { #start integration
+		name = European_Union.1.a
+		ai_chance = {
+			factor = 8
+		}
+		set_country_flag = starting_accession_European_Union
+		country_event = { id = European_Union.2 days = 365 }
+		hidden_effect = {
+			news_event = { id = European_Union_news.3 days = 1 }  
+		}
+	}
+
+	option = { #refuse, because we are still not ready
+		name = European_Union.1.b
+		ai_chance = {
+			factor = 1
+		}
+		add_stability = -0.05
+	}
+}
+
+country_event = {
+	id = European_Union.2
+	title = European_Union.2.t
+	desc = European_Union.2.d
+	picture = GFX_event_EU_countries
+
+	is_triggered_only = yes
+
+	option = { #accept
+		name = European_Union.2.a	
+		set_country_flag = country_successfully_passed_1st_step
+	}
+}
+
+country_event = {
+	id = European_Union.3
+	title = European_Union.3.t
+	desc = European_Union.3.d
+	picture = GFX_event_to_EU
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	option = {
+		name = European_Union.3.a
+		every_owned_state = {
+			add_core_of = ROOT #Now, Root is the leader EU
+		}
+	}
+}
+	
+
+	
+###################################################################
+#### Event of voting process European Union coded by SuxrobGM #####
+###################################################################
+
+add_namespace = European_Union
+
+country_event = { #Запрос вступление на ЕС
+	id = European_Union.4
+	title = European_Union.4.t
+	desc = European_Union.4.d
+	picture = GFX_event_to_EU
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = European_Union.4.a
+		ai_chance = { factor = 85 }	
+		#if = {
+		#	limit = { ENG = { has_idea = eu_member } }
+		#	ENG = {	country_event = { id = European_Union.2 days = 2 } }
+		#}
+		ENG = {	country_event = { id = European_Union.5 days = 2 } }
+		if = {
+			limit = { FRA = { has_idea = eu_member } }
+			FRA = { country_event = { id = European_Union.6 days = 4 } }
+		}	 
+		if = {
+			limit = { GER = { has_idea = eu_member } }
+			GER = { country_event = { id = European_Union.7 days = 6 } }
+		} 
+		if = {
+			limit = { ITA = { has_idea = eu_member } }
+			ITA = { country_event = { id = European_Union.8 days = 8 } }
+		}	 
+		if = {
+			limit = { POL = { has_idea = eu_member } }
+			POL = {	country_event = { id = European_Union.9 days = 10 } }
+		}
+		if = {
+			limit = { BEL = { has_idea = eu_member } }
+			BEL = {	country_event = { id = European_Union.10 days = 12 } }
+		}	
+		if = {
+			limit = { HOL = { has_idea = eu_member } }
+			HOL = { country_event = { id = European_Union.11 days = 14 } }
+		}	
+	}
+	
+	option = {
+		name = European_Union.4.b
+		ai_chance = { factor = 15 }
+	}
+}
+
+country_event = { #Голос Великобритании
+	id = European_Union.5
+	title = European_Union.5.t
+	desc = European_Union.5.d
+	picture = GFX_event_parliament_EU
+	
+	is_triggered_only = yes
+
+	option = { #За 
+		name = European_Union.5.a
+		ai_chance = { factor = 70 }
+		FROM = { set_country_flag = ENG_accepted_new_member_EU }
+	    
+		custom_effect_tooltip = vote_accept
+		hidden_effect = { news_event = { id = European_Union_news.5 hours = 6 } }
+	}
+	
+	option = { #Против
+		name = European_Union.5.b
+		ai_chance = { factor = 30 }
+		FROM = { set_country_flag = ENG_refused_new_member_EU }
+	
+	    custom_effect_tooltip = vote_refuse
+		hidden_effect = { news_event = { id = European_Union_news.4 hours = 6 } }
+	}
+	
+}
+
+country_event = { #Голос Франции
+	id = European_Union.6
+	title = European_Union.6.t
+	desc = European_Union.6.d
+	picture = GFX_event_parliament_EU
+	
+	is_triggered_only = yes
+
+	option = { #За 
+		name = European_Union.6.a
+		ai_chance = { factor = 70 }
+		FROM = { set_country_flag = FRA_accepted_new_member_EU }
+		
+		custom_effect_tooltip = vote_accept
+		hidden_effect = { news_event = { id = European_Union_news.5 hours = 6 } }
+	}
+	
+	option = { #Против
+		name = European_Union.6.b
+		ai_chance = { factor = 30 }
+		FROM = { set_country_flag = FRA_refused_new_member_EU }
+		
+		custom_effect_tooltip = vote_refuse
+		hidden_effect = { news_event = { id = European_Union_news.4 hours = 6 } }
+	}
+	
+}
+
+country_event = { #Голос Германии
+	id = European_Union.7
+	title = European_Union.7.t
+	desc = European_Union.7.d
+	picture = GFX_event_parliament_EU
+	
+	is_triggered_only = yes
+
+	option = { #За 
+		name = European_Union.7.a
+		ai_chance = { factor = 70 }
+		FROM = { set_country_flag = GER_accepted_new_member_EU }
+		
+		custom_effect_tooltip = vote_accept
+		hidden_effect = { news_event = { id = European_Union_news.5 hours = 6 } }
+	}
+	
+	option = { #Против
+		name = European_Union.7.b
+		ai_chance = { factor = 30 }
+		FROM = { set_country_flag = GER_refused_new_member_EU }
+		
+		custom_effect_tooltip = vote_refuse
+		hidden_effect = { news_event = { id = European_Union_news.4 hours = 6 } }
+	}
+	
+}
+
+country_event = { #Голос Италии
+	id = European_Union.8
+	title = European_Union.8.t
+	desc = European_Union.8.d
+	picture = GFX_event_parliament_EU
+	
+	is_triggered_only = yes
+
+	option = { #За 
+		name = European_Union.8.a
+		ai_chance = { factor = 70 }
+		FROM = { set_country_flag = ITA_accepted_new_member_EU }
+		
+		custom_effect_tooltip = vote_accept
+		hidden_effect = { news_event = { id = European_Union_news.5 hours = 6 } }
+	}
+	
+	option = { #Против
+		name = European_Union.8.b
+		ai_chance = { factor = 30 }
+		FROM = { set_country_flag = ITA_refused_new_member_EU }
+		
+		custom_effect_tooltip = vote_refuse
+		hidden_effect = { news_event = { id = European_Union_news.4 hours = 6 } }
+	}
+	
+}
+
+country_event = { #Голос Польшии
+	id = European_Union.9
+	title = European_Union.9.t
+	desc = European_Union.9.d
+	picture = GFX_event_parliament_EU
+	
+	is_triggered_only = yes
+
+	option = { #За 
+		name = European_Union.9.a
+		ai_chance = { factor = 70 }
+		FROM = { set_country_flag = POL_accepted_new_member_EU }
+		
+		custom_effect_tooltip = vote_accept
+		hidden_effect = { news_event = { id = European_Union_news.5 hours = 6 } }
+	}
+	
+	option = { #Против
+		name = European_Union.9.b
+		ai_chance = { factor = 30 }
+		FROM = { set_country_flag = POL_refused_new_member_EU }
+		
+		custom_effect_tooltip = vote_refuse
+		hidden_effect = { news_event = { id = European_Union_news.4 hours = 6 } }
+	}
+	
+}
+
+country_event = { #Голос Бельгии
+	id = European_Union.10
+	title = European_Union.10.t
+	desc = European_Union.10.d
+	picture = GFX_event_parliament_EU
+	
+	is_triggered_only = yes
+
+	option = { #За 
+		name = European_Union.10.a
+		ai_chance = { factor = 70 }
+		FROM = { set_country_flag = BEL_accepted_new_member_EU }
+		
+		custom_effect_tooltip = vote_accept
+		hidden_effect = { news_event = { id = European_Union_news.5 hours = 6 } }
+	}
+	
+	option = { #Против
+		name = European_Union.10.b
+		ai_chance = { factor = 30 }
+		FROM = { set_country_flag = BEL_refused_new_member_EU }
+		
+		custom_effect_tooltip = vote_refuse
+		hidden_effect = { news_event = { id = European_Union_news.4 hours = 6 } }
+	}
+	
+}
+
+country_event = { #Голос Голландии
+	id = European_Union.11
+	title = European_Union.11.t
+	desc = European_Union.11.d
+	picture = GFX_event_parliament_EU
+	
+	is_triggered_only = yes
+
+	option = { #За 
+		name = European_Union.11.a
+		ai_chance = { factor = 70 }
+		FROM = { set_country_flag = HOL_accepted_new_member_EU }
+		
+		custom_effect_tooltip = vote_accept
+		hidden_effect = { news_event = { id = European_Union_news.5 hours = 6 } }
+	}
+	
+	option = { #Против
+		name = European_Union.11.b
+		ai_chance = { factor = 30 }
+		FROM = { set_country_flag = HOL_refused_new_member_EU }
+		
+		custom_effect_tooltip = vote_refuse
+		hidden_effect = { news_event = { id = European_Union_news.4 hours = 6 } }
+	}
+}
+
+country_event = { #Сбор Голосов Окончание Конференеци 1
+	id = European_Union.12
+	title = European_Union.12.t
+	desc = European_Union.12.d
+	picture = GFX_event_unknown
+
+	hidden = yes
+	
+	trigger = {
+	FROM = { 
+		OR = {
+		    AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU 
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+            
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+            
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}			
+		}
+		}
+	}
+	
+	immediate = {
+	    FROM = { 
+	        add_ideas = { eu_member }
+			add_ideas = { EU_membership }
+			set_country_flag = country_successfully_passed_2nd_step
+	        news_event = { id = European_Union_news.1 hours = 6 }
+            country_event = { id = European_Union.11 days = 1 }			
+	    }
+	}
+	
+	option = {  
+		name = European_Union.12.a
+	}
+	
+	mean_time_to_happen = {
+		days = 4
+	}	
+}
+
+country_event = { #Сбор Голосов Окончание Конференеци 2
+	id = European_Union.13
+	title = European_Union.13.t
+	desc = European_Union.13.d
+	picture = GFX_event_unknown
+
+	hidden = yes
+	
+	trigger = {
+	FROM = { 
+		OR = {
+		    AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU 
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+            
+            AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU 
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU 
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU 
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU 
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_accepted_new_member_EU 
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+			
+			AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_accepted_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_accepted_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_accepted_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_accepted_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_accepted_new_member_EU
+		        has_country_flag = HOL_refused_new_member_EU
+			}
+
+            AND = { 
+			    has_country_flag = ENG_refused_new_member_EU 
+		        has_country_flag = FRA_refused_new_member_EU
+		        has_country_flag = GER_refused_new_member_EU
+		        has_country_flag = POL_refused_new_member_EU
+		        has_country_flag = BEL_refused_new_member_EU
+		        has_country_flag = ITA_refused_new_member_EU
+		        has_country_flag = HOL_accepted_new_member_EU
+			}			
+		}
+		}
+	}
+	
+	immediate = {
+	    FROM = { 
+	        news_event = { id = European_Union_news.2 hours = 6 }
+            country_event = { id = European_Union.14 days = 1 }
+	    }
+	}
+	
+	option = {  
+		name = European_Union.13.a
+	}
+	
+	mean_time_to_happen = {
+		days = 4
+	}
+}
+
+country_event = { #(hidden event remove country flag)
+	id = European_Union.14
+	title = European_Union.14.t
+	desc = European_Union.14.d
+	picture = GFX_event_unknown
+
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    FROM = {    
+			if = {  
+		        limit = { has_country_flag = ENG_accepted_new_member_EU }
+			    clr_country_flag = ENG_accepted_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = ENG_accepted_new_member_EU }
+			    clr_country_flag = ENG_refused_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = FRA_accepted_new_member_EU }
+			    clr_country_flag = FRA_accepted_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = FRA_refused_new_member_EU }
+			    clr_country_flag = FRA_refused_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = GER_accepted_new_member_EU }
+			    clr_country_flag = GER_accepted_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = GER_refused_new_member_EU }
+			    clr_country_flag = GER_refused_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = ITA_accepted_new_member_EU }
+			    clr_country_flag = ITA_accepted_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = ITA_refused_new_member_EU }
+			    clr_country_flag = ITA_refused_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = POL_accepted_new_member_EU }
+			    clr_country_flag = POL_accepted_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = POL_refused_new_member_EU }
+			    clr_country_flag = POL_refused_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = BEL_accepted_new_member_EU }
+			    clr_country_flag = BEL_accepted_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = BEL_refused_new_member_EU }
+			    clr_country_flag = BEL_refused_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = HOL_accepted_new_member_EU }
+			    clr_country_flag = HOL_accepted_new_member_EU
+			}
+			if = {  
+		        limit = { has_country_flag = HOL_refused_new_member_EU }
+			    clr_country_flag = HOL_refused_new_member_EU
+			}
+		}	
+	}
+	
+	option = {  
+		name = European_Union.14.a
+	}
+}
+
+
+	
+################################
+### News Events EU
+################################
+
+add_namespace = European_Union_news
+
+news_event = {
+	id = European_Union_news.1   #Ended the parliament EU, FROM is new member EU 
+	title = European_Union_news.1.t
+	desc = European_Union_news.1.d
+	picture = GFX_event_accept_vote_EU
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+	name = European_Union_news.1.a 
+	}
+}
+	
+news_event = {
+	id = European_Union_news.2   #Ended the parliament EU, FROM is not member EU
+	title = European_Union_news.2.t
+	desc = European_Union_news.2.d
+	picture = GFX_event_flag_EU
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+	name = European_Union_news.2.a	
+	}
+}
+	
+news_event = {
+	id = European_Union_news.3   #Государство подает заявку на вступление [From.From.GetName] в ЕС
+	title = European_Union_news.3.t
+	desc = European_Union_news.3.d
+	picture = GFX_event_vote_demand_EU
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+	name = European_Union_news.3.a	
+	}
+}
+	
+news_event = {
+	id = European_Union_news.4   #Государство голосовал против вступлении страну в ЕС
+	title = European_Union_news.4.t
+	desc = European_Union_news.4.d
+	picture = GFX_event_vote_demand_EU
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+	name = European_Union_news.4.a	
+	}
+}
+
+news_event = {
+	id = European_Union_news.5   #Государство голосовал за вступление страну в ЕС
+	title = European_Union_news.5.t
+	desc = European_Union_news.5.d
+	picture = GFX_event_vote_demand_EU
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+	name = European_Union_news.5.a	
+	}
+}	

@@ -1,0 +1,477 @@
+# Economic Crisis state status
+
+ideas = {
+	country_status = {
+		
+		superstate = {
+			cost = 2000
+			removal_cost = -1
+			cancel_if_invalid = no
+			
+			#picture = civilian_economy1
+			
+			available = {
+				is_major = yes
+				has_country_flag = joined_into_UN
+				num_of_factories > 150
+			}
+			
+			on_add = {
+				
+			}
+			
+			modifier = {
+				TRADE_OPINION_FACTOR = 0.5
+				OPINION_GAIN_MONTHLY = 0.5
+				POLITICAL_POWER_GAIN = 0.5
+				RESEARCH_TIME_FACTOR = -0.1
+				LOCAL_NON_CORE_MANPOWER = 0.25
+				PRODUCTION_SPEED_INDUSTRIAL_COMPLEX_FACTOR = 0.22
+				INDUSTRIAL_CAPACITY_FACTORY = 0.22
+				INDUSTRIAL_CAPACITY_DOCKYARD = 0.22
+			}
+		}
+		
+		major_country = {
+			cost = 1500
+			removal_cost = -1
+			cancel_if_invalid = no
+			
+			#picture = civilian_economy1
+			
+			available = {
+				is_major = yes
+				has_country_flag = joined_into_UN
+				num_of_factories > 80
+			}
+			
+			on_add = {
+				
+			}
+			
+			modifier = {
+				TRADE_OPINION_FACTOR = 0.25
+				OPINION_GAIN_MONTHLY = 0.25
+				POLITICAL_POWER_GAIN = 0.25
+				RESEARCH_TIME_FACTOR = -0.05
+				PRODUCTION_SPEED_INDUSTRIAL_COMPLEX_FACTOR = 0.11
+				INDUSTRIAL_CAPACITY_FACTORY = 0.11
+				INDUSTRIAL_CAPACITY_DOCKYARD = 0.11
+			}
+		}
+		
+		regional_country = {
+			cost = 1000
+			removal_cost = -1
+			cancel_if_invalid = no
+			
+			#picture = civilian_economy1
+			
+			available = {
+				has_country_flag = joined_into_UN
+				num_of_factories > 45
+			}
+			
+			modifier = {
+				POLITICAL_POWER_GAIN = 0.15
+				RESEARCH_TIME_FACTOR = -0.05
+				PRODUCTION_SPEED_INDUSTRIAL_COMPLEX_FACTOR = 0.05
+				INDUSTRIAL_CAPACITY_FACTORY = 0.05
+				INDUSTRIAL_CAPACITY_DOCKYARD = 0.05
+			}
+		}
+		
+		minor_country = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			default = yes
+			
+			#picture = civilian_economy1
+			
+			available = {
+				has_country_flag = joined_into_UN
+			}
+			
+			modifier = {
+				TRADE_OPINION_FACTOR = -0.25
+				OPINION_GAIN_MONTHLY = -0.25
+				POLITICAL_POWER_GAIN = -0.25
+				RESEARCH_TIME_FACTOR = 0.05
+				PRODUCTION_SPEED_INDUSTRIAL_COMPLEX_FACTOR = -0.1
+				INDUSTRIAL_CAPACITY_FACTORY = -0.1
+				INDUSTRIAL_CAPACITY_DOCKYARD = -0.1
+			}
+		}
+		
+		partially_recognized_country = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			
+			picture = generic_morale_bonus
+			
+			available = {
+				
+			}
+			
+			on_add = {
+				
+			}
+			
+			modifier = {
+				TRADE_OPINION_FACTOR = -0.5
+				OPINION_GAIN_MONTHLY = -0.5
+				POLITICAL_POWER_GAIN = -0.5
+				RESEARCH_TIME_FACTOR = 0.1
+				PRODUCTION_SPEED_INDUSTRIAL_COMPLEX_FACTOR = -0.18
+				INDUSTRIAL_CAPACITY_FACTORY = -0.18
+				INDUSTRIAL_CAPACITY_DOCKYARD = -0.18
+			}
+		}
+		
+		not_recognized_country = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			
+			#picture = civilian_economy1
+		
+			available = {
+				
+			}
+			
+			modifier = {
+				ai_call_ally_desire_factor = -999
+				ai_join_ally_desire_factor = -999
+				TRADE_OPINION_FACTOR = -0.75
+				OPINION_GAIN_MONTHLY = -0.75
+				POLITICAL_POWER_GAIN = -0.75
+				RESEARCH_TIME_FACTOR = 0.2
+				PRODUCTION_SPEED_INDUSTRIAL_COMPLEX_FACTOR = -0.27
+				INDUSTRIAL_CAPACITY_FACTORY = -0.27
+				INDUSTRIAL_CAPACITY_DOCKYARD = -0.27
+			}
+		}
+		
+		small_country = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			
+			#picture = civilian_economy1
+			
+			available = {
+				
+			}
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				TRADE_OPINION_FACTOR = -0.65
+				OPINION_GAIN_MONTHLY = -0.65
+				POLITICAL_POWER_GAIN = -0.75
+				RESEARCH_TIME_FACTOR = 0.2
+				PRODUCTION_SPEED_INDUSTRIAL_COMPLEX_FACTOR = -0.21
+				INDUSTRIAL_CAPACITY_FACTORY = -0.21
+				INDUSTRIAL_CAPACITY_DOCKYARD = -0.21
+			}
+		}
+		
+		fighting_country = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			
+			#picture = civilian_economy1
+			
+			available = {
+				
+			}
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				ai_call_ally_desire_factor = -999
+				ai_join_ally_desire_factor = -999
+				DRIFT_DEFENCE_FACTOR = 0.5
+				TRADE_OPINION_FACTOR = -1.25
+				OPINION_GAIN_MONTHLY = -1.25
+				POLITICAL_POWER_GAIN = -0.75
+				RESEARCH_TIME_FACTOR = 0.3
+				PRODUCTION_SPEED_INDUSTRIAL_COMPLEX_FACTOR = -0.32
+				INDUSTRIAL_CAPACITY_FACTORY = -0.32
+				INDUSTRIAL_CAPACITY_DOCKYARD = -0.32
+			}
+		}
+	}
+	
+	corruption_level = {
+		
+		corruption_discounted = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 1
+			
+			#picture = civilian_economy1
+			
+			available = {
+				has_country_flag = reform_economy
+				has_country_flag = conducted_anticorruption_company
+				has_country_flag = reform_laws_against_corruption
+			}
+			
+			modifier = {
+				stability_weekly = 0.001
+				political_power_gain = 0.35
+				RESEARCH_TIME_FACTOR = -0.05
+			}
+		}
+		
+		low_corruption = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 2
+			
+			#picture = civilian_economy1
+			
+			available = {
+				has_country_flag = reform_economy
+				has_country_flag = conducted_anticorruption_company
+			}
+			
+			modifier = {
+				INDUSTRIAL_CAPACITY_FACTORY = -0.05
+				CONSUMER_GOODS_FACTOR = 0.05
+				POLITICAL_POWER_GAIN = -0.15
+		        RESEARCH_TIME_FACTOR = 0.05
+			}
+		}
+		
+		average_corruption = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 3
+			default = yes
+			
+			picture = corruption
+			
+			available = {
+				has_country_flag = reform_economy
+			}
+			
+			modifier = {
+				INDUSTRIAL_CAPACITY_FACTORY = -0.1
+				CONSUMER_GOODS_FACTOR = 0.1
+				POLITICAL_POWER_GAIN = -0.35
+		        RESEARCH_TIME_FACTOR = 0.1
+			}
+		}
+		
+		high_corruption = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 4
+			
+			#picture = civilian_economy1
+			
+			available = {
+				has_country_flag = reform_economy
+			}
+			
+			modifier = {
+				stability_weekly = -0.0008
+				INDUSTRIAL_CAPACITY_FACTORY = -0.15
+				CONSUMER_GOODS_FACTOR = 0.15
+				POLITICAL_POWER_GAIN = -0.5
+		        RESEARCH_TIME_FACTOR = 0.15
+			}
+		}
+		
+		oligarchy = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 5
+			
+			#picture = civilian_economy1
+			
+			available = {
+				has_country_flag = reform_economy
+			}
+			
+			on_add = {
+				
+			}
+			
+			modifier = {
+				stability_weekly = -0.0011
+				INDUSTRIAL_CAPACITY_FACTORY = -0.25
+				CONSUMER_GOODS_FACTOR = 0.2
+				POLITICAL_POWER_GAIN = -0.5
+		        RESEARCH_TIME_FACTOR = 0.2
+			}
+		}
+	}
+	
+	EU_integration_level = {
+		
+		fully_integrated_in_EU = {
+			cost = 750
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 4
+			
+			#picture = civilian_economy1
+			
+			available = {
+				any_owned_state = { is_on_continent = europe }
+				NOT = {
+					OR = {
+						has_government = fascism
+						has_government = islamists
+						has_government = communism
+						has_government = rad_islamists
+					}
+				}
+				has_idea = eu_member
+				has_country_flag = country_ready_to_integrate_into_EU
+			}
+			
+			on_add = {
+				#event
+			}
+			
+			modifier = {
+				
+			}
+		}
+		
+		EU_membership = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 3
+			
+			picture = eu_member
+			
+			available = {
+				any_owned_state = { is_on_continent = europe }
+				NOT = {
+					OR = {
+						has_government = fascism
+						has_government = islamists
+						has_government = communism
+						has_government = rad_islamists
+					}
+					has_idea = eu_member
+				}
+				has_country_flag = country_successfully_passed_1st_step
+				has_country_flag = country_successfully_passed_2nd_step
+			}
+			
+			on_add = {
+				if = {
+					limit = {
+						NOT = { has_idea = eu_member }
+					}
+					add_ideas = eu_member
+				}
+			}
+			
+			modifier = {
+				
+			}
+		}
+		
+		candidate_EU_membership = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 2
+			
+			#picture = civilian_economy1
+			
+			available = {
+				any_owned_state = { is_on_continent = europe }
+				NOT = {
+					OR = {
+						has_government = fascism
+						has_government = islamists
+						has_government = communism
+						has_government = rad_islamists
+					}
+					has_idea = eu_member
+				}
+				has_country_flag = country_successfully_passed_1st_step
+			}
+			
+			on_add = {
+				country_event = {
+					id = EU_event.1 days = 50
+				}
+			}
+			
+			modifier = {
+				
+			}
+			
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					factor = 2
+					is_major = yes
+				}
+   			}
+		}
+		
+		EU_accession_negotiations = {
+			cost = 500
+			removal_cost = -1
+			cancel_if_invalid = no
+			level = 1
+			
+			#picture = civilian_economy1
+			
+			available = {
+				any_owned_state = { is_on_continent = europe }
+				NOT = {
+					OR = {
+						has_government = fascism
+						has_government = islamists
+						has_government = communism
+						has_government = rad_islamists
+					}
+					has_idea = eu_member
+				}
+				has_country_flag = country_ready_to_join_EU
+			}
+			
+			on_add = {
+				country_event = {
+					id = European_Union.1 days = 3
+				}
+			}
+			
+			modifier = {
+				
+			}
+			
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					factor = 2
+					is_major = yes
+				}
+   			}
+		}
+	}
+}

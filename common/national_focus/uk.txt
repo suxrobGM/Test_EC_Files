@@ -1,0 +1,2060 @@
+#####################################################
+#													#
+#	Btitish focus tree / Древо фокусов Британии		#
+#													#
+#	---focus designer--- MrSuricate					#
+#													#
+#	---focus scripters--- MrSuricate and Fantick	#
+#													#
+#####################################################
+
+focus_tree = {
+	id = british_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ENG
+		}
+	}
+
+	reset_on_civilwar = yes
+
+	continuous_focus_position = { x = 50 y = 2800 }
+	
+#   Шаблон
+#	focus = {
+#		id = UKR_
+#		icon = GFX_
+#		prerequisite = { focus = }
+#		relative_position_id = 
+#		mutually_exclusive = { focus =  }
+#		x = -3
+#		y = 0
+#		cost = 10
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+
+####################################################################
+#
+# 	1. Britstey branch / Ветка Бритстея
+#
+####################################################################
+	
+	# Бритстей	
+	focus = {							
+		id   = ENG_britstay
+		icon = GFX_goal_eng_restoring_empire
+		x = 2							
+		y = 5	
+		
+		mutually_exclusive = { focus = ENG_brexit }
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = eu_member_hie_modifier
+			}	
+			}							
+	    }							
+	}
+
+#------------------------------------------------------------------
+	
+	# Континентальный Курс
+	focus = {
+		id   = ENG_continental_course
+		icon = GFX_goal_eng_restoring_empire
+		x = 2
+		y = 6
+		cost = 4
+
+		prerequisite = { focus = ENG_britstay }
+
+		completion_reward = {
+			add_political_power = 250
+			add_popularity = {
+				ideology = democratic 
+				popularity = 0.1
+			}
+		}
+	}
+
+#------------------------------------------------------------------
+
+	# Создание Интеграионной Комиссии
+	focus = {
+		id   = ENG_creating_integration_commission
+		icon = GFX_goal_eng_restoring_empire
+		x = 1
+		y = 7
+		cost = 5
+
+		prerequisite = { focus = ENG_continental_course}
+
+		completion_reward = {
+			add_political_power = 100
+		} 	
+	}
+	
+#------------------------------------------------------------------
+	
+	# Форин-офис
+	focus = {
+		id   = ENG_foreign_office 
+		icon = GFX_goal_eng_restoring_empire		
+		x = 3
+		y = 7
+		cost = 5
+
+		prerequisite = { focus = ENG_continental_course}
+
+		completion_reward =  {
+			
+		}	
+	}
+
+#------------------------------------------------------------------
+	
+	# Дальнешая интеграция
+	focus = {
+		id   = ENG_further_integration
+		icon = GFX_goal_eng_restoring_empire		
+		x = 2
+		y = 8
+		cost = 20
+
+		prerequisite = { 
+			focus = ENG_creating_integration_commission
+			focus = ENG_foreign_office 
+			}
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_modifier
+				}
+			}	
+			
+			add_ideas = ENG_euroscepticism_idea
+			hidden_effect = {
+				news_event = { id = gernews.6 days = 3 }
+			}					
+	    }
+	}
+
+#------------------------------------------------------------------
+	
+	# Присоединение к Еврозоне
+	focus = {
+		id   = ENG_joining_eurozone
+		icon = GFX_goal_eng_restoring_empire		
+		x = 1
+		y = 9
+		cost = 10
+
+		mutually_exclusive = { focus = ENG_support_of_national_currency }
+		prerequisite = { focus = ENG_further_integration }
+
+		completion_reward =  {
+			every_country = {
+					limit = {
+						has_idea = eu_member
+					}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_modifier
+				}	
+			}
+			add_ideas = ENG_euro_idea
+			hidden_effect = {
+				news_event = { id = gernews.6 days = 3 }
+			}
+		}	
+	}
+
+#------------------------------------------------------------------
+	
+	# Поддержка национальной валюты
+	focus = {
+		id   = ENG_support_of_national_currency
+		icon = GFX_goal_eng_restoring_empire		
+		x = 3
+		y = 9
+		cost = 15
+
+		mutually_exclusive = { focus = ENG_joining_eurozone }
+		prerequisite = { focus = ENG_further_integration}
+
+		completion_reward =  {
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_negative_modifier
+				}
+			}	
+			
+			add_ideas = ENG_gbp_idea
+			hidden_effect = {
+				news_event = { id = gernews.6 days = 3 }
+			}	
+		}	
+	}
+
+#------------------------------------------------------------------
+	
+	# Пост президента евросоюза
+	focus = {
+		id   = ENG_president_european_union
+		icon = GFX_goal_eng_restoring_empire		
+		x = 1
+		y = 10
+		cost = 10
+
+		mutually_exclusive = { focus = ENG_increase_in_authority_chairman }
+		
+		prerequisite = { 
+			focus =  ENG_support_of_national_currency
+			focus =  ENG_joining_eurozone 
+			}
+
+		completion_reward =  {
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_modifier
+				}	
+			}
+			add_political_power = -50	
+		}	
+	}
+
+#------------------------------------------------------------------
+	
+	# Увеличение полномочий председателя
+	focus = {
+		id   = ENG_increase_in_authority_chairman
+		icon = GFX_goal_eng_restoring_empire		
+		x = 3
+		y = 10
+		cost = 15
+
+		mutually_exclusive = { focus = ENG_president_european_union }
+		prerequisite = { focus =  ENG_support_of_national_currency
+						 focus =  ENG_joining_eurozone }
+
+		completion_reward =  {
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+				add_opinion_modifier = {
+					target = ENG
+						modifier = eu_member_negative_modifier
+				}
+			}	
+			add_political_power = 50
+		}	
+	}
+	
+#------------------------------------------------------------------
+	
+	# Министерство иностранных дел ЕС
+	focus = {
+		id   = ENG_mfa_ec
+		icon = GFX_goal_eng_restoring_empire		
+		x = 1
+		y = 11
+		cost = 10
+
+		mutually_exclusive = { focus = ENG_independent_policy }
+		prerequisite = { focus =  ENG_increase_in_authority_chairman
+						 focus =  ENG_president_european_union }
+
+		completion_reward =  {
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_modifier
+				}
+			}
+			add_political_power = -50
+		}	
+	}
+	
+#------------------------------------------------------------------
+	
+	# Независимая внешняя политики
+	focus = {
+		id   = ENG_independent_policy
+		icon = GFX_goal_eng_restoring_empire		
+		x = 3
+		y = 11
+		cost = 15
+
+		mutually_exclusive = { focus = ENG_mfa_ec }
+		prerequisite = { focus =  ENG_increase_in_authority_chairman
+						 focus =  ENG_president_european_union }
+
+		completion_reward =  {
+			every_country =  {	
+				limit = { has_idea = eu_member }
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_few_modifier
+				}
+			}	
+		}
+	}	
+	
+#------------------------------------------------------------------
+	
+	# Единые вьездные визы
+	focus = {
+		id   = ENG_single_visas
+		icon = GFX_goal_eng_restoring_empire		
+		x = 1
+		y = 12
+		cost = 10
+
+		mutually_exclusive = { focus = ENG_border_control }
+		prerequisite = { focus =  ENG_mfa_ec
+						 focus =  ENG_independent_policy }
+
+		completion_reward =  {
+			every_country =  {	
+				limit = { has_idea = eu_member }
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_few_modifier
+				}
+			}
+		}
+	}	
+
+#------------------------------------------------------------------
+	
+	# Контроль границ
+	focus = {
+		id   = ENG_border_control
+		icon = GFX_goal_eng_restoring_empire		
+		x = 3
+		y = 12
+		cost = 15
+
+		mutually_exclusive = { focus = ENG_single_visas }
+		
+		prerequisite = { 
+			focus =  ENG_mfa_ec
+			focus =  ENG_independent_policy 
+					}
+
+		completion_reward =  {
+			every_country =  {
+				limit = { has_idea = eu_member }
+			
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_few_modifier
+				}
+			}
+		}
+	}	
+	
+#------------------------------------------------------------------
+	
+	# Вооруженные силы евросоюза
+	focus = {
+		id   = ENG_armed_forces_european_union
+		icon = GFX_goal_eng_restoring_empire		
+		x = 1
+		y = 13
+		cost = 10
+
+		mutually_exclusive = { focus = ENG_national_armed_forces }
+		
+		prerequisite = { 
+			focus =  ENG_single_visas
+			focus =  ENG_border_control 
+			}
+
+		completion_reward =  {
+			every_country =  {
+				limit = { has_idea = eu_member }		
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_few_modifier
+				}
+			}
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Национальные ВС
+	focus = {
+		id   = ENG_national_armed_forces
+		icon = GFX_goal_eng_restoring_empire		
+		x = 3
+		y = 13
+		cost = 15
+
+		mutually_exclusive = { focus = ENG_armed_forces_european_union }
+		
+		prerequisite = { 
+			focus =  ENG_single_visas
+			focus =  ENG_border_control 
+			}
+
+		completion_reward =  {
+			every_country =  {
+				limit = { has_idea = eu_member }
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_few_modifier
+				}
+			}
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Укрепление позиций Лондона
+	focus = {
+		id   = ENG_strengthening_london_positions
+		icon = GFX_goal_eng_restoring_empire		
+		x = 2
+		y = 14
+		cost = 10
+
+		prerequisite = { 
+			focus =  ENG_armed_forces_european_union
+			focus =  ENG_national_armed_forces 
+			}
+
+		completion_reward =  {
+			every_country =  {	
+				limit = { has_idea = eu_member }
+				add_opinion_modifier = {
+					target = ENG
+					modifier = eu_member_few_modifier
+				}
+			}
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Одна ночь в париже
+	focus = {
+		id   = ENG_one_night_in_paris
+		icon = GFX_goal_eng_restoring_empire		
+		x = 1
+		y = 15
+		cost = 10
+
+		mutually_exclusive = { focus = ENG_dresden_discussion }
+		prerequisite = { focus =  ENG_strengthening_london_positions }
+
+		completion_reward = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = actions_very_positive
+			}
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Дрезденская дискуссия
+	focus = {
+		id   = ENG_dresden_discussion
+		icon = GFX_goal_eng_restoring_empire		
+		x = 3
+		y = 15
+		cost = 10
+
+		mutually_exclusive = { focus = ENG_one_night_in_paris }
+		prerequisite = { focus =  ENG_strengthening_london_positions }
+
+		completion_reward = {
+			add_opinion_modifier = {
+				target = GER
+				modifier = actions_very_positive
+			}
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Британское лидерство в Европейском совете
+	focus = {
+		id   = ENG_english_leadership
+		icon = GFX_goal_eng_restoring_empire		
+		x = 2
+		y = 16
+		cost = 10
+
+		prerequisite = { 
+			focus =  ENG_dresden_discussion
+			focus =  ENG_one_night_in_paris 
+			}
+
+		completion_reward = {
+			
+		}
+	}
+
+####################################################################
+#
+# 	2. Brexit branch / Ветка Брексита
+#
+####################################################################
+	
+	# Брексит	
+	focus = {						
+		id   = ENG_brexit
+		icon = GFX_goal_eng_restoring_empire						
+		x = 7							
+		y = 5	
+
+		mutually_exclusive = { focus = ENG_britstay }
+
+		completion_reward =  {
+			country_event = { id = britain_brexit.1 days = 0 }
+			country_event = { id = britain_brexit.2 days = 30 }
+			country_event =	{ id = britain_brexit.3 days = 365 }
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Евроскептицизм
+	focus = {
+		id   = ENG_euroscepticism
+		icon = GFX_goal_eng_restoring_empire		
+		x = 7
+		y = 6
+		cost = 5
+
+		prerequisite = { focus =  ENG_brexit }
+
+		completion_reward = {
+			add_political_power = 150
+			
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Подготовка программы по выходу из ЕС
+	focus = {
+		id   = ENG_deintegration_program
+		icon = GFX_goal_eng_restoring_empire		
+		x = 7
+		y = 7
+		cost = 10
+
+		prerequisite = { focus = ENG_euroscepticism }
+
+		completion_reward = {
+			add_political_power = -25
+			country_event = { id = britain_brexit.4 days = 0 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Деинтеграция
+	focus = {
+		id   = ENG_deintegration
+		icon = GFX_goal_eng_restoring_empire		
+		x = 7
+		y = 8
+		cost = 10
+
+		prerequisite = { focus = ENG_deintegration_program }
+
+		completion_reward = {
+			add_political_power = -50
+			country_event = { id = britain_brexit.5 days = 0 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Переговоры с Еврокомиссией
+	focus = {
+		id   = ENG_eu_commision_negotiations
+		icon = GFX_goal_eng_restoring_empire		
+		x = 7
+		y = 9
+		cost = 20
+
+		prerequisite = { focus = ENG_deintegration }
+
+		completion_reward = {
+			add_political_power = -100
+			country_event = { id = britain_brexit.6 days = 0 }
+			country_event = { id = britain_brexit.7 days = 1 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Не вводить визы
+	focus = {
+		id   = ENG_no_visas
+		icon = GFX_goal_eng_restoring_empire		
+		x = 6
+		y = 10
+		cost = 10
+		
+		prerequisite = { focus = ENG_eu_commision_negotiations }
+		mutually_exclusive = { focus = ENG_yes_visas }
+
+		completion_reward = {
+		
+			add_opinion_modifier = {
+				target = ENG
+				modifier = eu_member_modifier
+			}
+			
+			add_political_power = -25
+
+			country_event = { id = britain_brexit.8 days = 1 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Ввести визы
+	focus = {
+		id   = ENG_yes_visas
+		icon = GFX_goal_eng_restoring_empire		
+		x = 8
+		y = 10
+		cost = 10
+		
+		prerequisite = { focus = ENG_eu_commision_negotiations }
+		mutually_exclusive = { focus = ENG_no_visas }
+
+		completion_reward = {
+			
+			add_opinion_modifier = {
+				target = ENG
+				modifier = eu_member_negative_modifier
+			}
+			
+			add_political_power = 25
+
+			country_event = { id = britain_brexit.8 days = 1 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Выполнить финансовые обязательства
+	focus = {
+		id   = ENG_yes_commitments
+		icon = GFX_goal_eng_restoring_empire		
+		x = 6
+		y = 11
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_no_visas 
+			focus = ENG_yes_visas 
+		}
+		
+		mutually_exclusive = { focus = ENG_no_commitments }
+
+		completion_reward = {
+		
+			add_opinion_modifier = {
+				target = ENG
+				modifier = eu_member_hie_modifier
+			}		
+			
+			add_political_power = -50
+
+			country_event = { id = britain_brexit.9 days = 1 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Отказатся от обязательств
+	focus = {
+		id   = ENG_no_commitments
+		icon = GFX_goal_eng_restoring_empire		
+		x = 8
+		y = 11
+		cost = 15
+		
+		prerequisite = { 
+			focus = ENG_no_visas 
+			focus = ENG_yes_visas 
+		}
+		
+		mutually_exclusive = { focus = ENG_yes_commitments }
+
+		completion_reward = {
+			
+			add_opinion_modifier = {
+				target = ENG
+				modifier = eu_member_negative_modifier
+			}
+			
+			add_political_power = 50
+
+			country_event = { id = britain_brexit.9 days = 1 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Статус поселенца
+	focus = {
+		id   = ENG_settler_status
+		icon = GFX_goal_eng_restoring_empire		
+		x = 6
+		y = 12
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_yes_commitments
+			focus = ENG_no_commitments
+		}
+		
+		mutually_exclusive = { focus = ENG_citizenship_or_deportation }
+
+		completion_reward = {
+		
+			add_opinion_modifier = {
+				target = ENG
+				modifier = eu_member_modifier
+			}		
+			
+			add_political_power = -50
+
+			country_event = { id = britain_brexit.10 days = 1 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Гражданство или депортация
+	focus = {
+		id   = ENG_citizenship_or_deportation
+		icon = GFX_goal_eng_restoring_empire		
+		x = 8
+		y = 12
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_yes_commitments
+			focus = ENG_no_commitments
+		}
+		
+		mutually_exclusive = { focus = ENG_settler_status }
+
+		completion_reward = {
+			
+			add_opinion_modifier = {
+				target = ENG
+				modifier = eu_member_negative_modifier
+			}
+			
+			add_political_power = 50
+
+			country_event = { id = britain_brexit.10 days = 1 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Остатся в ЗСТ
+	focus = {
+		id   = ENG_stay_eu_trade
+		icon = GFX_goal_eng_restoring_empire		
+		x = 6
+		y = 13
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_settler_status
+			focus = ENG_citizenship_or_deportation
+		}
+		
+		mutually_exclusive = { focus = ENG_protectionism }
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+			}
+			add_opinion_modifier = { target = ENG modifier = ENG_stay_at_eu_tade_zone }
+
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Политика протекционизма
+	focus = {
+		id   = ENG_protectionism
+		icon = GFX_goal_eng_restoring_empire		
+		x = 8
+		y = 13
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_settler_status
+			focus = ENG_citizenship_or_deportation
+		}
+		
+		mutually_exclusive = { focus = ENG_stay_eu_trade }
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+			}
+			add_opinion_modifier = { target = ENG modifier = ENG_protectionism_politic }  
+		
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Ирландский вопрос
+	focus = {
+		id   = ENG_irish_question
+		icon = GFX_goal_eng_restoring_empire		
+		x = 7
+		y = 14
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_stay_eu_trade
+			focus = ENG_protectionism
+		}
+
+		completion_reward = {
+			country_event = { id = britain_brexit.11 days = 1 }
+
+
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# 2-й Шотландский референдум
+	focus = {
+		id   = ENG_new_scottish_referendum
+		icon = GFX_goal_eng_restoring_empire		
+		x = 7
+		y = 15
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_irish_question
+		}
+
+		completion_reward = {
+		country_event = { id = britain_brexit.16 days = 1 }
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Завершение переговорного процесса
+	focus = {
+		id   = ENG_end_of_negotiations
+		icon = GFX_goal_eng_restoring_empire		
+		x = 7
+		y = 16
+		cost = 15
+		
+		prerequisite = { 
+			focus = ENG_new_scottish_referendum
+		}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+#------------------------------------------------------------------
+	
+	# Выход из ЕС
+	focus = {
+		id   = ENG_exit_eu
+		icon = GFX_goal_eng_restoring_empire	
+		x = 7
+		y = 17
+		cost = 4
+		
+		prerequisite = { 
+			focus = ENG_end_of_negotiations
+		}
+
+		completion_reward = {
+			add_political_power = 250
+		}
+	}
+	
+####################################################################
+	
+	### Британский кризис
+	### Открывает ветки центристов/консерваторов/либералов, коммунистов и националистов
+	
+	focus = {
+		id   = ENG_british_crisis
+		icon = GFX_goal_eng_restoring_empire	
+		x = 32
+		y = 4
+
+		completion_reward = {
+		}
+	}
+	
+####################################################################
+#
+# 	3. Democratic branch / Ветка демократов
+#
+####################################################################
+
+	# Острова свободы
+	focus = {
+		id   = ENG_islands_of_freedome
+		icon = GFX_goal_eng_restoring_empire
+		x = 15
+		y = 5
+		cost = 2
+		
+		prerequisite = { 
+			focus = ENG_british_crisis 
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_red_banner
+			focus = ENG_trafalgar_march
+		}
+
+		completion_reward = {
+		
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Возобновление демократических прав
+	# При взятии, после досрочных выборов приходит одна из партий, которая не являеться правлящей
+	focus = {
+		id   = ENG_back_to_democracy
+		icon = GFX_goal_eng_restoring_empire
+		x = 13
+		y = 6
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_islands_of_freedome
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_secret_agreements
+		}
+
+		completion_reward = {
+		
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Тайные соглашения
+	# При взятии, после досрочных выборов приходят центристы
+	focus = {
+		id   = ENG_secret_agreements
+		icon = GFX_goal_eng_restoring_empire
+		x = 17
+		y = 6
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_islands_of_freedome
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_back_to_democracy
+		}
+
+		completion_reward = {
+		
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Проведение досрочных выборов
+	focus = {
+		id   = ENG_new_elections
+		icon = GFX_goal_eng_restoring_empire
+		x = 15
+		y = 7
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_back_to_democracy
+			focus = ENG_secret_agreements
+		}
+
+		completion_reward = {
+		
+		}
+	}
+
+####################################################################
+#
+# 	4. Commi branch / Коммунистическая ветка
+#
+####################################################################
+	
+	# Красное знамя
+	focus = {
+		id   = ENG_red_banner
+		icon = GFX_goal_eng_red_banner
+		x = 32
+		y = 5
+		cost = 2
+		
+		prerequisite = { 
+			focus = ENG_british_crisis
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_trafalgar_march
+			focus = ENG_islands_of_freedome
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism 
+				popularity = 0.05
+			}
+			country_event = { id = britain_comintern.1 days = 0 }
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Формирование Народных Бригад
+	focus = {
+		id   = ENG_peoples_brigades
+		icon = GFX_goal_eng_peoples_brigades
+		x = 31
+		y = 6
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_red_banner
+		}
+
+		completion_reward = {
+		
+		country_event = { id = britain_comintern.2 days = 0 }
+		
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Пять пунктов Каллиникоса
+	focus = {
+		id   = ENG_callinicos_conditions
+		icon = GFX_goal_eng_callinicos_conditions
+		x = 33
+		y = 6
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_red_banner
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism 
+				popularity = 0.05
+			}
+
+			country_event = { id = britain_comintern.3 days = 0 }
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Британская революция
+	focus = {
+		id   = ENG_british_revolution
+		icon = GFX_goal_eng_british_revolution
+		x = 32
+		y = 7
+		cost = 20
+		
+		prerequisite = { 
+			focus = ENG_peoples_brigades
+			focus = ENG_callinicos_conditions
+		}
+
+		completion_reward = {
+		
+			country_event = { id = britain_comintern.6 days = 75 }
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Диктатура пролетариата
+	focus = {
+		id   = ENG_proletariat_dictatorship
+		icon = GFX_goal_eng_proletariat_dictatorship
+		x = 32
+		y = 8
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_british_revolution
+		}
+
+		completion_reward = {
+		
+		country_event = { id = britain_comintern.4 days = 0 }
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# I Общепартийный съезд
+	focus = {
+		id   = ENG_red_congress
+		icon = GFX_goal_eng_red_congress
+		x = 32
+		y = 9
+		cost = 2
+		
+		prerequisite = { 
+			focus = ENG_proletariat_dictatorship
+		}
+
+		completion_reward = {
+		
+		country_event = { id = britain_comintern.5 days = 0 }
+		}
+	}
+	
+#==================================================================
+#
+# Ветка "троцкистов"
+#
+#------------------------------------------------------------------
+
+	# Британские Троцкисты
+	focus = {
+		id   = ENG_british_trotskyists
+		icon = GFX_goal_eng_british_trotskyists
+		x = 23
+		y = 10
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_red_congress
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_totalitarists
+			focus = ENG_anarcho_communists
+		}
+
+		completion_reward = {
+		
+		}
+	}
+
+#------------------------------------------------------------------
+
+	# Дебаты во временном совете
+	focus = {
+		id   = ENG_debates_in_temporary_council
+		icon = GFX_goal_eng_debates_in_temporary_council
+		x = 23
+		y = 11
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_british_trotskyists
+		}
+
+		completion_reward = {
+			add_political_power = 100
+
+			country_event = { id = britain_comintern.10 days = 0 }
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# "100" дней
+	focus = {
+		id   = ENG_hundred_days
+		icon = GFX_goal_eng_hundred_days
+		x = 23
+		y = 12
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_debates_in_temporary_council
+		}
+
+		completion_reward = {
+		
+
+			country_event = { id = britain_comintern.11 days = 30 }	
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Поддержка Каллиникоса
+	focus = {
+		id   = ENG_support_callinicos
+		icon = GFX_goal_eng_support_callinicos
+		x = 21
+		y = 13
+		cost = 2
+		
+		prerequisite = { 
+			focus = ENG_hundred_days
+		}
+		
+		mutually_exclusive = { 
+			focus =  ENG_liverpool_compromise
+			focus =  ENG_support_council
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Власть Каллинистов
+	focus = {
+		id   = ENG_power_of_callinists
+		icon = GFX_goal_eng_power_of_callinists
+		x = 21
+		y = 14
+		cost = 20
+		
+		prerequisite = { 
+			focus = ENG_support_callinicos
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Ливерпульский компромисс
+	focus = {
+		id   = ENG_liverpool_compromise
+		icon = GFX_goal_eng_liverpool_compromise
+		x = 23
+		y = 13
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_hundred_days
+		}
+		
+		mutually_exclusive = { 
+			focus =  ENG_support_callinicos
+			focus =  ENG_support_council
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Совет и Лидер
+	focus = {
+		id   = ENG_council_and_leader
+		icon = GFX_goal_eng_council_and_leader
+		x = 23
+		y = 14
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_liverpool_compromise
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Поддержка Парламентеров
+	focus = {
+		id   = ENG_support_council
+		icon = GFX_goal_eng_support_council
+		x = 25
+		y = 13
+		cost = 2
+		
+		prerequisite = { 
+			focus = ENG_hundred_days
+		}
+		
+		mutually_exclusive = { 
+			focus =  ENG_support_callinicos
+			focus =  ENG_liverpool_compromise
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Власть Совета
+	focus = {
+		id   = ENG_power_of_council
+		icon = GFX_goal_eng_power_of_council
+		x = 25
+		y = 14
+		cost = 20
+		
+		prerequisite = { 
+			focus = ENG_support_council
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#==================================================================
+#
+# Общее для троцкистов и тоталитаристов
+#
+#------------------------------------------------------------------
+
+	# Восстановление MI7
+	focus = {
+		id   = ENG_restoring_mi_seven
+		icon = GFX_goal_eng_restoring_mi_seven
+		x = 27
+		y = 12
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_debates_in_temporary_council
+			focus = ENG_political_purges
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Сандхерст-Поинт
+	focus = {
+		id   = ENG_sandhurst_point
+		icon = GFX_goal_eng_sandhurst_point
+		x = 27
+		y = 13
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_restoring_mi_seven
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Реорганизация Министерства Информации
+	focus = {
+		id   = ENG_ministry_of_information_reorg
+		icon = GFX_goal_eng_ministry_of_information_reorg
+		x = 29
+		y = 12
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_political_purges
+			focus = ENG_debates_in_temporary_council
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Новые технологии массовой пропаганды
+	focus = {
+		id   = ENG_new_propaganda_technologies
+		icon = GFX_goal_eng_new_propaganda_technologies
+		x = 29
+		y = 13
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_ministry_of_information_reorg
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Проект Альбион
+	focus = {
+		id   = ENG_project_albion
+		icon = GFX_goal_eng_project_albion
+		x = 28
+		y = 14
+		cost = 20
+		
+		prerequisite = { 
+			focus = ENG_sandhurst_point
+			focus = ENG_new_propaganda_technologies
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#==================================================================
+#
+# Ветка "тоталитаристов"
+#
+#------------------------------------------------------------------
+
+	# Тоталитаристы
+	focus = {
+		id   = ENG_totalitarists
+		icon = GFX_goal_eng_totalitarists
+		x = 32
+		y = 10
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_red_congress
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_british_trotskyists
+			focus = ENG_anarcho_communists
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Политические чистки
+	focus = {
+		id   = ENG_political_purges
+		icon = GFX_goal_eng_political_purges
+		x = 32
+		y = 11
+		cost = 20
+		
+		prerequisite = { 
+			focus = ENG_totalitarists
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Центрельный Комитет
+	focus = {
+		id   = ENG_central_committe
+		icon = GFX_goal_eng_central_committe
+		x = 31
+		y = 12
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_political_purges
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Конституция Брауна
+	focus = {
+		id   = ENG_braun_constitution
+		icon = GFX_goal_eng_braun_constitution
+		x = 33
+		y = 12
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_political_purges
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Абсолютная власть "Красного Монарха"
+	focus = {
+		id   = ENG_affirmation_of_people_chairman
+		icon = GFX_goal_eng_affirmation_of_people_chairman
+		x = 32
+		y = 13
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_central_committe
+			focus = ENG_braun_constitution
+		}
+
+		completion_reward = {
+			add_political_power = 250
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Новая Британия
+	focus = {
+		id   = ENG_new_britain
+		icon = GFX_goal_eng_new_britain
+		x = 32
+		y = 14
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_affirmation_of_people_chairman
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+#==================================================================
+#
+# Ветка "анархо-коммунистов"
+#
+#------------------------------------------------------------------
+	
+	# Анархо-коммунисты
+	focus = {
+		id   = ENG_anarcho_communists
+		icon = GFX_goal_eng_anarcho_communists
+		x = 37
+		y = 10
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_red_congress
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_british_trotskyists
+			focus = ENG_totalitarists
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Создание Народного Собрания
+	focus = {
+		id   = ENG_people_assembly
+		icon = GFX_goal_eng_people_assembly
+		x = 37
+		y = 11
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_anarcho_communists
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Борьба с Бюрократией
+	focus = {
+		id   = ENG_fight_with_bureaucracy
+		icon = GFX_goal_eng_fight_with_bureaucracy
+		x = 36
+		y = 12
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_people_assembly
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Децентрализация
+	focus = {
+		id   = ENG_decentralisation
+		icon = GFX_goal_eng_decentralisation
+		x = 38
+		y = 12
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_people_assembly
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Государственное преобразование
+	focus = {
+		id   = ENG_state_transformation
+		icon = GFX_goal_eng_state_transformation
+		x = 37
+		y = 13
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_fight_with_bureaucracy
+			focus = ENG_decentralisation
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Проект "Свобода"
+	focus = {
+		id   = ENG_project_freedome
+		icon = GFX_goal_eng_project_freedome
+		x = 35
+		y = 14
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_state_transformation
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Проект "Равенство"
+	focus = {
+		id   = ENG_project_equality
+		icon = GFX_goal_eng_project_equality
+		x = 37
+		y = 14
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_state_transformation
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Проект "Взаимопощь"
+	focus = {
+		id   = ENG_project_mutual_aid
+		icon = GFX_goal_eng_project_mutual_aid
+		x = 39
+		y = 14
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_state_transformation
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Доктрина Эдвардса
+	focus = {
+		id   = ENG_edwards_doctrine
+		icon = GFX_goal_eng_edwards_doctrine
+		x = 37
+		y = 15
+		cost = 20
+		
+		prerequisite = { 
+			focus = ENG_project_freedome
+			focus = ENG_project_equality
+			focus = ENG_project_mutual_aid
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Поддержка Валийских коммунистов
+	focus = {
+		id   = ENG_support_wales_communists
+		icon = GFX_goal_eng_support_wales_communists
+		x = 35
+		y = 16
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_edwards_doctrine
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Поддержка Шотландских коммунистов
+	focus = {
+		id   = ENG_support_scotish_communists
+		icon = GFX_goal_eng_support_scotish_communists
+		x = 37
+		y = 16
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_edwards_doctrine
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Поддержка Ирландских коммунистов
+	focus = {
+		id   = ENG_support_irish_communists
+		icon = GFX_goal_eng_support_irish_communists
+		x = 39
+		y = 16
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_edwards_doctrine
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Вставай, Британия с колен!
+	focus = {
+		id   = ENG_rise_red_britain
+		icon = GFX_goal_eng_rise_red_britain
+		x = 37
+		y = 17
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_support_wales_communists
+			focus = ENG_support_scotish_communists
+			focus = ENG_support_irish_communists
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+####################################################################
+#
+# 	5. Nationalistic branch / Ветка Националистов
+#
+####################################################################
+
+	# Трафальгарский марш
+	focus = {
+		id   = ENG_trafalgar_march
+		icon = GFX_goal_eng_trafalgar_march
+		x = 44
+		y = 5
+		cost = 2
+		
+		prerequisite = { 
+			focus = ENG_british_crisis
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_red_banner 
+			focus = ENG_islands_of_freedome 
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Лондонский конгресс
+	focus = {
+		id   = ENG_london_congress
+		icon = GFX_goal_eng_london_congress
+		x = 44
+		y = 6
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_trafalgar_march
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Судьба Британии
+	focus = {
+		id   = ENG_fate_of_britain
+		icon = GFX_goal_eng_fate_of_britain
+		x = 44
+		y = 7
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_london_congress
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Империи нужен Сулла
+	focus = {
+		id   = ENG_sulla
+		icon = GFX_goal_eng_sulla
+		x = 42
+		y = 8
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_fate_of_britain
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_queen
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Боже, храни королеву
+	focus = {
+		id   = ENG_queen
+		icon = GFX_goal_eng_trafalgar_march
+		x = 46
+		y = 8
+		cost = 5
+		
+		prerequisite = { 
+			focus = ENG_fate_of_britain
+		}
+		
+		mutually_exclusive = { 
+			focus = ENG_sulla
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+	# Культ личности
+	focus = {
+		id   = ENG_personality_cult
+		icon = GFX_goal_eng_trafalgar_march
+		x = 42
+		y = 9
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_sulla
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Идеализация суверена
+	focus = {
+		id   = ENG_idealization_of_sovereign
+		icon = GFX_goal_eng_trafalgar_march
+		x = 46
+		y = 9
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_queen
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+
+	# Утверждение власти
+	focus = {
+		id   = ENG_approval_of_authority
+		icon = GFX_goal_eng_approval_of_authority
+		x = 44
+		y = 10
+		cost = 10
+		
+		prerequisite = { 
+			focus = ENG_personality_cult
+			focus = ENG_idealization_of_sovereign
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+#------------------------------------------------------------------
+	
+}

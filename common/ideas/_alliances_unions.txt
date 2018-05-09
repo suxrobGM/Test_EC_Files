@@ -1,0 +1,389 @@
+ideas = {
+    country = {
+
+		# Совет Безопасности ООН
+		unsc_member = {
+
+			allowed = { always = no }
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.25
+			}
+
+		}
+
+		# СНГ
+		cis_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				#stability_factor = 0.05
+				consumer_goods_factor = -0.05
+				MONTHLY_POPULATION = 0.05
+				political_power_gain = 0.15
+			}
+		}
+
+		# ГУАМ
+		guam_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+			    industrial_capacity_factory = 0.1
+				political_power_gain = 0.05
+				democratic_drift = 0.01
+				reformism_drift = 0.01
+				liberalism_drift = 0.01
+			}				
+		}
+		
+		# Организация черноморского экономического сотрудничества
+		bsec_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				TRADE_OPINION_FACTOR = 0.15
+				PRODUCTION_FACTORY_EFFICIENCY_GAIN_FACTOR = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		
+		# Вишеградская группа
+		visegrad_group_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {				
+				stability_factor = 0.05
+				political_power_gain = 0.05
+				TRADE_OPINION_FACTOR = 0.05
+			}
+		}
+		
+		# БРИКС
+		brics_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				PRODUCTION_FACTORY_EFFICIENCY_GAIN_FACTOR = 0.05
+				RESEARCH_TIME_FACTOR = -0.03
+			}
+		}
+
+		# ШОС
+		sco_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				PRODUCTION_FACTORY_START_EFFICIENCY_FACTOR = 0.05
+				political_power_gain = 0.15
+				drift_defence_factor = 0.25
+			}
+		}
+
+		# African Union
+		au_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.05
+				political_power_gain = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		# Евросоюз
+		eu_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.15
+				RESEARCH_TIME_FACTOR = -0.05
+				democratic_drift = 0.01
+				reformism_drift = 0.01
+				liberalism_drift = 0.01
+			}
+		}
+
+		# Лига Арабских Государств
+		arab_league_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				#production_speed_bank_factor = 0.05
+				islamists_drift = 0.01
+				neutrality_drift = 0.01
+			}
+		}
+
+		# ALBA
+		alba_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.1
+				political_power_gain = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		# Содуржество Наций
+		commonwealth_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_core_defence_factor = 0.1
+				stability_factor = 0.05
+				political_power_gain = 0.1
+			}
+		}
+
+		# Совет сотрудничества арабских государств Персидского залива (ССАГПЗ)
+		gcc_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_core_defence_factor = 0.1
+				political_power_gain = 0.1
+				consumer_goods_factor = -0.15
+			}
+		}
+
+		# НАФТА
+		nafta_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				min_export = 0.6
+				TRADE_OPINION_FACTOR = 0.5
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		# ОПЕК
+		opec_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.1
+				research_time_factor = -0.05
+			}
+		}
+
+		# Союз южноамериканских наций
+		unasur_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.15
+				research_time_factor = -0.03
+			}
+		}
+
+		# Тихоокеанский альянс
+		pacific_alliance_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.1
+				consumer_goods_factor = -0.05
+				research_time_factor = -0.02
+			}
+		}
+
+		# Eurasian Economic Union
+		eaeu_member = {
+			allowed = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.1
+				TRADE_OPINION_FACTOR = 0.4
+				POLITICAL_POWER_GAIN = 0.25
+			}
+			removal_cost = -1
+		}
+    
+		eau_member = {
+			allowed = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.15
+				TRADE_OPINION_FACTOR = 0.5
+				POLITICAL_POWER_GAIN = 0.25
+			}
+			removal_cost = -1
+		}
+
+		# Association of Southeast Asian Nations (ASEAN)
+		asean_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+				TRADE_OPINION_FACTOR = 0.45
+				POLITICAL_POWER_GAIN = 0.15
+			}
+		}
+
+
+		# Economic Cooperation Organization (ECO)
+		eco_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.15
+				TRADE_OPINION_FACTOR = 0.4
+			}
+		}
+
+		# MILITARY ALLIANCES SYMBOLS
+
+		# АНЗЮС
+		anzus_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_core_defence_factor = 0.1
+				training_time_factor = -0.05
+			}
+		}
+
+		# ОДКБ
+		csto_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+
+			}
+		}
+
+		# НАТО
+		nato_member = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+
+			}
+		}
+
+	}
+}

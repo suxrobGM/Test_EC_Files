@@ -1,0 +1,101 @@
+﻿#####################
+## Economic Crisis ##
+#############################
+## Config`s AI by SuxrobGM ##
+#############################
+#
+#add_namespace = config_ai
+#
+#country_event = { 
+#	id = config_ai.1
+#	title = config_ai.1.t
+#	desc = config_ai.1.d
+#	picture = GFX_event_unknown
+#	
+#	hidden = yes
+#	fire_only_once = yes
+#	
+#	trigger = {
+#	    tag = ROOT
+#		ROOT = { is_ai = no }
+#		#NOT = { has_global_flag = ai_configurations }
+#	}
+#	
+#	immediate = {
+#	    set_global_flag = ai_configurations
+#		country_event = { id = config_ai.2 }
+#	}
+#	
+#	option = { 
+#		name = config_ai.1.a
+#	}
+#}
+#
+#country_event = { 
+#	id = config_ai.2
+#	title = config_ai.2.t
+#	desc = config_ai.2.d
+#	picture = GFX_event_unknown
+#	
+#	is_triggered_only = yes
+#	
+#	option = { 
+#		name = config_ai.2.a
+#		set_global_flag = ai_limited_by_mil_factory
+#		if = { 
+#		    limit = { has_global_flag = ai_limited_by_states }
+#			clr_global_flag = ai_limited_by_states
+#		}
+#	}
+#	
+#	option = { 
+#		name = config_ai.2.b
+#		set_global_flag = ai_limited_by_states
+#		if = { 
+#		    limit = { has_global_flag = ai_limited_by_mil_factory }
+#			clr_global_flag = ai_limited_by_mil_factory
+#		}
+#	}
+#	
+#	option = { 
+#		name = config_ai.2.c
+#		#set_global_flag = ai_limited_by_states
+#		if = { 
+#		    limit = { has_global_flag = ai_limited_by_states }
+#			clr_global_flag = ai_limited_by_states
+#		}
+#		if = { 
+#		    limit = { has_global_flag = ai_limited_by_mil_factory }
+#			clr_global_flag = ai_limited_by_mil_factory
+#		}
+#	}
+#}
+#
+#country_event = { 
+#	id = config_ai.3
+#	title = config_ai.3.t
+#	desc = config_ai.3.d
+#	picture = GFX_event_unknown
+#	
+#	hidden = yes
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		has_global_flag = ai_configurations
+#		threat > 60
+#	}
+#	
+#	immediate = {
+#		EVERY_COUNTRY = {
+#		    limit = { 
+#			    is_ai = yes
+#				#is_in_faction = yes
+#			}
+#			add_ideas = ai_faction_limited
+#		}	
+#	}
+#	
+#	option = { 
+#		name = config_ai.3.a
+#	}
+#}

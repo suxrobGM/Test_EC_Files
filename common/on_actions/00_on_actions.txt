@@ -1,0 +1,966 @@
+on_actions = {
+	# country 
+	on_new_term_election = {
+		random_events = {
+			100 = usa.18
+		}
+		random_events = {
+			100 = election.2
+			100 = election.3
+			100 = election.4
+			100 = election.5
+			100 = election.6
+			100 = election.11
+			100 = election.12
+			100 = election.13
+			100 = election.14
+			100 = election.15
+		}
+	}
+
+	# Ace pilots
+	# country, FROM = ace
+	on_ace_promoted = {
+		random_events = {
+			100 = ace_promoted.1
+			5 = ace_promoted.2
+		}
+	}
+
+	# country, FROM = ace, PREV = enemy ace 
+	# This event fires twice, once for each ace.
+	on_aces_killed_each_other = {
+		random_events = {
+			100 = aces_killed_each_other.1
+		}
+	}
+	
+	# country, FROM = our ace, 
+	# PREV = enemy ace, has killed FROM
+	on_ace_killed_by_ace = {
+		random_events = {
+			100 = ace_killed_by_ace.1
+		}
+	}
+
+	# country, FROM = our ace, 
+	# PREV = enemy ace, killed by FROM
+	on_ace_killed_other_ace = {
+		random_events = {
+			100 = ace_killed_other_ace.1
+		}
+	}
+
+	# country, FROM = ace
+	on_ace_killed = {
+		random_events = {
+			100 = ace_died.1
+		}
+	}
+
+	# During justifying wargoals
+	# triggered daily, so make sure there is a sink somewhere not firing events
+	# country, FROM = target nation
+	on_justifying_wargoal_pulse = {
+
+		random_events = {
+			100 = war_justification.1
+			100 = war_justification.2
+			100 = war_justification.3
+			100 = war_justification.4
+			100 = war_justification.5
+			100 = war_justification.6
+			100 = war_justification.7
+			100 = war_justification.8
+			100 = war_justification.9
+			100 = war_justification.10
+			100 = war_justification.11
+			100 = war_justification.12
+			100 = war_justification.13
+			100 = war_justification.14
+			100 = war_justification.15
+			100 = war_justification.16
+			100 = war_justification.17
+			100 = war_justification.18
+			100 = war_justification.19
+			17000 = 0
+		}
+		
+		#effect = {
+		#	if = {	
+		#		limit = { 
+		#			OR = {	
+		#				FROM = { has_war = no }
+		#				#ROOT = { has_war = no }
+		#			}	
+		#		}
+		#		news_event = { id = news.74 days = 25 }
+		#	}	
+		#}
+	}
+
+	on_wargoal_expire = {
+		random_events = {
+			100 = war_justification.301
+		}
+	}
+
+	#FROM is state #ROOT is broken as hell
+	on_nuke_drop = {
+
+		effect = {
+			news_event = { id = nuke_dropped.2 days = 1}
+			news_event = { id = nuke_dropped.3 days = 1}
+			news_event = { id = nuke_dropped.4 days = 1}
+			news_event = { id = nuke_dropped.5 days = 1}
+			news_event = { id = nuke_dropped.6 days = 1}
+			news_event = { id = nuke_dropped.7 days = 1}
+			news_event = { id = nuke_dropped.8 days = 1}
+			news_event = { id = nuke_dropped.9 days = 1}
+			news_event = { id = nuke_dropped.10 days = 1}
+			news_event = { id = nuke_dropped.11 days = 1}
+			news_event = { id = nuke_dropped.12 days = 1}
+			news_event = { id = nuke_dropped.13 days = 1}
+		}
+		random_events = {
+			100 = nuke_dropped.0
+		}
+	}
+
+	on_border_war_lost = {
+		effect = {
+			owner = {
+				country_event = { id = ukraine.17 days = 10 }
+				country_event = { id = ukraine.19 days = 10 }
+				country_event = { id = ukraine.20 days = 10 }
+				country_event = { id = ukraine_civilwar.19 days = 5 }
+				country_event = { id = ukraine_civilwar.21 days = 5 }
+				country_event = { id = isis.28 days = 20 }
+				country_event = { id = isis.30 days = 20 }
+			}
+		}
+	}
+	
+	on_leave_faction = {
+		effect = {
+			FROM = {
+				add_opinion_modifier = {
+					modifier = faction_traitor
+					target = ROOT
+					days = 365
+				}
+			
+				add_opinion_modifier = {
+					modifier = faction_traitor_trade
+					target = ROOT
+					days = 365
+				}
+			}
+		}
+	}
+	
+	# country random events
+	on_bi_yearly_pulse = {
+		effect = {
+			
+		}
+	}
+
+	on_five_year_pulse = {
+		effect = {
+			
+		}
+	}
+
+	#FROM is the one that joins the faction
+	on_create_faction = {
+		effect = {
+			
+		}
+	}
+
+	#FROM is country getting invited.
+	on_offer_join_faction = {
+		effect = {
+			
+		}
+	}
+
+	#FROM is faction leader on join faction requests.
+	on_join_faction = {
+		effect = {
+			
+		}
+	}
+
+	#FROM is war target
+	on_declare_war = {
+		effect = {
+			#if = {
+			#	limit = {
+			#		FROM = {
+			#			OR = {
+			#				has_idea = american_protection_drift_democratic
+			#				has_idea = american_protection_drift_communism
+			#				has_idea = american_protection_drift_fascism
+			#				has_idea = american_protection_defence_democratic
+			#				has_idea = american_protection_defence_communism
+			#				has_idea = american_protection_defence_fascism
+			#			}
+			#		}
+			#		NOT = { 
+			#			tag = USA
+			#			is_in_faction_with = USA # I guess USA will not go to war with someone they are in faction with
+			#			has_war_with = USA
+			#			#USA = { has_war_with = FROM } Should USA enforce peace in a nation it is already at war with?
+			#		}
+			#		OR = {
+			#			has_idea = american_protection_drift_democratic
+			#			has_idea = american_protection_drift_communism
+			#			has_idea = american_protection_drift_fascism
+			#			has_idea = american_protection_defence_democratic
+			#			has_idea = american_protection_defence_communism
+			#			has_idea = american_protection_defence_fascism
+			#		}
+			#	}				
+			#	FROM = { country_event = { id = usa.16 days = 1 } }
+			#}
+		}
+	}
+	
+	# When a new faction is formed
+	on_faction_formed = {
+		effect = {
+			
+		}
+	}
+	
+	# ROOT is capitulated country, FROM is winner
+	on_capitulation = {
+		effect = {
+			news_event = { id = country_capitulated.0 days = 0 }
+		}
+	}
+
+	on_government_change = {
+		effect = {			
+			
+		}
+	}
+
+	on_coup_succeeded = {
+		effect = {
+			#Turn elections on for democracies created from coup
+			random_other_country = {
+				limit = {
+					OR = {	
+						has_government = democratic
+						has_government = liberalism
+						has_government = reformism
+					}	
+					original_tag = ROOT
+				}
+				set_politics = {
+					elections_allowed = yes
+				}
+			}
+		}
+	}
+
+	#ROOT is winner #FROM gets annexed
+	on_civil_war_end = {
+		effect = {
+			
+		}
+	}
+	
+	#ROOT is winner #FROM gets annexed - For civil wars on_civil_war_end is also fired
+	on_annex = {
+		effect = {
+			
+		}
+	}
+	
+	#ROOT is subject FROM is previous overlord
+	on_subject_free = {
+		effect = {
+			
+		}
+	}
+
+	#ROOT is subject FROM is overlord
+	on_subject_autonomy_level_change = {
+		effect = {
+			
+		}
+	}
+	
+	#ROOT is subject FROM is overlord
+	on_subject_annexed = {
+		effect = {
+			
+		}
+	}
+	
+	#used when puppeting in a peace conference
+	#ROOT = nation being puppeted, FROM = overlord
+	on_puppet = {
+		effect = {
+			
+		}
+	}
+	
+	#used when puppeting through the occupied territories menu during peace time (or when releasing from non-core but owned territory, f.e. Britain releasing Egypt)
+	#ROOT = nation being released, FROM = overlord
+	on_release_as_puppet = {
+		effect = {
+			
+		}
+	}
+	
+	#ROOT is free nation FROM is releaser
+	on_release_as_free = {
+		effect = {
+			
+		}
+	}
+	
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			
+		}
+	}
+
+	#Root - current country
+	on_daily = {
+		effect = {
+			ROOT = {
+				#Для контролирование формат деньги
+				convert_money_to_true_format = yes 
+			}
+		}
+	}
+
+	#Not run on a specific country.
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = { 
+					NOT = {
+						has_idea = fighting_country
+						has_idea = not_recognized_country
+						has_idea = partially_recognized_country
+						#has_idea = small_country
+					} 
+				}
+				set_country_flag = joined_into_UN
+			}
+			every_country = {
+				limit = { is_ai = yes }
+				add_ideas = ai_join_faction_limited
+			}
+			every_country = {
+				limit = {
+					has_idea = eu_member
+					NOT = { tag = EUR }
+				}
+				add_opinion_modifier = {
+					modifier = member_EU
+					target = EUR
+				}
+			}
+			every_country = {
+				limit = {
+					has_idea = eu_member
+				}
+				add_ideas = EU_membership
+				set_country_flag = country_successfully_passed_1st_step
+				set_country_flag = country_ready_to_join_EU
+			}
+			EUR = {
+				add_opinion_modifier = {
+					modifier = member_EU
+					target = BEL
+				}
+			}
+			every_country = {
+				limit = { 
+					is_ai = yes
+					NOT = { 
+						has_government = rad_islamists 
+					}
+					NOT = {
+						tag = RUS #что бы в начале игра РФ не послала доброволцы в Сирии
+					}
+				}
+				add_ai_strategy = {
+					type = antagonize
+					id = "IGL"
+					value = 200
+				}
+				add_ai_strategy = {
+					type = antagonize
+					id = "IG1"
+					value = 200
+				}
+				add_ai_strategy = {
+					type = antagonize
+					id = "IG2"
+					value = 200
+				}
+				add_ai_strategy = {
+					type = antagonize
+					id = "IG3"
+					value = 200
+				}
+				add_ai_strategy = {
+					type = antagonize
+					id = "TAL"
+					value = 200
+				}
+				add_ai_strategy = {
+					type = antagonize
+					id = "ALQ"
+					value = 200
+				}
+			}
+			#IGL = {	
+			#	if = {
+			#		limit = { 
+			#			country_exists = IGL 
+			#		}
+			#		add_ideas = ai_focused_aggressive_attack
+			#	}
+			#}
+			
+			### Add default money to all countries ###
+			every_country = {
+				# Единица измерение деньги(money) в миллион долларах
+				# Например, money = 50, это и есть 50 миллион доллар в игре
+				# 70,22 миллиард в игре будет отображается как 70220 миллион доллар
+				add_to_variable = { money = 50 } #добавить в каждой стране 50 млн. доллар
+			}
+			
+			
+			###SETTING STARTING RELIGIONS by |ZoidberG|###
+			
+			every_country = { ##Scoping every country
+				if = {
+					limit = { ## trying get and set the level 1 religion
+						has_idea = preference_religion ## country should have preference_religion idea
+					}
+					
+					if = {
+						limit = {## then trying to find any religion by using trigger that checks region flags
+							has_christianity = yes
+						}
+						add_ideas = { christianity_idea_lvl_1 }
+						
+						else = {
+							if = {
+								limit = {
+									has_islam = yes
+								}
+								add_ideas = { islam_idea_lvl_1 }
+								
+								else = {
+									if = {
+										limit = {
+											has_buddhism = yes
+										}
+										add_ideas = { buddhism_idea_lvl_1 }
+										
+										else = {
+											if = {
+												limit = {
+													has_hinduism = yes
+												}
+												add_ideas = { hinduism_idea_lvl_1 }
+												
+												else = {
+													if = {
+														limit = {
+															has_judaism = yes
+														}
+														add_ideas = { judaism_idea_lvl_1 }
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					
+					else = {
+						if = {
+							limit = { ## trying get and set the level 2 religion
+								has_idea = state_religion
+							}
+							
+							if = {
+								limit = {
+									has_christianity = yes
+								}
+								add_ideas = { christianity_idea_lvl_2 }
+								
+								else = {
+									if = {
+										limit = {
+											has_islam = yes
+										}
+										add_ideas = { islam_idea_lvl_2 }
+										
+										else = {
+											if = {
+												limit = {
+													has_buddhism = yes
+												}
+												add_ideas = { buddhism_idea_lvl_2 }
+												
+												else = {
+													if = {
+														limit = {
+															has_hinduism = yes
+														}
+														add_ideas = { hinduism_idea_lvl_2 }
+														
+														else = {
+															if = {
+																limit = {
+																	has_judaism = yes
+																}
+																add_ideas = { judaism_idea_lvl_2 }
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							
+							else = {
+								if = {
+									limit = { ## trying get and set the level 3 religion
+										has_idea = theocracy
+									}
+									if = {
+										limit = {
+											has_christianity = yes
+										}
+										add_ideas = { christianity_idea_lvl_3 }
+										
+										else = {
+											if = {
+												limit = {
+													has_islam = yes
+												}
+												add_ideas = { islam_idea_lvl_3 }
+												
+												else = {
+													if = {
+														limit = {
+															has_buddhism = yes
+														}
+														add_ideas = { buddhism_idea_lvl_3 }
+														
+														else = {
+															if = {
+																limit = {
+																	has_hinduism = yes
+																}
+																add_ideas = { hinduism_idea_lvl_3 }
+																
+																else = {
+																	if = {
+																		limit = {
+																			has_judaism = yes
+																		}
+																		add_ideas = { judaism_idea_lvl_3 }
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			###SETTING SOME OPINION MODIFIERS FOR ALLIANCES by |ZoidberG|###
+			
+			every_country = { ##Scoping first country
+				every_country = { ##Scoping second country
+					if = {
+						limit = { ##if first and second country has the same idea 
+							PREV = { has_idea = unsc_member }
+							has_idea = unsc_member
+						}
+						add_opinion_modifier = { target = PREV modifier = unsc_member_modifier }##adding opinion modifier to the first country						
+					} ## then all the countries should get their modifiers in both sides
+					
+					if = {
+						limit = {
+							PREV = { has_idea = cis_member }
+							has_idea = cis_member
+						}
+						add_opinion_modifier = { target = PREV modifier = cis_member_modifier }
+						add_opinion_modifier = { target = PREV modifier = cis_member_trade_modifier}
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = guam_member }
+							has_idea = guam_member
+						}
+						add_opinion_modifier = { target = PREV modifier = guam_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = bsec_member }
+							has_idea = bsec_member
+						}
+						add_opinion_modifier = { target = PREV modifier = bsec_member_modifier }
+						add_opinion_modifier = { target = PREV modifier = bsec_member_trade_modifier}
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = brics_member }
+							has_idea = brics_member
+						}
+						add_opinion_modifier = { target = PREV modifier = brics_member_modifier }
+						add_opinion_modifier = { target = PREV modifier = brics_member_trade_modifier}
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = sco_member }
+							has_idea = sco_member
+						}
+						add_opinion_modifier = { target = PREV modifier = sco_member_modifier }
+						add_opinion_modifier = { target = PREV modifier = sco_member_trade_modifier}
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = au_member }
+							has_idea = au_member
+						}
+						add_opinion_modifier = { target = PREV modifier = au_member_modifier }
+						add_opinion_modifier = { target = PREV modifier = au_member_trade_modifier}
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = eu_member }
+							has_idea = eu_member
+						}
+						add_opinion_modifier = { target = PREV modifier = eu_member_modifier }
+						add_opinion_modifier = { target = PREV modifier = eu_member_trade_modifier}
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = arab_league_member }
+							has_idea = arab_league_member
+						}
+						add_opinion_modifier = { target = PREV modifier = arab_league_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = alba_member }
+							has_idea = alba_member
+						}	
+						add_opinion_modifier = { target = PREV modifier = alba_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = commonwealth_member }
+							has_idea = commonwealth_member
+						}
+						add_opinion_modifier = { target = PREV modifier = commonwealth_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = gcc_member }
+							has_idea = gcc_member
+						}
+						add_opinion_modifier = { target = PREV modifier = gcc_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = nafta_member }
+							has_idea = nafta_member
+						}
+						add_opinion_modifier = { target = PREV modifier = nafta_member_modifier }
+						add_opinion_modifier = { target = PREV modifier = nafta_member_trade_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = opec_member }
+							has_idea = opec_member
+						}
+						add_opinion_modifier = { target = PREV modifier = opec_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = unasur_member }
+							has_idea = unasur_member
+						}
+						add_opinion_modifier = { target = PREV modifier = unasur_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = pacific_alliance_member }
+							has_idea = pacific_alliance_member
+						}
+						add_opinion_modifier = { target = PREV modifier = pacific_alliance_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = eaeu_member }
+							has_idea = eaeu_member
+						}	
+						add_opinion_modifier = { target = PREV modifier = eaeu_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = eau_member }
+							has_idea = eau_member
+						}
+						add_opinion_modifier = { target = PREV modifier = eau_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = asean_member }
+							has_idea = asean_member
+						}
+						add_opinion_modifier = { target = PREV modifier = asean_member_modifier }
+					}
+					
+					if = {
+						limit = {
+							PREV = { has_idea = eco_member }
+							has_idea = eco_member
+						}
+						add_opinion_modifier = { target = PREV modifier = eco_member_modifier }
+					}
+				}
+			}
+			
+			###SETTING STARTING OPINION MODIFIERS FOR RELIGIONS by |ZoidberG|###
+			
+			every_country = { ## Scoping first country
+				every_country = { ## Scoping second country
+					if = {
+						limit = { ## Checking does they have any main religion
+							PREV = { has_main_religion = yes }
+							has_main_religion = yes 
+						}
+						
+						if = {
+							limit = { ## Checking for christianity and etc.
+								PREV = { christianity_is_main = yes } 
+								christianity_is_main = yes
+							}		
+						
+							add_opinion_modifier = { target = PREV modifier = same_religion } ## setting needed opinion modifier
+							
+							else = {
+								if = {
+									limit = {
+										PREV = { islam_is_main = yes }
+										islam_is_main = yes
+									}		
+								
+									add_opinion_modifier = { target = PREV modifier = same_religion }
+									
+									else = {
+										if = {
+											limit = {
+												PREV = { buddhism_is_main = yes }
+												buddhism_is_main = yes
+											}		
+										
+											add_opinion_modifier = { target = PREV modifier = same_religion }
+											
+											else = {
+												if = {
+													limit = {
+														PREV = { judaism_is_main = yes }
+														judaism_is_main = yes
+													}		
+						
+													add_opinion_modifier = { target = PREV modifier = same_religion }
+													
+													else = {
+														if = {
+															limit = {
+																PREV = { hinduism_is_main = yes }
+																hinduism_is_main = yes
+															}	
+															
+															add_opinion_modifier = { target = PREV modifier = same_religion }
+															
+															else = {
+																add_opinion_modifier = { target = PREV modifier = another_religion }
+															}
+														}										
+													}
+												}
+											}
+										}	
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_unit_leader_created = {
+		effect = {
+		}
+	}
+
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					tag = GER
+					divisions_in_state = { state = FROM.FROM size > 0 }
+					FROM = {
+						original_tag = GER
+						has_government = fascism
+						has_civil_war = yes
+					}
+				}
+				FROM.FROM = { 
+					set_state_flag = nazi_state_withdrawn
+					random_list = {
+						20 = {
+							set_state_flag = nazi_state_withdrawn1
+						}
+						20 = {
+							set_state_flag = nazi_state_withdrawn2
+						}
+						20 = {
+							set_state_flag = nazi_state_withdrawn3
+						}
+						20 = {
+							set_state_flag = nazi_state_withdrawn4
+						}
+						20 = {
+							set_state_flag = nazi_state_withdrawn5
+						}
+					}
+					state_event = { id = wtt_germany.49 trigger_for = controller }
+				}
+			}
+			if = {
+				limit = {
+					tag = GER
+					64 = { is_controlled_by = GER }
+					any_other_country = {
+						original_tag = GER
+						has_government = fascism
+						has_civil_war = yes
+						owns_state = 64
+					}
+					NOT = { has_global_flag = fall_of_berlin_civil_war }
+				}
+				set_global_flag = fall_of_berlin_civil_war
+				country_event = { id = wtt_germany.50 days = 1 random = 3 }
+			}
+			if = {
+				limit = {
+					tag = GER
+					has_country_flag = germany_war_return_kaiser
+					has_government = neutrality
+					FROM = {
+						original_tag = HOL
+						has_country_flag = netherlands_refused_return_kaiser
+					}
+					OR = {
+						7 = { is_controlled_by = GER }
+						HOL = { is_subject_of = GER }
+					}
+				}
+				country_event = { id = wtt_germany.6 }
+			}
+		}
+	}
+	
+	on_unit_leader_level_up = {
+		effect = {
+			
+		}
+	}
+	
+	# From is owner country
+	on_army_leader_daily = {
+		effect = {
+			
+		}
+	}
+	
+	# From is owner country
+	on_army_leader_won_combat = {
+		effect = {
+			
+		}
+	}
+	
+	# From is owner country
+	on_army_leader_lost_combat = {
+		effect = {
+			
+		}
+	}
+	
+	
+	on_army_leader_promoted = {
+		effect = {
+			
+		}
+	}
+	
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			
+		}
+	}
+
+	#ROOT is winner #FROM is loser
+	on_peaceconference_ended = {
+		effect = {
+			
+		}
+	}	
+}

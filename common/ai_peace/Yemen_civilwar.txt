@@ -1,0 +1,24 @@
+
+yemen_civilwar_end_peace = {
+	enable = {
+		AND = {    
+			YEM = { has_country_flag = YEM_civilwar }
+            ALQ = { has_country_flag = YEM_civilwar }			
+	    }	
+	}
+
+	annex_randomness = 0
+	liberate_randomness = 0
+	puppet_randomness = 0
+	take_states_randomness = 0
+	force_government_randomness = 0
+	
+	
+	annex = {
+		factor = 900			
+	}
+	
+	take_states = {
+		factor = 100
+	}
+}

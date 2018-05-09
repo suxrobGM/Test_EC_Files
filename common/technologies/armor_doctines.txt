@@ -1,0 +1,108 @@
+technologies = {
+
+	# x = (вертикаль) - type
+	@mbt_platform = 0
+	@t0 = 2
+	@t1 = 4
+	@t2 = 6
+	@t3 = 8
+	@t4 = 10
+	@t5 = 12
+	@t6 = 14
+	@t7 = 16
+	@t8 = 18
+	@t9 = 29
+	@t10 = 32
+	@t11 = 35
+	
+	# y = (горизонталь)
+	# g - generation
+	# d - doctine
+	# p - platform`
+	# m - modification
+	
+	@g0 = -3
+	@g1 = -2
+	
+	@g2p = 0
+	@g2 = 1
+	
+	@g3d = 2
+	@g3p = 3
+	@g3 = 3
+	@g3m = 5
+	
+	@g4d = 5
+	@g4p = 8
+	@g4 = 8
+	@g4m = 8
+	
+	@g5p = 10
+	@g5 = 11
+
+	@g6d = 12
+	@g6p = 14
+	@g6 = 14
+	
+	@g7p = 15
+	@g7 = 16
+	
+	@g8p = 20
+	@g8 = 21
+	
+
+	
+	concept_light_recon_tank = {
+			
+		research_cost = 1
+		start_year = 1965
+		folder = {
+			name = armour_folder
+			position = { x = @g3d y = @t4 }
+		}
+	
+		ai_will_do = {
+			factor = 5
+		}
+		
+		categories = {
+			cat_light_tank
+		}
+	}
+	
+	
+	concept_light_airdroppable_tank = {
+	
+		#enable_equipments = {
+		#	light_airdroppable_tank_g1_equipment_0
+		#}
+	
+		research_cost = 1
+		start_year = 1960
+		folder = {
+			name = armour_folder
+			position = { x = @g0 y = @t7 }
+		}
+	
+		ai_will_do = {
+			factor = 5
+		}
+		
+		categories = {
+			cat_light_tank
+		}
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

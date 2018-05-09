@@ -1,0 +1,26 @@
+﻿SOV = {
+	infantry = {
+		prefix = ""
+		generic = { "People's Militia Brigade" }
+		generic_pattern = "UNIT_GENERIC_NAME_SOV"
+		unique = {}
+	}
+	mountaineers = {
+		prefix = ""
+		generic = { "Mountain Infantry Brigade" }
+		generic_pattern = "UNIT_GENERIC_NAME_SOV"
+		unique = {}
+	}
+	marines = {
+		prefix = ""
+		generic = { "Naval Infantry Brigade " }
+		generic_pattern = "UNIT_GENERIC_NAME_SOV"
+		unique = {}
+	}
+	paratroopers = {
+		prefix = ""
+		generic = { "Air Assault Brigade" }
+		generic_pattern = "UNIT_GENERIC_NAME_SOV"
+		unique = {}
+	}
+}

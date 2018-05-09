@@ -1,0 +1,514 @@
+diplomacy = {
+
+    kosovo = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = SER }
+			NOT = { has_war_with = KOS }
+		}
+
+		visible = {
+		    NOT = { original_tag = SER }
+			NOT = { original_tag = KOS }
+			country_exists = SER
+			country_exists = KOS
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		complete_effect = {		  
+			country_event = diplomacy.1
+		}
+		
+	}
+
+	palestine_and_israel = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = PAL }
+			NOT = { has_war_with = ISR }
+		}
+
+		visible = {
+		    NOT = { original_tag = PAL }
+			NOT = { original_tag = ISR }
+			country_exists = PAL
+			country_exists = ISR
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		complete_effect = {		  
+			country_event = diplomacy.2
+		}
+		
+		
+	}
+	
+	taiwan = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = CHI }
+			NOT = { has_war_with = ROC }
+		}
+
+		visible = {
+		    NOT = { original_tag = CHI }
+			NOT = { original_tag = ROC }
+			country_exists = CHI
+			country_exists = ROC
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		complete_effect = {		  
+			country_event = diplomacy.3
+		}		
+		
+	}
+	
+	    korea = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = KOR }
+			NOT = { has_war_with = PRK }
+		}
+
+		visible = {
+		    NOT = { original_tag = KOR }
+			NOT = { original_tag = PRK }
+			country_exists = KOR
+			country_exists = PRK
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		complete_effect = {		  
+			country_event = diplomacy.4
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	sahara = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = WSA }
+			NOT = { has_war_with = MAR }
+		}
+
+		visible = {
+		    NOT = { original_tag = WSA }
+			NOT = { original_tag = MAR }
+			country_exists = WSA
+			country_exists = MAR
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		complete_effect = {		  
+			country_event = diplomacy.5
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	cyprus = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = KPR }
+			NOT = { has_war_with = NCY }
+		}
+
+		visible = {
+		    NOT = { original_tag = KPR }
+			NOT = { original_tag = NCY }
+			country_exists = KPR
+			country_exists = NCY
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		complete_effect = {		  
+			country_event = diplomacy.6
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	somaliland = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = SOM }
+			NOT = { has_war_with = SML }
+		}
+
+		visible = {
+		    NOT = { original_tag = SOM }
+			NOT = { original_tag = SML }
+			country_exists = SOM
+			country_exists = SML
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	pmr = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = MDA }
+			NOT = { has_war_with = TMD }
+		}
+
+		visible = {
+		    NOT = { original_tag = MDA }
+			NOT = { original_tag = TMD }
+			country_exists = MDA
+			country_exists = TMD
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	karabakh = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = AZR }
+			NOT = { has_war_with = NKR }
+		}
+
+		visible = {
+		    NOT = { original_tag = AZR }
+			NOT = { original_tag = NKR }
+			country_exists = AZR
+			country_exists = NKR
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ossetia_and_abkhazia = {
+
+		icon = generic_political_discourse
+
+		available = {
+			NOT = { has_war_with = GEO }
+			NOT = { has_war_with = SOS }
+			NOT = { has_war_with = ABZ }
+		}
+
+		visible = {
+		    NOT = { original_tag = GEO }
+			NOT = { original_tag = SOS }
+			NOT = { original_tag = ABZ }
+			country_exists = GEO
+			country_exists = SOS
+			country_exists = ABZ
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}	
+
+education_efforts = {
+
+	mein_kampf = {
+
+		icon = generic_fascism
+
+		available = {
+		    fascism > 0.2
+		}
+
+		visible = {
+		    OR = {
+		        fascism > 0.2
+		        has_government = fascism
+				}
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+		
+		complete_effect = {
+			add_popularity = {
+							ideology = fascism
+							popularity = 0.05
+						}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	capital = {
+
+		icon = generic_political_discourse
+		
+		available = {
+		    OR = {
+		        communism > 0.2
+				reformism > 0.2
+				}
+		}
+
+		visible = {
+		    OR = {
+		        communism > 0.2
+		        has_government = communism
+				reformism > 0.2
+		        has_government = reformism
+				}
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+		
+		complete_effect = {
+			add_popularity = {
+							ideology = communism
+							popularity = 0.05
+						}
+			add_popularity = {
+							ideology = reformism
+							popularity = 0.05
+						}			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	koran = {
+
+		icon = generic_civil_support
+
+		available = {
+		    OR = {
+		        islamists > 0.2
+				rad_islamists > 0.2
+				}
+		}
+
+		visible = {
+		    OR = {
+		        islamists > 0.2
+		        has_government = islamists
+				rad_islamists > 0.2
+		        has_government = rad_islamists
+				}
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+		
+		complete_effect = {
+			add_popularity = {
+							ideology = islamists
+							popularity = 0.05
+						}
+			add_popularity = {
+							ideology = rad_islamists
+							popularity = 0.05
+						}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	minor_academy_sciences = {
+
+		icon = generic_research
+
+		available = {
+		
+		}
+
+		visible = {
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = -1
+		cost = 75
+		
+		modifier = {
+			research_time_factor = -0.03
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}
+
+army = {
+
+    politruk = {
+
+		icon = generic_civil_support
+
+		available = {
+		
+		}
+
+		visible = {
+		}
+		
+		remove_trigger = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = -1
+		cost = 75
+		
+		modifier = {
+			army_org_factor = 0.05
+			army_morale_factor = 0.05
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}	

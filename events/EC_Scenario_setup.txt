@@ -1,0 +1,165 @@
+﻿#####################################
+## Switch national focus by events ##
+#####################################
+
+add_namespace = scenario
+
+#country_event = { # Национальные фокусы сценария 1985 года
+#	id = scenario.1
+#	title = scenario.1.t
+#	desc = scenario.1.d
+#	picture = GFX_event_unknown
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#	    tag = ROOT
+#		date > 1985.5.1
+#		NOT = { has_global_flag = start_scenario_1985 }
+#	}
+#	
+#	immediate = {
+#	    set_global_flag = start_scenario_1985
+#	}
+#	
+#	option = { 
+#		name = scenario.1.a
+#	}
+#	
+#	mean_time_to_happen = {
+#		days = 1
+#	}
+#}
+#
+#country_event = { # Национальные фокусы сценария 2001 года
+#	id = scenario.2
+#	title = scenario.2.t
+#	desc = scenario.2.d
+#	picture = GFX_event_unknown
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#	    tag = ROOT
+#		date > 2001.8.1
+#		NOT = { has_global_flag = start_scenario_2001 }
+#	}
+#	
+#	immediate = {
+#	    set_global_flag = start_scenario_2001
+#	}
+#	
+#	option = { 
+#		name = scenario.2.a
+#	}
+#	
+#	mean_time_to_happen = {
+#		days = 1
+#	}
+#}
+#
+#country_event = { #Национальные фокусы сценария 2015 года
+#	id = scenario.3
+#	title = scenario.3.t
+#	desc = scenario.3.d
+#	picture = GFX_event_unknown
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#	    tag = ROOT
+#		date > 2013.11.1
+#		#NOT = { has_global_flag = start_scenario_2015 }
+#	}
+#	
+#	immediate = {
+#	    set_global_flag = start_scenario_2015
+#	}
+#	
+#	option = { 
+#		name = scenario.3.a
+#	}
+#	
+#	#mean_time_to_happen = {
+#	#	days = 1
+#	#}
+#}
+
+country_event = { 
+	id = scenario.4
+	title = scenario.4.t
+	desc = scenario.4.d
+	picture = GFX_event_unknown
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		tag = ROOT
+		has_global_flag = NATO_expansions1
+	}
+	
+	immediate = {
+		clr_global_flag = NATO_expansions1
+		USA = {
+            add_to_faction = HUN
+	        add_to_faction = POL
+	        add_to_faction = CZE
+        }
+	}
+	
+	option = { 
+		name = scenario.4.a
+	}
+}
+
+country_event = { 
+	id = scenario.5
+	title = scenario.5.t
+	desc = scenario.5.d
+	picture = GFX_event_unknown
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+	    tag = ROOT
+		has_global_flag = NATO_expansions2
+	}
+	
+	immediate = {
+		clr_global_flag = NATO_expansions2
+		USA = {
+            add_to_faction = BUL
+	        add_to_faction = ROM
+			add_to_faction = HUN
+	        add_to_faction = POL
+	        add_to_faction = CZE
+        }
+	}
+	
+	option = { 
+		name = scenario.5.a
+	}
+}
+
+country_event = {
+	id = scenario.6
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = has_BRICS_modifiers
+		every_country = {
+			limit = {
+				has_idea = brics_member
+			}
+			add_opinion_modifier = { target = FROM modifier = member_BRICS }
+		}
+	}
+	
+	option = {
+	name = scenario.6
+	}
+}

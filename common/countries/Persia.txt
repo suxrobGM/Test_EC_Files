@@ -1,0 +1,8 @@
+# not used in Economic Crisis
+
+# Economisc Crisis clean
+
+# graphical_culture = eastern_desert_gfx
+# graphical_culture_2d = middle_eastern_2d
+
+# color = { 71  113  97 }

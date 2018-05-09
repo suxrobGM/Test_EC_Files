@@ -1,0 +1,71 @@
+NATO_membership = {
+	
+	enable = {
+		AND = {
+			#OR = {
+			#	tag = BEL
+			#	tag = CAN
+			#	tag = DEN
+			#	tag = FRA
+			#	tag = ICE
+			#	tag = ITA
+			#	tag = LUX
+			#	tag = HOL
+			#	tag = NOR
+			#	tag = POR
+			#	tag = ENG
+			#	tag = GRE
+			#	tag = TUR
+			#	tag = GER
+			#	tag = SPR
+			#	tag = CZR
+			#	tag = HUN
+			#	tag = POL
+			#	tag = BUL
+			#	tag = EST
+			#	tag = LAT
+			#	tag = LIT
+			#	tag = ROM
+			#	tag = SLO
+			#	tag = SVN			
+			#	tag = CRO
+			#	tag = ALB
+			#}
+		
+			OR = {
+				has_government = democratic
+				has_government = liberalism
+				has_government = reformism
+				has_government = neutrality
+			}
+		
+			OR = {
+				USA = { has_government = democratic }
+				USA = { has_government = liberalism }
+				USA = { has_government = reformism }
+			}
+		}
+	}
+	
+	abort = {
+		OR = {
+			has_war_with = USA
+			USA = { exists = no }
+			OR = {
+			    has_government = fascism
+				has_government = rad_islamists
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "USA"
+		value = 50
+	}
+	ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = 125
+	}
+}

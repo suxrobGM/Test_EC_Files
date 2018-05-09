@@ -1,0 +1,45 @@
+ideas = {
+
+	country = {
+	
+		ENG_brexit = {
+		
+			picture = GFX_idea_ENG_brexit
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				stability_factor = -0.1
+			}
+		}
+		
+		ENG_euroscepticism_idea = {
+			allowed = {
+				has_idea = eu_member
+			}
+			allowed_civil_war = {
+				has_government = fascism
+			}
+			modifier = {	
+				political_power_gain = 0.25
+			}
+			removal_cost = -1
+		}
+
+		ENG_euro_idea = {
+
+			modifier = {
+				political_power_gain = -0.25
+			}
+			removal_cost = -1
+		}
+
+		ENG_gbp_idea = {
+
+			modifier = {
+				political_power_gain = 0.25
+			}
+			removal_cost = -1
+		}
+	}
+}

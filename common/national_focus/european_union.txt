@@ -1,0 +1,71 @@
+focus_tree = {
+	id = european_union_focus
+	country = {
+		factor = 0
+		#modifier = {
+		#	add = 10
+		#	tag = EUR
+		#}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 200 y = 1600 }
+	
+#   Шаблон
+#	focus = {
+#		id = UKR_
+#		icon = GFX_
+#		prerequisite = { focus = }
+#		relative_position_id = 
+#		mutually_exclusive = { focus =  }
+#		x = -3
+#		y = 0
+#		cost = 10
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+	
+	focus = {
+		id = EUR_political_focus
+		icon = GFX_goal_unknown
+		x = 6
+		y = 0
+		cost = 10
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+	
+	
+}	

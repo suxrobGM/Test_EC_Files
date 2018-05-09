@@ -1,0 +1,139 @@
+﻿########################
+## Economic Crisis   ###
+##########################
+## Taxes hidden events ###
+##########################
+## Written by SuxrobGM #
+########################
+
+add_namespace = tax_law
+
+country_event = { 
+	id = tax_law.1
+	title = tax_law.1.t
+	desc = tax_law.1.d
+	picture = GFX_event_unknown
+	
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+	    #random_owned_state = {
+		#	limit = {
+		#		is_in_home_area = yes
+		#	}
+		#	add_resource = {
+		#	    type = money
+		#	    amount = 20
+		#    }
+		#}
+	}
+	
+	option = { 
+		name = tax_law.1.a
+	}
+}
+
+country_event = { 
+	id = tax_law.2
+	title = tax_law.2.t
+	desc = tax_law.2.d
+	picture = GFX_event_unknown
+	
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+	    #random_owned_state = {
+		#	limit = {
+		#		is_in_home_area = yes
+		#	}
+		#	add_resource = {
+		#	    type = money
+		#	    amount = 30
+		#    }
+		#}
+	}
+	
+	option = { 
+		name = tax_law.2.a
+	}
+}
+
+country_event = { 
+	id = tax_law.3
+	title = tax_law.3.t
+	desc = tax_law.3.d
+	picture = GFX_event_unknown
+	
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+	    #random_owned_state = {
+		#	limit = {
+		#		is_in_home_area = yes
+		#	}
+		#	add_resource = {
+		#	    type = money
+		#	    amount = 40
+		#    }
+		#}
+	}
+	
+	option = { 
+		name = tax_law.3.a
+	}
+}
+
+country_event = { 
+	id = tax_law.4
+	title = tax_law.4.t
+	desc = tax_law.4.d
+	picture = GFX_event_unknown
+	
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+	    #random_owned_state = {
+		#	limit = {
+		#		is_in_home_area = yes
+		#	}
+		#	add_resource = {
+		#	    type = money
+		#	    amount = 50
+		#    }
+		#}
+	}
+	
+	option = { 
+		name = tax_law.4.a
+	}
+}
+
+country_event = { 
+	id = tax_law.5
+	title = tax_law.5.t
+	desc = tax_law.5.d
+	picture = GFX_event_unknown
+	
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+	    #random_owned_state = {
+		#	limit = {
+		#		is_in_home_area = yes
+		#	}
+		#	add_resource = {
+		#	    type = money
+		#	    amount = 60
+		#    }
+		#}
+	}
+	
+	option = { 
+		name = tax_law.5.a
+	}
+}	

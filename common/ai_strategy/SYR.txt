@@ -1,0 +1,68 @@
+war_with_opposition_syria = {
+	enable = {
+		tag = SYR
+		SYR = { has_country_flag = SYR_civilwar }
+		country_exists = SYR
+		country_exists = SSR
+	}
+	abort = {
+		NOT = { 
+			OR = {	
+				country_exists = SYR
+				country_exists = SSR
+			}	
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "SSR"
+		value = 200
+	}
+}
+
+war_with_ISIS = {
+	enable = {
+		tag = SYR
+		SYR = { has_country_flag = war_with_ISIS }
+		country_exists = SYR
+		country_exists = IGL
+	}
+	abort = {
+		NOT = { 
+			OR = {	
+				country_exists = SYR
+				country_exists = IGL
+			}	
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "IGL"
+		value = 200
+	}
+}
+
+FSA_wants_to_annex_syria = {
+	enable = {
+		tag = SSR
+		SSR = { has_country_flag = SYR_civilwar }
+		country_exists = SYR
+		country_exists = SSR
+	}
+	abort = {
+		NOT = { 
+			OR = {	
+				country_exists = SYR
+				country_exists = SSR
+			}	
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "SYR"
+		value = 200
+	}
+}

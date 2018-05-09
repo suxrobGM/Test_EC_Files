@@ -1,0 +1,270 @@
+focus_tree = {
+	id = poland
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = POL
+			
+		}
+	}
+	default = no
+	
+	continuous_focus_position = { x = 200 y = 1750 }
+	focus = {
+		id = POL_political_effort
+		#icon = 
+		cost = 17
+		x = 12
+		y = 0
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+focus = {
+		id = POL_democratic_present
+		#icon =
+		cost = 10
+		prerequisite = {
+			focus = POL_political_effort
+		}
+                  mutually_exclusive = {
+			focus = POL_accept_communism
+                        focus = POL_nationalism_vector
+                        focus = POL_neutrality_politic
+                      }
+		x = 3
+		y = 1
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+completion_reward = {
+			add_popularity = {
+					ideology = reformism
+					popularity = 0.05
+					}
+		add_popularity = {
+					ideology = democratic
+					popularity = 0.05
+				}
+add_popularity = {
+					ideology = liberalism
+					popularity = 0.05
+				}
+                        }
+             }
+focus = {
+		id = POL_save_tradition
+		#icon = 
+		cost = 10
+		prerequisite = {
+			focus = POL_democratic_present
+		}
+mutually_exclusive = {
+			focus = POL_liberal_country
+                        focus = POL_social_democracy
+		}
+		x = 1
+		y = 2
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+completion_reward = {
+		add_popularity = {
+					ideology = democratic
+					popularity = 0.1
+				}
+                                        add_ideas = support_conservatism
+                        }
+             }
+focus = {
+		id = POL_liberal_country
+		#icon = 
+		cost = 10
+		prerequisite = {
+			focus = POL_democratic_present
+		}
+mutually_exclusive = {
+			focus = POL_save_tradition
+                        focus = POL_social_democracy
+		}
+		x = 5
+		y = 2
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+completion_reward = {
+		add_popularity = {
+					ideology = liberalism
+					popularity = 0.05
+				}
+              add_ideas = support_liberalism
+                        }
+             }
+focus = {
+		id = POL_social_democracy
+		#icon = 
+		cost = 10
+		prerequisite = {
+			focus = POL_democratic_present
+		}
+mutually_exclusive = {
+			focus = POL_save_tradition
+                        focus = POL_liberal_country
+		}
+		x = 9
+		y = 2
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+completion_reward = {
+		add_popularity = {
+					ideology = reformism
+					popularity = 0.05
+				}
+                             add_ideas = support_reformism
+                        }
+             }
+focus = {
+		id = POL_accept_communism
+		#icon =
+		cost = 10
+		prerequisite = {
+			focus = POL_political_effort
+		}
+                mutually_exclusive = {
+			focus = POL_democratic_present
+                        focus = POL_nationalism_vector
+                      }
+		x = 11
+		y = 1
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+completion_reward = {
+                         news_event = { id = poland_news.1 days = 1 }
+               add_popularity = {
+					ideology = communism
+					popularity = 0.03
+					}       
+                         add_ideas = support_socialism   
+                        }
+             }
+focus = {
+		id = POL_communism_vector
+		#icon =
+		cost = 10
+		prerequisite = {
+			focus = POL_accept_communism
+		       }
+		x = 11
+		y = 2
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+completion_reward = {
+			add_popularity = {
+					ideology = communism
+					popularity = 0.15
+					}
+                        }
+             }
+focus = {
+		id = POL_nationalism_vector
+		#icon =
+		cost = 10
+		prerequisite = {
+			focus = POL_political_effort
+		       }
+                     mutually_exclusive = {
+			focus = POL_democratic_present
+                        focus = POL_accept_communism
+                        focus = POL_neutrality_politic
+                      }
+		x = 16
+		y = 1
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+completion_reward = {
+			add_popularity = {
+					ideology = fascism
+					popularity = 0.10
+					}
+                       add_ideas = support_fascism
+                        }
+             }
+focus = {
+		id = POL_neutrality_politic
+		#icon =
+		cost = 10
+		prerequisite = {
+			focus = POL_political_effort
+		       }
+                     mutually_exclusive = {
+			focus = POL_democratic_present
+                        focus = POL_accept_communism
+                        focus = POL_nationalism_vector
+                      }
+		x = 21
+		y = 1
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 5
+		}
+completion_reward = {
+			add_popularity = {
+					ideology = neutrality
+					popularity = 0.10
+					}
+                       add_ideas = support_neutrality
+                        }
+             }
+}

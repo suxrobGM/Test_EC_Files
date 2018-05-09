@@ -1,0 +1,16 @@
+ideas = {
+	country = {	
+		afg_underground = {
+
+			allowed = { always = no }
+
+			picture = afg_underground
+		
+			removal_cost = -1
+
+			modifier = {
+				ARMY_CORE_DEFENCE_FACTOR = 1.0
+			}
+		}
+	}	
+}	

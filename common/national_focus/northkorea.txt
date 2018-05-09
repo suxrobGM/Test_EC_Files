@@ -1,0 +1,3341 @@
+focus_tree = {
+	id = prk_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PRK
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 100 y = 1400 }
+	
+#   Шаблон
+#	focus = {
+#		id = UKR_
+#		icon = GFX_
+#		prerequisite = { focus = }
+#		relative_position_id = 
+#		mutually_exclusive = { focus =  }
+#		x = -3
+#		y = 0
+#		cost = 10
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+
+	focus = {
+		id = PRK_political_effort #Развитие политики
+		icon = GFX_Razvitie_politiki
+		x = 14
+		y = 0
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 120 
+		}
+	}
+	
+	focus = {
+		id = PRK_communistic_party #Коммунистический партия КНДР
+		icon = GFX_communist_party_PRK
+		mutually_exclusive = { focus = PRK_reform_democracy }
+		mutually_exclusive = { focus = PRK_recovery_imperium }
+		prerequisite = { focus = PRK_political_effort }
+		x = 12
+		y = 1
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 160 
+		}
+	}
+	
+	focus = {
+		id = PRK_reform_democracy #Демократический реформы
+		icon = GFX_democratic_reformi_PRK
+		mutually_exclusive = { focus = PRK_communistic_party }
+		mutually_exclusive = { focus = PRK_recovery_imperium }
+		prerequisite = { focus = PRK_political_effort }
+		x = 14
+		y = 1
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+			modifier = {
+			    factor = 0
+			    is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 160 
+		}
+	}
+	
+	focus = {
+		id = PRK_recovery_imperium #Востановление империи
+		icon = GFX_koreyskaya_imperiya_PRK
+		mutually_exclusive = { focus = PRK_communistic_party }
+		mutually_exclusive = { focus = PRK_reform_democracy }
+		prerequisite = { focus = PRK_political_effort }
+		x = 16
+		y = 1
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+			modifier = {
+			    factor = 0
+			    is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 160 
+		}
+	}
+	
+	focus = {
+		id = PRK_Kim_Chen_In_politics #Политика Ким Чен Ына
+		icon = GFX_politika_Kim_Chen_In_PRK
+		prerequisite = { focus = PRK_communistic_party }
+		x = 3
+		y = 2
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = support_Kim_Chen_In
+		}
+	}
+	
+	focus = {
+		id = PRK_militirisation #Милитризации
+		icon = GFX_militrizasii_strani_PRK
+		prerequisite = { focus = PRK_Kim_Chen_In_politics }
+		x = 0
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = militirisation_north_korea
+		}
+	}
+	
+	focus = {
+		id = PRK_million_army #Военний академия
+		icon = GFX_voennaya_akademiya_PRK
+		prerequisite = { focus = PRK_militirisation }
+		x = 0
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = military_academy
+		}
+	}
+	
+	focus = {
+		id = PRK_nuclear_programm #Программа ядерного исследование
+		icon = GFX_programma_atomnix_issledovanie_PRK
+		prerequisite = { focus = PRK_million_army }
+		x = 0
+		y = 5
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+		}
+		completion_reward = {
+			527 = { 
+			    add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 1
+					instant_build = yes
+				} 
+			}
+			527 = { 
+			    add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 1
+					instant_build = yes
+				} 
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_test_vodorod_bomb #Испитание водородний бомбы
+		icon = GFX_ispitanie_vodorodnoy_bombi_PRK
+		prerequisite = { focus = PRK_nuclear_programm }
+		x = 0
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+		}
+		#available = {
+		#    NUM_OF_NUKES > 1
+		#}
+		completion_reward = {
+			news_event = { id = news.25 days = 2 }
+		}
+	}
+	
+	focus = {
+		id = PRK_test_MBR #Пуск балистической ракеты
+		icon = GFX_pusk_balisticheskiy_raketi_PRK
+		prerequisite = { focus = PRK_test_vodorod_bomb }
+		x = 0
+		y = 7
+		cost = 10
+		ai_will_do = { 
+			factor = 5
+		}
+		#available = {
+		#    NUM_OF_NUKES > 1
+		#}
+		completion_reward = {
+			#news_event = { id = news.25 days = 3 }
+		}
+	}
+	
+	focus = {
+		id = PRK_Plan_X #План Х
+		#icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = PRK_Kim_Chen_In_politics }
+		x = 3
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			army_experience = 20
+			air_experience = 20
+			navy_experience = 20
+			add_political_power = 60
+		}
+	}
+	
+	#focus = {
+	#	id = PRK_coup_to_KOR #Попитка переворота
+	#	icon = GFX_perevorot_v_Koree_PRK
+	#	mutually_exclusive = { focus = PRK_popitka_ubit_prezident }
+	#	prerequisite = { focus = PRK_Plan_X }
+	#	x = 2
+	#	y = 4
+	#	cost = 10
+	#	ai_will_do = { 
+	#		factor = 1.5
+	#	}
+	#	completion_reward = {
+	#		#Event
+	#	}
+	#}
+	
+	focus = {
+		id = PRK_popitka_ubit_prezident #Попитка покушение
+		icon = GFX_pokushenie_k_prezidenta_PRK
+		#mutually_exclusive = { focus = PRK_coup_to_KOR }
+		prerequisite = { focus = PRK_Plan_X }
+		x = 4
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			#Event
+		}
+	}
+	
+	focus = {
+		id = PRK_border_war_DMZ #Пограничный конфликт ДМЗ
+		icon = GFX_pogranichniy_konflikt_v_DMZ_PRK
+		prerequisite = { focus = PRK_popitka_ubit_prezident }
+		x = 3
+		y = 5
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			#Event
+		}
+	}
+	
+	focus = {
+		id = PRK_remlitirization_DMZ #Ремлитризации ДМЗ
+		icon = GFX_remlitrizatsii_DMZ_PRK
+		prerequisite = { focus = PRK_border_war_DMZ }
+		x = 3
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			807 = { set_demilitarized_zone = no }
+			add_named_threat = { threat = 5 name = threat_PRK_remlitrisation_DMZ }
+		}
+	}
+	
+	focus = {
+		id = PRK_union_korea #Объединение Корее
+		icon = GFX_obedinenie_s_yugom_PRK
+		prerequisite = { focus = PRK_remlitirization_DMZ }
+		x = 3
+		y = 7
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			create_wargoal = { target = KOR type = annex_everything }
+		}
+	}
+	
+	focus = {
+		id = PRK_parad_great_victory #Парад великой победы
+		icon = GFX_parad_velikoy_pobedii_PRK
+		prerequisite = { focus = PRK_union_korea }
+		x = 3
+		y = 8
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			#Event
+		}
+	}
+	
+	focus = {
+		id = PRK_threat_agresion_to_USA #Угрожать США
+		icon = GFX_threat_USA_PRK
+		prerequisite = { focus = PRK_parad_great_victory }
+		prerequisite = { focus = PRK_test_MBR }
+		x = 1
+		y = 9
+		cost = 10
+		available = {
+		    NUM_OF_NUKES > 4
+			NOT = { country_exists = KOR }
+		}
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			create_wargoal = { target = USA type = puppet_wargoal_focus }
+		}
+	}
+	
+	focus = {
+		id = PRK_purged_politics #Чистка от передателей
+		icon = GFX_chistka_vnutrennix_ryadii_PRK
+		prerequisite = { focus = PRK_Kim_Chen_In_politics }
+		x = 9
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			#Event
+		}
+	}
+	
+	focus = {
+		id = PRK_reorganisation_army #Реорганизация армии
+		icon = GFX_reorganizatsiya_armii_PRK
+		prerequisite = { focus = PRK_purged_politics }
+		x = 9
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+			army_experience = 20 
+		}
+	}
+	
+	focus = {
+		id = PRK_young_officers #Молодёжный состав
+		icon = GFX_molodejnaya_sostav_PRK
+		prerequisite = { focus = PRK_purged_politics }
+		x = 11
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = idea_young_officers 
+		}
+	}
+	
+	focus = {
+		id = PRK_chuchxe #Чучхе
+		icon = GFX_chuchxe_PRK
+		prerequisite = { focus = PRK_Kim_Chen_In_politics }
+		x = 7
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = chuchxe
+		}
+	}
+	
+	focus = {
+		id = PRK_people_productions #Товары народного потребление
+		icon = GFX_consumer_goods_PRK
+		prerequisite = { focus = PRK_chuchxe }
+		x = 7
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = people_productions
+		}
+	}
+	
+	focus = {
+		id = PRK_gosplan_x_year #Госплан на трехлетый развитие
+		icon = GFX_gosplan_trexletnogo_PRK
+		prerequisite = { focus = PRK_people_productions }
+		x = 7
+		y = 5
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			ADD_TIMED_IDEA = { idea = idea_economic_effort days = 1095 }
+		}
+	}
+	
+	focus = {
+		id = PRK_reosurce_oil #Месторождение нефта
+		icon = GFX_neftyannoe_mestorojdenie_PRK
+		prerequisite = { focus = PRK_gosplan_x_year }
+		x = 5
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 16
+				state = 527
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_reosurce_steel #Железо
+		icon = GFX_steel_factory_PRK
+		prerequisite = { focus = PRK_gosplan_x_year }
+		x = 7
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 16
+				state = 527
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_reosurce_rubber #Волфрам
+		icon = GFX_Razvitie_prirodnix_resursii_PRK
+		prerequisite = { focus = PRK_gosplan_x_year }
+		x = 9
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_resource = {
+				type = rubber
+				amount = 16
+				state = 527
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_reform_money #Реформы националного валюти
+		icon = GFX_denejnaya_reforma_PRK
+		prerequisite = { focus = PRK_reosurce_oil }
+		prerequisite = { focus = PRK_reosurce_steel }
+		prerequisite = { focus = PRK_reosurce_rubber }
+		x = 7
+		y = 7
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			#add_resource = {
+			#	type = money
+			#	amount = 25
+			#	state = 527
+			#}
+		}
+	}
+	
+	focus = {
+		id = PRK_outside_politcs #Внешная политика
+		#icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = PRK_communistic_party focus = PRK_reform_democracy focus = PRK_recovery_imperium }
+		x = 14
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	
+	focus = {
+		id = PRK_east #Сотрудничества с востоком
+		icon = GFX_vostok_PRK
+		prerequisite = { focus = PRK_outside_politcs }
+		prerequisite = { focus = PRK_Kim_Chen_In_politics }
+		mutually_exclusive = { focus = PRK_west } 
+		x = 13
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = SOV modifier = PRK_friend_with_east }
+			add_opinion_modifier = { target = CHI modifier = PRK_friend_with_east }
+			SOV = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_east } }
+			CHI = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_east } }
+		}
+	}
+	
+	focus = {
+		id = PRK_west #Сотрудничества с западом
+		icon = GFX_dvijenei_na_zapad_PRK
+		prerequisite = { focus = PRK_outside_politcs }
+		prerequisite = { focus = PRK_support_reformism focus = PRK_support_liberalism focus = PRK_support_conservativ }
+		mutually_exclusive = { focus = PRK_east } 
+		x = 15
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = USA modifier = PRK_friend_with_west }
+			add_opinion_modifier = { target = KOR modifier = PRK_friend_with_west }
+			add_opinion_modifier = { target = ENG modifier = PRK_friend_with_west }
+			add_opinion_modifier = { target = GER modifier = PRK_friend_with_west }
+			add_opinion_modifier = { target = JAP modifier = PRK_friend_with_west }
+			USA = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_west } }
+			KOR = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_west } }
+			ENG = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_west } }
+			GER = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_west } }
+			JAP = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_west } }
+		}
+	}
+	
+	focus = {
+		id = PRK_friend_korea #Дружить с Югом
+		#icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = PRK_west } 
+		x = 15
+		y = 5
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = KOR modifier = PRK_friend_with_korea }
+			KOR = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_korea } }
+		}
+	}
+	
+	focus = {
+		id = PRK_friend_USA #Примирится с США
+		#icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = PRK_friend_korea } 
+		x = 15
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = USA modifier = PRK_friend_with_USA }
+			USA = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_USA } }
+		}
+	}
+	
+	focus = {
+		id = PRK_dogovor_USA #Договор о сотрудничества
+		#icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = PRK_friend_USA } 
+		x = 15
+		y = 7
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = PRK_investitsiya #Инностранный инвеститоров
+		#icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = PRK_dogovor_USA } 
+		prerequisite = { focus = PRK_open_country }
+		x = 15
+		y = 8
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = PRK_friend_Russia #Дружба с Россией
+		icon = GFX_drujba_s_Rossii_PRK
+		prerequisite = { focus = PRK_east }
+		x = 11
+		y = 5
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = SOV modifier = PRK_friend_with_RUS }
+			SOV = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_RUS } }
+		}
+	}
+	
+	focus = {
+		id = PRK_dogovor_Russia #Договор 
+		icon = GFX_dogovor_o_sotrudnichestva_rossi_PRK
+		prerequisite = { focus = PRK_friend_Russia }
+		x = 11
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			#opininon modifier
+		}
+	}
+	
+	focus = {
+		id = PRK_friend_China #Дружба с Китай
+		icon = GFX_drujba_s_Kitaem_PRK
+		prerequisite = { focus = PRK_east }
+		x = 13
+		y = 5
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = CHI modifier = PRK_friend_with_CHI }
+			CHI = { add_opinion_modifier = { target = PRK modifier = PRK_friend_with_CHI } }
+		}
+	}
+	
+	focus = {
+		id = PRK_dogovor_China #Договор о военим сотрудничества
+		icon = GFX_dogovor_o_voennim_sotrudnichestva_PRK
+		prerequisite = { focus = PRK_friend_China }
+		x = 13
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			#opininon modifier
+		}
+	}
+	
+	focus = {
+		id = PRK_example_west_democraty 
+		icon = GFX_democratiya_zapadnogo_PRK
+		prerequisite = { focus = PRK_reform_democracy }
+		mutually_exclusive = { focus = PRK_support_liberalism }
+		mutually_exclusive = { focus = PRK_support_reformism }
+		x = 21
+		y = 2
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = democratic_influence
+		}
+	}
+	
+	focus = {
+		id = PRK_support_conservativ 
+		icon = GFX_support_conservatism_PRK
+		prerequisite = { focus = PRK_example_west_democraty }
+		mutually_exclusive = { focus = PRK_support_liberalism }
+		mutually_exclusive = { focus = PRK_support_reformism }
+		x = 19
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = democratic_influence
+		}
+	}
+	
+	focus = {
+		id = PRK_support_liberalism 
+		icon = GFX_liberalnaya_democratiya
+		prerequisite = { focus = PRK_example_west_democraty }
+		mutually_exclusive = { focus = PRK_support_conservativ }
+		mutually_exclusive = { focus = PRK_support_reformism }
+		x = 21
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = support_liberalism
+		}
+	}
+	
+	focus = {
+		id = PRK_support_reformism
+		icon = GFX_support_reformism_PRK
+		prerequisite = { focus = PRK_example_west_democraty }
+		mutually_exclusive = { focus = PRK_support_conservativ }
+		mutually_exclusive = { focus = PRK_support_liberalism }
+		x = 23
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = support_reformism
+		}
+	}
+	
+	focus = {
+		id = PRK_propaganda_democraty #Массовая пропаганда
+		icon = GFX_massovaya_propganda_PRK
+		prerequisite = { focus = PRK_support_reformism focus = PRK_support_liberalism focus = PRK_support_conservativ }
+		x = 21
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = 0.8 }
+			add_popularity = { ideology = liberalism popularity = 0.8 }
+			add_popularity = { ideology = reformism popularity = 0.8 }
+			add_stability = 0.1
+		}
+	}
+	
+	focus = {
+		id = PRK_medium_education_reforms #Законы по образование
+		prerequisite = { focus = PRK_propaganda_democraty }
+		icon = GFX_reforma_obrazovanie_PRK
+		x = 21
+		y = 5
+		cost = 10
+		ai_will_do = {
+		    factor = 4
+		}
+		completion_reward = {
+		add_ideas = idea_medium_eduction_reforms	
+		}
+	}
+	
+	focus = {
+		id = PRK_open_country #Открытите граници
+		prerequisite = { focus = PRK_medium_education_reforms }
+		icon = GFX_otkritie_granitsii_PRK
+		x = 21
+		y = 6
+		cost = 10
+		ai_will_do = {
+		    factor = 4
+		}
+		completion_reward = {
+		add_ideas = open_immigration	
+		}
+	}
+	
+    focus = {
+		id = PRK_cancel_nuclear #Отказ от ЯО
+		prerequisite = { focus = PRK_open_country }
+		icon = GFX_otkaz_ot_YO_PRK
+		x = 19
+		y = 7
+		cost = 10
+		ai_will_do = {
+		    factor = 4
+		}
+		completion_reward = {
+		 	
+		}
+	}
+	
+	focus = {
+		id = PRK_reform_constitutsion #Реформ Конститутции
+		prerequisite = { focus = PRK_open_country }
+		icon = GFX_reform_konstitutsi_PRK
+		x = 21
+		y = 7
+		cost = 10
+		ai_will_do = {
+		    factor = 4
+		}
+		completion_reward = {
+		 	add_ideas = {
+			    free_media
+				professional_schools
+				fully_guranted_liberties
+				#acceptable_minimum_wage
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_industralisation_country #Индустрализации 
+		prerequisite = { focus = PRK_open_country }
+		icon = GFX_industralizasii_PRK
+		x = 23
+		y = 7
+		cost = 10
+		ai_will_do = {
+		    factor = 4
+		}
+		completion_reward = {
+		 	random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_sharing_technology #Обмен технологии 
+		prerequisite = { focus = PRK_industralisation_country }
+		prerequisite = { focus = PRK_reform_constitutsion }
+		prerequisite = { focus = PRK_cancel_nuclear }
+		icon = GFX_obmen_texnologiyami_PRK
+		x = 21
+		y = 8
+		cost = 10
+		ai_will_do = {
+		    factor = 4
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 0.5
+				uses = 1
+				category = electronics
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}	
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}				
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = PRK_support_nationalism
+		icon = GFX_support_natsionalism_PRK
+		prerequisite = { focus = PRK_recovery_imperium }
+		x = 26
+		y = 2
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = nationalism
+		}
+	}
+	
+	focus = {
+		id = PRK_ideologic_obrabotka #Идеологический обработка
+		icon = GFX_ideologicheskaya_obrabotka_PRK
+		prerequisite = { focus = PRK_support_nationalism }
+		x = 27
+		y = 3
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+		    add_ideas = indoctrination_focus
+			add_political_power = 150	
+		}
+	}
+	
+	focus = {
+		id = PRK_five_year_plan #Пятый летный план развитие
+		icon = GFX_five_year_economic_effort_PRK
+		prerequisite = { focus = PRK_ideologic_obrabotka }
+		x = 27
+		y = 4
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			ADD_TIMED_IDEA = { idea = idea_economic_effort days = 1825 }
+		}
+	}
+	
+	focus = {
+		id = PRK_militrisation_youth #Милитризации молодежи
+		icon = GFX_molodeji_PRK
+		prerequisite = { focus = PRK_five_year_plan }
+		x = 27
+		y = 5
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = militirisation_north_korea
+		}
+	}
+	
+	focus = {
+		id = PRK_podgotovka #Подготовка страны к войны
+		icon = GFX_podgotovka_k_voyne_PRK
+		prerequisite = { focus = PRK_militrisation_youth }
+		x = 27
+		y = 6
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_ideas = mobilisation_army
+		}
+	}
+	
+	
+	focus = {
+		id = PRK_paln_A #План А по направление к Юге
+		icon = GFX_plan_A_PRK
+		prerequisite = { focus = PRK_podgotovka }
+		x = 25
+		y = 7
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_state_claim = 525
+			add_state_core = 525
+		}
+	}
+	
+	focus = {
+		id = PRK_strengthe_south #Укрепиь южный граници
+		icon = GFX_strengh_south_boders_PRK
+		prerequisite = { focus = PRK_paln_A }
+		x = 24
+		y = 9
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			527 = {
+			    add_building_construction = {
+					type = bunker
+					level = 2
+					province = 1003
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11915
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 7070
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 848
+					instant_build = yes
+				}
+			}	
+		}
+	}
+	
+	focus = {
+		id = PRK_border_war_south #Пограничный конфликти
+		icon = GFX_pogranichniy_konflikt_PRK
+		prerequisite = { focus = PRK_paln_A }
+		x = 26
+		y = 9
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = PRK_propaganda_DMZ #Пропаганда в ДМЗ
+		icon = GFX_propaganda_v_DMZ
+		prerequisite = { focus = PRK_border_war_south }
+		prerequisite = { focus = PRK_strengthe_south }
+		x = 25
+		y = 10
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = PRK_remilitrisation #Ремилитризации ДМЗ
+		icon = GFX_remilitrizasii_PRK
+		prerequisite = { focus = PRK_propaganda_DMZ }
+		x = 25
+		y = 11
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			807 = { set_demilitarized_zone = no }
+			add_named_threat = { threat = 5 name = threat_PRK_remlitrisation_DMZ }
+		}
+	}
+	
+	focus = {
+		id = PRK_claims_south #Покорять ЮГ
+		icon = GFX_pokorenie_yug_PRK
+		prerequisite = { focus = PRK_remilitrisation }
+		x = 25
+		y = 12
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			create_wargoal = { target = KOR type = annex_everything }
+		}
+	}
+	
+	focus = {
+		id = PRK_paln_B #План B по направление к Север
+		icon = GFX_plan_B_PRK
+		prerequisite = { focus = PRK_podgotovka }
+		x = 29
+		y = 7
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			#add_state_core = 716
+			add_state_claim = 716
+			add_state_claim = 328
+			add_state_claim = 717
+			add_state_claim = 714
+			add_state_claim = 715
+		}
+	}
+	
+	focus = {
+		id = PRK_strengthe_north #Укрепиь северный граници
+		icon = GFX_strengh_north_boders_PRK
+		prerequisite = { focus = PRK_paln_B }
+		x = 29
+		y = 9
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			527 = {
+			    add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11835
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9918
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9795
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11828
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6963
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 906
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9899
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3803
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3860
+					instant_build = yes
+				}
+			}	
+		}
+	}
+	
+	focus = {
+		id = PRK_operation_X #Операция Х
+		icon = GFX_operatsiya_X_PRK
+		prerequisite = { focus = PRK_strengthe_north }
+		x = 29
+		y = 10
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			create_wargoal = { target = CHI type = take_state_focus }
+		}
+	}
+	
+	focus = {
+		id = PRK_claims_lyadon #Перетензи к лядон
+		icon = GFX_priyenzii_k_Lyadun_PRK
+		prerequisite = { focus = PRK_operation_X }
+		x = 27
+		y = 11
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_state_core = 716
+		}
+	}
+	
+	focus = {
+		id = PRK_claims_girin #перетензи к гирин
+		icon = GFX_pritenzi_k_Girin_PRK
+		prerequisite = { focus = PRK_operation_X }
+		x = 29
+		y = 11
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_state_core = 328
+		}
+	}
+	
+	focus = {
+		id = PRK_claims #перетензи к 
+		icon = GFX_pritenzii_k_sunszyan_PRK
+		prerequisite = { focus = PRK_operation_X }
+		x = 31
+		y = 11
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_state_core = 717
+		}
+	}
+	
+	focus = {
+		id = PRK_clams_manjuriya #покорять манжурии
+		icon = GFX_pritenzi_k_manjurii_PRK
+		prerequisite = { focus = PRK_claims }
+		prerequisite = { focus = PRK_claims_girin }
+		prerequisite = { focus = PRK_claims_lyadon }
+		x = 29
+		y = 12
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			add_state_core = 714
+			add_state_core = 715
+		}
+	}
+	
+	focus = {
+		id = PRK_great_korean_imperia #Великий корейская империя
+		icon = GFX_velikaya_koreyskaya_imperiya_PRK
+		prerequisite = { focus = PRK_clams_manjuriya }
+		prerequisite = { focus = PRK_claims_south }
+		x = 27
+		y = 13
+		cost = 10
+		ai_will_do = { 
+			factor = 3
+		}
+		completion_reward = {
+			
+		}
+	}
+	
+	################ ARMY #######################
+	
+	focus = {
+		id = PRK_army #ВС 
+		icon = GFX_VVS_army_PRK
+		x = 38
+		y = 0
+		cost = 10
+		completion_reward = {
+			army_experience = 20
+			air_experience = 20
+			navy_experience = 20
+		}
+	}
+ 
+    focus = {
+		id = PRK_army_effort
+		prerequisite = { focus = PRK_army }
+		icon = GFX_VS_PRK
+		x = 34
+		y = 1
+		cost = 10
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_equipment_effort
+		icon = GFX_Razvitie_sovremennogo_oruzhia_1
+		prerequisite = { focus = PRK_army_effort }
+		x = 33
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_motorization_effort
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = PRK_army_effort }
+		bypass = { has_tech = tech_motorized_infantry }
+		x = 35
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.75
+				technology = tech_motorized_infantry
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = PRK_army_effort }
+		x = 34
+		y = 3
+		cost = 10
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_equipment_effort_2
+		icon = GFX_Razvitie_sovremennogo_oruzhia_2
+		prerequisite = { focus = PRK_equipment_effort }
+		x = 33
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_mechanization_effort
+		icon = GFX_Razvitie_mekhanizirovanogo_korpusa_PRK
+		prerequisite = { focus = PRK_motorization_effort }
+		x = 35
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 0.5
+				uses = 1
+				category = cat_motorized_vehicle
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_doctrine_effort_2
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = PRK_doctrine_effort }
+		x = 34
+		y = 5
+		cost = 10
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_doctrine_effort_3
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = PRK_doctrine_effort_2 }
+		x = 34
+		y = 7
+		cost = 10
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_equipment_effort_3
+		icon = GFX_Razvitie_sovremennogo_oruzhia_3
+		prerequisite = { focus = PRK_equipment_effort_2 }
+		x = 33
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 1
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_equipment_effort_4
+		icon = GFX_Razvitie_sovremennogo_oruzhia_3
+		prerequisite = { focus = PRK_equipment_effort_3 }
+		x = 33
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 1
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_armor_effort
+		icon = GFX_Razvitie_bronetankovogo_korpusa1_PRK
+		prerequisite = { focus = PRK_mechanization_effort }
+		x = 35
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 1
+				category = armor
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_armor_effort_2
+		icon = GFX_Razvitie_bronetankovogo_korpusa2_PRK
+		prerequisite = { focus = PRK_armor_effort }
+		x = 35
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_special_forces
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = PRK_equipment_effort_4 }
+		prerequisite = { focus = PRK_doctrine_effort_3 }
+		prerequisite = { focus = PRK_armor_effort_2 }
+		x = 34
+		y = 9
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				technology = tech_paratroopers
+				technology = tech_marines
+				#technology = tech_mountaineers
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_paratroopers_divisions
+		icon = GFX_paratroopers_PRK
+		prerequisite = { focus = PRK_special_forces }
+		x = 33
+		y = 10
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				category = cat_paratroopers
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_special_forces_2
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = PRK_special_forces }
+		x = 34
+		y = 11
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				category = cat_special_forces
+				 
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_marines_divisions
+		icon = GFX_marines_PRK
+		prerequisite = { focus = PRK_special_forces }
+		x = 35
+		y = 10
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				category = cat_marines
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_aviation_effort
+		prerequisite = { focus = PRK_army }
+		icon = GFX_VVS_PRK
+		x = 38
+		y = 1
+		cost = 10
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_fighter_focus
+		icon = GFX_F-6_PRK
+		prerequisite = { focus = PRK_aviation_effort }
+		mutually_exclusive = { focus = PRK_bomber_focus }
+		x = 37
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 2
+				category = cat_fighter_tech
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_bomber_focus
+		icon = GFX_IL-28_PRK
+		prerequisite = { focus = PRK_aviation_effort }
+		mutually_exclusive = { focus = PRK_fighter_focus }
+		x = 39
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.5
+				uses = 2
+				category = cat_ground_attack_tech
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_aviation_effort_2
+		#icon = GFX_Modernizatsia_Su-34
+		prerequisite = { focus = PRK_bomber_focus focus = PRK_fighter_focus }
+		x = 38
+		y = 3
+		cost = 10
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_2_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}				
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_CAS_effort
+		icon = GFX_SU-25K_PRK
+		prerequisite = { focus = PRK_aviation_effort_2 }
+		prerequisite = { focus = PRK_motorization_effort }
+		x = 37
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = aircraft_rocket_technologies
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_rocket_effort
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = PRK_aviation_effort_2 }
+		prerequisite = { focus = PRK_infrastructure_effort }
+		x = 38
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 0.5
+				uses = 2
+				category = rocketry
+				category = jet_technology
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_NAV_effort
+		icon = GFX_Mig_21_PRK
+		prerequisite = { focus = PRK_aviation_effort_2 }
+		prerequisite = { focus = PRK_flexible_navy }
+		x = 39
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = cat_naval_aircrafts_tech
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_naval_effort
+		prerequisite = { focus = PRK_army }
+		icon = GFX_VMF_PRK
+		x = 42
+		y = 1
+		cost = 10
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = PRK_flexible_navy
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = PRK_naval_effort }
+		mutually_exclusive = { focus = PRK_large_navy }
+		x = 41
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_large_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = PRK_naval_effort }
+		mutually_exclusive = { focus = PRK_flexible_navy }
+		x = 43
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 0.5
+				uses = 2
+				category = fleet_in_being_tree
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_submarine_effort
+		icon = GFX_Razvitie_podvodniy_lodki
+		prerequisite = { focus = PRK_flexible_navy focus = PRK_large_navy }
+		x = 41
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = early_submarine
+				technology = basic_submarine
+				technology = improved_submarine
+				technology = advanced_submarine
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_cruiser_effort
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = PRK_large_navy focus = PRK_flexible_navy }
+		x = 43
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = improved_light_cruiser
+				technology = advanced_light_cruiser
+				technology = improved_heavy_cruiser
+				technology = advanced_heavy_cruiser
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_destroyer_effort
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = PRK_submarine_effort }
+		x = 41
+		y = 4
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = early_destroyer
+				technology = basic_destroyer
+				technology = improved_destroyer
+				technology = advanced_destroyer
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_capital_ships_effort
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = PRK_cruiser_effort }
+		x = 43
+		y = 4
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_industrial_effort
+		icon = GFX_goal_generic_production
+		x = 46
+		y = 0
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+				OR = { 
+					# we dont want chinese minors to go crazy on slots early since they get eaten
+					tag = GXC 
+					tag = YUN
+					tag = SHX
+					tag = XSM
+					tag = BEL
+					tag = LUX
+					tag = HOL
+					tag = DEN
+
+					# we also dont want tiny nations to go crazy with slots right away
+					num_of_controlled_states < 2
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_modern_industry
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = PRK_industrial_effort }
+		x = 46
+		y = 1
+		cost = 10
+		
+	    completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		
+		    random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_construction_effort
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = PRK_modern_industry }
+		x = 45
+		y = 2
+		cost = 10
+
+		
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_production_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = PRK_modern_industry }
+		x = 47
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 1			
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_construction_effort_2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = PRK_construction_effort }
+		x = 45
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_construction_effort_3
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = PRK_construction_effort_2 }
+		x = 45
+		y = 4
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_production_effort_2
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = PRK_production_effort }
+		x = 47
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_infrastructure_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = PRK_construction_effort_3 }
+		x = 45
+		y = 5
+		cost = 10
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_production_effort_3
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = PRK_production_effort_2 }
+		x = 47
+		y = 4
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PRK_production_effort_4
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = PRK_production_effort_3 }
+		x = 47
+		y = 5
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_infrastructure_effort_2
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = PRK_infrastructure_effort }
+		x = 45
+		y = 6
+		cost = 10
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_construction_effort_4
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = PRK_infrastructure_effort }
+		x = 47
+		y = 6
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 2
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+									 
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_nuclear_effort
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = PRK_infrastructure_effort_2 }
+		x = 43
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 0.5
+				category = nuclear
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+
+	focus = {
+		id = PRK_extra_tech_slot
+		icon = GFX_focus_research
+		prerequisite = { focus = PRK_infrastructure_effort_2 }
+		x = 45
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = PRK_extra_tech_slot_2
+		icon = GFX_focus_research
+		prerequisite = { focus = PRK_extra_tech_slot }
+		available = {
+			num_of_factories > 50
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		x = 45
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}	
+
+	focus = {
+		id = PRK_secret_weapons
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = PRK_infrastructure_effort_2 }
+		x = 47
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 0.5
+				uses = 4
+				category = electronics
+				category = nuclear
+				category = rocketry
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+}	

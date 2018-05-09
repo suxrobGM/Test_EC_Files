@@ -1,0 +1,1314 @@
+﻿###########################
+## Economic Crisis      ###
+###########################
+## Obituary news events ###
+###############################
+## Written by Maxsim&SuxrobGM #
+###############################
+
+add_namespace = news_obituary
+add_namespace = news_obituary_trigger
+
+country_event = {
+	id = news_obituary_trigger.1
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = COL
+		country_exists = COL
+		date > 2014.4.17
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.1 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.1
+	title = news_obituary.1.t
+	desc = news_obituary.1.d
+	picture = GFX_event_obituary_garcia_marquez
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events #Really I am annoyed from these obituary events))) 
+		}
+	}
+	
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.2
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		country_exists = USA
+		date > 2014.5.3
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.2 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.2
+	title = news_obituary.2.t
+	desc = news_obituary.2.d
+	picture = GFX_event_obituary_gary_becker
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.3
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		country_exists = USA
+		date > 2016.12.8
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.3 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.3
+	title = news_obituary.3.t
+	desc = news_obituary.3.d
+	picture = GFX_event_obituary_john_glenn
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.4
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAF
+		country_exists = SAF
+		date > 2014.7.13
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.4 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.4
+	title = news_obituary.4.t
+	desc = news_obituary.4.d
+	picture = GFX_event_obituary_nadine_gordimer
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.5
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = POL
+		country_exists = POL
+		date > 2014.5.25
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.5 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.5
+	title = news_obituary.5.t
+	desc = news_obituary.5.d
+	picture = GFX_event_obituary_wojciech_jaruzelski
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.6
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ISR
+		country_exists = ISR
+		date > 2015.11.6
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.6 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.6
+	title = news_obituary.6.t
+	desc = news_obituary.6.d
+	picture = GFX_event_obituary_yitzhak_navon
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.7
+	title = news_obituary.7.t
+	desc = news_obituary.7.d
+	picture = GFX_event_obituary_abdullah_of_saudi_arabia
+	
+	#hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAU
+		country_exists = SAU
+		date > 2016.12.8
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.7 hours = 6 }
+		SAU = {
+			add_stability = -0.05
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Salman bin Abdulaziz"
+				desc = "POLITICS_SALMAN_BIN_ABDULAZIZ_DESC"
+				picture = "gfx/leaders/SAU/Portrait_Salman_bin_Abdulaziz.dds"
+				ideology = sunni_royalism
+				traits = {
+					#
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.7 # Died King Saudi Arabia
+	title = news_obituary.7.t
+	desc = news_obituary.7.d
+	picture = GFX_event_obituary_abdullah_of_saudi_arabia
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+	
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.8
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SPR
+		country_exists = SPR
+		date > 2014.3.24
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.8 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.8
+	title = news_obituary.8.t
+	desc = news_obituary.8.d
+	picture = GFX_event_obituary_adolfo_suarez
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.9
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ISR
+		country_exists = ISR
+		date > 2014.1.11
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.9 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.9
+	title = news_obituary.9.t
+	desc = news_obituary.9.d
+	picture = GFX_event_obituary_ariel_sharon
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.10
+	title = news_obituary.10.t
+	desc = news_obituary.10.d
+	picture = GFX_event_obituary_bhumibol_adulyadej
+	
+	#hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SIA
+		country_exists = SIA
+		date > 2016.13.10
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.10 hours = 6 }
+		SIA = {
+			add_stability = -0.05
+		}
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.10
+	title = news_obituary.10.t
+	desc = news_obituary.10.d
+	picture = GFX_event_obituary_bhumibol_adulyadej
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+	
+	option = {
+		name = news_obituary.10.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.11
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ITA
+		country_exists = ITA
+		date > 2016.13.10
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.11 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+news_event = {
+	id = news_obituary.11
+	title = news_obituary.11.t
+	desc = news_obituary.11.d
+	picture = GFX_event_obituary_dario_fo
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.12
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GEO
+		country_exists = GEO
+		date > 2014.7.7
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.12 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.12
+	title = news_obituary.12.t
+	desc = news_obituary.12.d
+	picture = GFX_event_obituary_eduard_shevardnadze
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.13
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = RUS
+		country_exists = RUS
+		date > 2015.6.26
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.13 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.13
+	title = news_obituary.13.t
+	desc = news_obituary.13.d
+	picture = GFX_event_obituary_evgeniy_primakov
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.14
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CUB
+		country_exists = CUB
+		date > 2016.11.25
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.14 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+news_event = {
+	id = news_obituary.14 # Died Fidel Castro
+	title = news_obituary.14.t
+	desc = news_obituary.14.d
+	picture = GFX_event_obituary_fidel_castro
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.15
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ENG
+		country_exists = ENG
+		date > 2013.11.19
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.15 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.15
+	title = news_obituary.15.t
+	desc = news_obituary.15.d
+	picture = GFX_event_obituary_frederick_sanger
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.16
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GER
+		country_exists = GER
+		date > 2015.4.13
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.16 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.16
+	title = news_obituary.16.t
+	desc = news_obituary.16.d
+	picture = GFX_event_obituary_gunter_grass
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.17
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GER
+		country_exists = GER
+		date > 2015.11.10
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.17 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.17
+	title = news_obituary.17.t
+	desc = news_obituary.17.d
+	picture = GFX_event_obituary_helmut_schmidt
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+news_event = {
+	id = news_obituary.18
+	title = news_obituary.18.t
+	desc = news_obituary.18.d
+	picture = GFX_event_obituary_islam_karimov
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.19
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		country_exists = USA
+		date > 2014.8.4
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.19 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.19
+	title = news_obituary.19.t
+	desc = news_obituary.19.d
+	picture = GFX_event_obituary_james_brady
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.20
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SIN
+		country_exists = SIN
+		date > 2015.3.23
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.20 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.20
+	title = news_obituary.20.t
+	desc = news_obituary.20.d
+	picture = GFX_event_obituary_lee_kuan_yew
+
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.21
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = RUS
+		country_exists = RUS
+		date > 2013.12.23
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.21 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.21
+	title = news_obituary.21.t
+	desc = news_obituary.21.d
+	picture = GFX_event_obituary_mikhail_kalashnikov
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.22
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAF
+		country_exists = SAF
+		date > 2013.12.5
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.22 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.22
+	title = news_obituary.22.t
+	desc = news_obituary.22.d
+	picture = GFX_event_obituary_nelson_mandela
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.23
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ENG
+		country_exists = ENG
+		date > 2015.7.1
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.23 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.23
+	title = news_obituary.23.t
+	desc = news_obituary.23.d
+	picture = GFX_event_obituary_nicolas_winton
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.24
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ISR
+		country_exists = ISR
+		date > 2016.9.28
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.24 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.24
+	title = news_obituary.24.t
+	desc = news_obituary.24.d
+	picture = GFX_event_obituary_shimon_peres
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.25
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		country_exists = USA
+		date > 2016.12.13
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.25 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.25
+	title = news_obituary.25.t
+	desc = news_obituary.25.d
+	picture = GFX_event_obituary_thomas_schelling
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.26
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ITA
+		country_exists = ITA
+		date > 2016.2.19
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.26 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.26
+	title = news_obituary.26.t
+	desc = news_obituary.26.d
+	picture = GFX_event_obituary_umberto_eco
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.27
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHI
+		country_exists = CHI
+		date > 2017.1.14
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.27 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}
+news_event = {
+	id = news_obituary.27
+	title = news_obituary.27.t
+	desc = news_obituary.27.d
+	picture = GFX_event_obituary_zhou_youguang
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}
+
+country_event = {
+	id = news_obituary_trigger.28
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ENG
+		country_exists = ENG
+		date > 2017.1.10
+	}
+	
+	immediate = {
+		news_event = { id = news_obituary.28 hours = 6 }
+	}
+	
+	option = {
+		name = news_obituary.a
+	}
+}	
+news_event = {
+	id = news_obituary.28
+	title = news_obituary.28.t
+	desc = news_obituary.28.d
+	picture = GFX_event_obituary_oliver_smithies
+
+	is_triggered_only = yes
+	major = yes
+	
+	trigger = {
+		NOT = {
+			has_global_flag = no_more_allow_these_events  
+		}
+	}
+
+	option = {
+		name = news_obituary.a
+		ai_chance = { factor = 100 }
+	}
+
+	option = {
+		name = news_obituary.b
+		ai_chance = { factor = 0 }
+		set_global_flag = no_more_allow_these_events
+	}
+}

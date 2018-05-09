@@ -1,0 +1,4 @@
+graphical_culture = post_ussr_gfx
+graphical_culture_2d = asian_2d
+
+color = { 152  130  191 }

@@ -1,0 +1,184 @@
+bookmarks = {
+	bookmark = {
+		name = "SCENARIO_2013_NAME"
+		desc = "SCENARIO_2013_DESC"
+		date = 2013.11.1.12
+		picture = "GFX_select_date_2013"
+		default_country = "USA"
+		default = yes
+
+		
+		JAP = {
+			history = JAP_SCENARIO_2013_DESC
+			ideology = democratic
+			ideas={
+				emperor_akixito	
+			}
+			focuses = {
+				
+			}
+		}
+		GER = {
+			history = GER_SCENARIO_2013_DESC
+			ideology = liberalism
+			ideas={
+				eu_member
+			}			
+			focuses = {
+				GER_new_political_way
+				GER_reich_revival
+				GER_eurointegration
+			}
+		}
+		ENG = {
+			history = ENG_SCENARIO_2013_DESC
+			ideology = democratic
+			ideas = {
+				unsc_member
+				nuclear_country
+				eu_member
+				queen_elizabet
+			}
+			focuses = {
+				
+			}
+		}		
+		USA = {
+			history = USA_SCENARIO_2013_DESC
+			ideology = liberalism
+			ideas = {
+				unsc_member
+				nuclear_country
+				free_trade
+				home_of_the_free
+			}
+			focuses = {
+				USA_world_peacemaker
+				USA_russian_threat
+				USA_terroristic_threat
+			}
+		}
+		RUS = {
+			history = RUS_SCENARIO_2013_DESC
+			ideology = neutrality
+			ideas = {
+				unsc_member
+				nuclear_country
+				#corruption
+			}
+			focuses = {
+				RUS_russian_spring
+				RUS_peacemaker_on_ukraine
+				RUS_enemy_IGIL
+			}
+		}
+        CHI = {
+			history = CHI_SCENARIO_2013_DESC
+			ideology = communism
+			ideas = {
+				unsc_member
+				nuclear_country
+				obsolete_army
+				overpopulation
+			}
+			focuses = {
+				CHI_red_dragon
+				CHI_taiwan
+				CHI_friend_RUS
+			}
+		}
+		IRN = {
+			history = IRN_SCENARIO_2013_DESC
+			ideology = islamists
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
+		TUR = {
+			history = TUR_SCENARIO_2013_DESC
+			ideology = neutrality
+			ideas={
+				
+			}
+			focuses = {
+				
+			}
+		}	
+		"---"={
+		#	minor = yes
+			history = OTHER_SCENARIO_2013_DESC
+		}
+		
+		IND = {
+			minor = yes
+			history = IND_SCENARIO_2013_DESC
+			ideology = reformism
+		}
+		FRA = {
+			minor = yes
+			history = FRA_SCENARIO_2013_DESC
+			ideology = reformism
+		}		
+		BRA = {
+			minor = yes
+			history = BRA_SCENARIO_2013_DESC
+			ideology = reformism
+		}
+		ARG = {
+			minor = yes
+			history = ARG_SCENARIO_2013_DESC
+			ideology = reformism
+		}
+		UKR = {
+			minor = yes
+			history = UKR_SCENARIO_2013_DESC
+			ideology = neutrality
+			ideas={
+				UKR_gas_agreements
+				UKR_the_split_people_east_and_west
+				guam_member
+			}
+			focuses = {
+				UKR_westering
+				UKR_russian_sanctions
+				UKR_antiterror_operation
+			}
+		}
+		PRK = {
+			minor = yes
+			history = PRK_SCENARIO_2013_DESC
+			ideology = communism
+		}
+		PAK = {
+			minor = yes
+			history = PAK_SCENARIO_2013_DESC
+			ideology = islamists
+		}
+		SAF = {
+			minor = yes
+			history = SAF_SCENARIO_2013_DESC
+			ideology = reformism
+		}
+		IGL = {
+			minor = yes
+			history = IGL_SCENARIO_2013_DESC
+			ideology = rad_islamists
+			ideas = {
+				djixad
+			}
+			focuses = {
+				IGL_path_to_south
+				IGL_path_to_mekka
+				IGL_volya_allaxa
+			}
+		}
+			
+		effect = {
+			randomize_weather = 12345 # <- Obligatory in every bookmark !
+			#123 = { rain_light = yes }
+		}
+	}
+}

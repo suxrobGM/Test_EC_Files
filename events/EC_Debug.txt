@@ -1,0 +1,21 @@
+﻿#####################
+## Economic Crisis ##
+############################
+## Debug for testing owns ##
+############################
+## Written by SuxrobGM #
+########################
+
+add_namespace = debug
+
+country_event = {	
+	id = debug.1
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {  
+		name = debug.1.a
+		RUS = {	declare_war_on = { target = UKR type = annex_everything } }
+	}
+}
